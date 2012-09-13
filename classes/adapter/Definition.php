@@ -2,7 +2,7 @@
 
 namespace mageekguy\atoum\adapter;
 
-interface definition
+interface Definition
 {
 	public function __call($functionName, $arguments);
 
