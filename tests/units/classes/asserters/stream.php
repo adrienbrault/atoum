@@ -20,7 +20,7 @@ class stream extends atoum\test
 	public function test__construct()
 	{
 		$this
-			->if($asserter = new asserters\stream($generator = new asserter\generator()))
+			->if($asserter = new asserters\stream($generator = new asserter\Generator()))
 			->then
 				->variable($asserter->getStreamName())->isNull()
 				->variable($asserter->getStreamController())->isNull()
@@ -32,7 +32,7 @@ class stream extends atoum\test
 	public function testSetWith()
 	{
 		$this
-			->if($asserter = new asserters\stream($generator = new asserter\generator()))
+			->if($asserter = new asserters\stream($generator = new asserter\Generator()))
 			->then
 				->object($asserter->setWith($stream = uniqid()))->isIdenticalTo($asserter)
 				->string($asserter->getStreamName())->isEqualTo($stream)
@@ -48,7 +48,7 @@ class stream extends atoum\test
 	public function testIsRead()
 	{
 		$this
-			->if($asserter = new asserters\stream($generator = new asserter\generator()))
+			->if($asserter = new asserters\stream($generator = new asserter\Generator()))
 			->then
 				->exception(function() use ($asserter) { $asserter->isRead(); })
 					->isInstanceOf('mageekguy\atoum\exceptions\logic')
@@ -68,7 +68,7 @@ class stream extends atoum\test
 	public function testIsWrited()
 	{
 		$this
-			->if($asserter = new asserters\stream($generator = new asserter\generator()))
+			->if($asserter = new asserters\stream($generator = new asserter\Generator()))
 			->then
 				->exception(function() use ($asserter) { $asserter->isWrited(); })
 					->isInstanceOf('mageekguy\atoum\exceptions\logic')

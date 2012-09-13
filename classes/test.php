@@ -370,7 +370,7 @@ abstract class test implements observable, adapter\Aggregator, \countable
 		return $this->bootstrapFile;
 	}
 
-	public function setMockGenerator(test\mock\generator $generator)
+	public function setMockGenerator(test\mock\Generator $generator)
 	{
 		$this->mockGenerator = $generator->setTest($this);
 
@@ -379,10 +379,10 @@ abstract class test implements observable, adapter\Aggregator, \countable
 
 	public function getMockGenerator()
 	{
-		return $this->mockGenerator ?: $this->setMockGenerator($this->factory['mageekguy\atoum\test\mock\generator']($this))->mockGenerator;
+		return $this->mockGenerator ?: $this->setMockGenerator($this->factory['mageekguy\atoum\test\mock\Generator']($this))->mockGenerator;
 	}
 
-	public function setAsserterGenerator(test\asserter\generator $generator)
+	public function setAsserterGenerator(test\asserter\Generator $generator)
 	{
 		$this->asserterGenerator = $generator->setTest($this);
 
@@ -393,7 +393,7 @@ abstract class test implements observable, adapter\Aggregator, \countable
 	{
 		test\adapter::resetCallsForAllInstances();
 
-		return $this->asserterGenerator ?: $this->setAsserterGenerator($this->factory['mageekguy\atoum\test\asserter\generator']($this))->asserterGenerator;
+		return $this->asserterGenerator ?: $this->setAsserterGenerator($this->factory['mageekguy\atoum\test\asserter\Generator']($this))->asserterGenerator;
 	}
 
 	public function setTestNamespace($testNamespace)

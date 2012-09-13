@@ -10,7 +10,7 @@ use
 	mageekguy\atoum\exceptions
 ;
 
-class generator extends atoum\script
+class Generator extends atoum\script
 {
 	const phar = 'mageekguy.atoum.phar';
 

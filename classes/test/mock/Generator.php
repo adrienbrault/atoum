@@ -7,7 +7,7 @@ use
 	mageekguy\atoum\mock
 ;
 
-class generator extends mock\generator
+class Generator extends mock\Generator
 {
 	protected $test = null;
 

@@ -28,7 +28,7 @@ class mock extends atoum\test
 	public function test__construct()
 	{
 		$this
-			->if($asserter = new asserters\mock($generator = new asserter\generator()))
+			->if($asserter = new asserters\mock($generator = new asserter\Generator()))
 			->then
 				->object($asserter->getLocale())->isIdenticalTo($generator->getLocale())
 				->object($asserter->getGenerator())->isIdenticalTo($generator)
@@ -43,7 +43,7 @@ class mock extends atoum\test
 	{
 		$this
 			->if($mockController = new \mock\mageekguy\atoum\mock\controller())
-			->and($asserter = new asserters\mock($generator = new asserter\generator()))
+			->and($asserter = new asserters\mock($generator = new asserter\Generator()))
 			->then
 				->variable($asserter->getMock())->isNull()
 				->object($asserter->reset())->isIdenticalTo($asserter)
@@ -60,7 +60,7 @@ class mock extends atoum\test
 	public function testSetWith()
 	{
 		$this
-			->if($asserter = new asserters\mock($generator = new asserter\generator()))
+			->if($asserter = new asserters\mock($generator = new asserter\Generator()))
 			->and($adapter = new atoum\test\adapter())
 			->and($adapter->class_exists = true)
 			->then
@@ -75,7 +75,7 @@ class mock extends atoum\test
 	public function testWasCalled()
 	{
 		$this
-			->if($asserter = new asserters\mock($generator = new asserter\generator()))
+			->if($asserter = new asserters\mock($generator = new asserter\Generator()))
 				->then
 					->exception(function() use ($asserter) { $asserter->wasCalled(); })
 						->isInstanceOf('mageekguy\atoum\exceptions\logic')
@@ -101,7 +101,7 @@ class mock extends atoum\test
 	public function testWasNotCalled()
 	{
 		$this
-			->if($asserter = new asserters\mock($generator = new asserter\generator()))
+			->if($asserter = new asserters\mock($generator = new asserter\Generator()))
 			->then
 				->exception(function() use ($asserter) { $asserter->wasNotCalled(); })
 					->isInstanceOf('mageekguy\atoum\exceptions\logic')
@@ -124,7 +124,7 @@ class mock extends atoum\test
 	public function testBeforeMethodCall()
 	{
 		$this
-			->if($asserter = new asserters\mock($generator = new asserter\generator()))
+			->if($asserter = new asserters\mock($generator = new asserter\Generator()))
 			->then
 				->exception(function() use ($asserter) { $asserter->beforeMethodCall(uniqid()); })
 					->isInstanceOf('mageekguy\atoum\exceptions\logic')
@@ -141,7 +141,7 @@ class mock extends atoum\test
 	public function testWithAnyMethodCallsBefore()
 	{
 		$this
-			->if($asserter = new asserters\mock($generator = new asserter\generator()))
+			->if($asserter = new asserters\mock($generator = new asserter\Generator()))
 			->then
 				->array($asserter->getBeforeMethodCalls())->isEmpty()
 				->object($asserter->withAnyMethodCallsBefore())->isIdenticalTo($asserter)
@@ -166,7 +166,7 @@ class mock extends atoum\test
 	public function testAfterMethodCall()
 	{
 		$this
-			->if($asserter = new asserters\mock($generator = new asserter\generator()))
+			->if($asserter = new asserters\mock($generator = new asserter\Generator()))
 			->then
 				->exception(function() use ($asserter) { $asserter->afterMethodCall(uniqid()); })
 					->isInstanceOf('mageekguy\atoum\exceptions\logic')
@@ -183,7 +183,7 @@ class mock extends atoum\test
 	public function testWithAnyMethodCallsAfter()
 	{
 		$this
-			->if($asserter = new asserters\mock($generator = new asserter\generator()))
+			->if($asserter = new asserters\mock($generator = new asserter\Generator()))
 			->then
 				->array($asserter->getAfterMethodCalls())->isEmpty()
 				->object($asserter->withAnyMethodCallsAfter())->isIdenticalTo($asserter)
@@ -208,7 +208,7 @@ class mock extends atoum\test
 	public function testBeforeFunctionCall()
 	{
 		$this
-			->if($asserter = new asserters\mock($generator = new asserter\generator()))
+			->if($asserter = new asserters\mock($generator = new asserter\Generator()))
 			->then
 				->exception(function() use ($asserter) { $asserter->beforeFunctionCall(uniqid(), new test\adapter()); })
 					->isInstanceOf('mageekguy\atoum\exceptions\logic')
@@ -226,7 +226,7 @@ class mock extends atoum\test
 	public function testWithAnyFunctionCallsBefore()
 	{
 		$this
-			->if($asserter = new asserters\mock($generator = new asserter\generator()))
+			->if($asserter = new asserters\mock($generator = new asserter\Generator()))
 			->then
 				->array($asserter->getBeforeFunctionCalls())->isEmpty()
 				->object($asserter->withAnyFunctionCallsBefore())->isIdenticalTo($asserter)
@@ -252,7 +252,7 @@ class mock extends atoum\test
 	public function testAfterFunctionCall()
 	{
 		$this
-			->if($asserter = new asserters\mock($generator = new asserter\generator()))
+			->if($asserter = new asserters\mock($generator = new asserter\Generator()))
 			->then
 				->exception(function() use ($asserter) { $asserter->afterFunctionCall(uniqid(), new test\adapter()); })
 					->isInstanceOf('mageekguy\atoum\exceptions\logic')
@@ -270,7 +270,7 @@ class mock extends atoum\test
 	public function testWithAnyFunctionCallsAfter()
 	{
 		$this
-			->if($asserter = new asserters\mock($generator = new asserter\generator()))
+			->if($asserter = new asserters\mock($generator = new asserter\Generator()))
 			->then
 				->array($asserter->getAfterFunctionCalls())->isEmpty()
 				->object($asserter->withAnyFunctionCallsAfter())->isIdenticalTo($asserter)
@@ -296,7 +296,7 @@ class mock extends atoum\test
 	public function testCall()
 	{
 		$this
-			->if($asserter = new \mock\mageekguy\atoum\asserters\mock(new asserter\generator()))
+			->if($asserter = new \mock\mageekguy\atoum\asserters\mock(new asserter\Generator()))
 			->then
 				->exception(function() use ($asserter) { $asserter->call(uniqid()); })
 					->isInstanceOf('mageekguy\atoum\exceptions\logic')
@@ -316,7 +316,7 @@ class mock extends atoum\test
 	public function testWithArguments()
 	{
 		$this
-			->if($asserter = new \mock\mageekguy\atoum\asserters\mock(new asserter\generator()))
+			->if($asserter = new \mock\mageekguy\atoum\asserters\mock(new asserter\Generator()))
 			->then
 				->exception(function() use ($asserter) { $asserter->withArguments(uniqid()); })
 					->isInstanceOf('mageekguy\atoum\exceptions\logic')
@@ -340,7 +340,7 @@ class mock extends atoum\test
 	public function testWithAnyArguments()
 	{
 		$this
-			->if($asserter = new \mock\mageekguy\atoum\asserters\mock(new asserter\generator()))
+			->if($asserter = new \mock\mageekguy\atoum\asserters\mock(new asserter\Generator()))
 			->then
 				->exception(function() use ($asserter) { $asserter->withArguments(uniqid()); })
 					->isInstanceOf('mageekguy\atoum\exceptions\logic')
@@ -366,7 +366,7 @@ class mock extends atoum\test
 	public function testOnce()
 	{
 		$this
-			->if($asserter = new asserters\mock($generator = new asserter\generator()))
+			->if($asserter = new asserters\mock($generator = new asserter\Generator()))
 			->then
 				->exception(function() use ($asserter) { $asserter->once(); })
 					->isInstanceOf('mageekguy\atoum\exceptions\logic')
@@ -400,7 +400,7 @@ class mock extends atoum\test
 				->exception(function() use ($asserter) { $asserter->once(); })
 					->isInstanceOf('mageekguy\atoum\asserter\exception')
 					->hasMessage(sprintf($generator->getLocale()->_('method %s is called 0 time instead of 1'), $asserter->getCall()) . PHP_EOL . '[1] ' . $call->setArguments(array($usedArg)))
-			->if($asserter = new asserters\mock($generator = new asserter\generator()))
+			->if($asserter = new asserters\mock($generator = new asserter\Generator()))
 			->and($asserter->setWith($mock = new \mock\mageekguy\atoum\tests\units\asserters\dummy()))
 			->and($asserter->beforeMethodCall('bar')->call('foo'))
 			->then
@@ -424,7 +424,7 @@ class mock extends atoum\test
 			->and($mock->bar(uniqid()))
 			->then
 				->object($asserter->once())->isIdenticalTo($asserter)
-			->if($asserter = new asserters\mock($generator = new asserter\generator()))
+			->if($asserter = new asserters\mock($generator = new asserter\Generator()))
 			->and($asserter->setWith($mock = new \mock\mageekguy\atoum\tests\units\asserters\dummy()))
 			->and($asserter->afterMethodCall('bar')->call('foo'))
 			->then
@@ -448,7 +448,7 @@ class mock extends atoum\test
 			->and($mock->foo(uniqid()))
 			->then
 				->object($asserter->once())->isIdenticalTo($asserter)
-			->if($asserter = new asserters\mock($generator = new asserter\generator()))
+			->if($asserter = new asserters\mock($generator = new asserter\Generator()))
 				->and($asserter->setWith($mock = new \mock\mageekguy\atoum\tests\units\asserters\dummy()))
 				->and($asserter->beforeMethodCall('bar')->withArguments($arg = 'toto')->call('foo'))
 				->and($mock->foo(uniqid()))
@@ -464,7 +464,7 @@ class mock extends atoum\test
 	{
 
 		$this
-			->if($asserter = new asserters\mock($generator = new asserter\generator()))
+			->if($asserter = new asserters\mock($generator = new asserter\Generator()))
 			->then
 				->exception(function() use ($asserter) { $asserter->atLeastOnce(); })
 					->isInstanceOf('mageekguy\atoum\exceptions\logic')
@@ -506,7 +506,7 @@ class mock extends atoum\test
 	public function testExactly()
 	{
 		$this
-			->if($asserter = new asserters\mock($generator = new asserter\generator()))
+			->if($asserter = new asserters\mock($generator = new asserter\Generator()))
 			->then
 				->exception(function() use ($asserter) { $asserter->exactly(2); })
 					->isInstanceOf('mageekguy\atoum\exceptions\logic')
@@ -565,7 +565,7 @@ class mock extends atoum\test
 	public function testNever()
 	{
 		$this
-			->if($asserter = new asserters\mock($generator = new asserter\generator()))
+			->if($asserter = new asserters\mock($generator = new asserter\Generator()))
 			->then
 				->exception(function() use ($asserter) { $asserter->never(); })
 					->isInstanceOf('mageekguy\atoum\exceptions\logic')

@@ -18,7 +18,7 @@ class adapter extends atoum\test
 	{
 		$this
 			->if($call = new call\adapter(
-					$mockAsserter = new asserters\mock(new asserter\generator()),
+					$mockAsserter = new asserters\mock(new asserter\Generator()),
 					$adapter = new test\adapter(),
 					$function = uniqid()
 				)
@@ -35,7 +35,7 @@ class adapter extends atoum\test
 	{
 		$this
 			->if($call = new call\adapter(
-					$mockAsserter = new \mock\mageekguy\atoum\asserters\mock(new asserter\generator()),
+					$mockAsserter = new \mock\mageekguy\atoum\asserters\mock(new asserter\Generator()),
 					new test\adapter(),
 					uniqid()
 				)
@@ -60,7 +60,7 @@ class adapter extends atoum\test
 	{
 		$this
 			->if($call = new call\adapter(
-					new asserters\mock(new asserter\generator()),
+					new asserters\mock(new asserter\Generator()),
 					new test\adapter(),
 					uniqid()
 				)
@@ -77,7 +77,7 @@ class adapter extends atoum\test
 	{
 		$this
 			->if($call = new call\adapter(
-					new asserters\mock(new asserter\generator()),
+					new asserters\mock(new asserter\Generator()),
 					$adapter = new test\adapter(),
 					'md5'
 				)
@@ -97,7 +97,7 @@ class adapter extends atoum\test
 	{
 		$this
 			->if($call = new call\adapter(
-					new asserters\mock(new asserter\generator()),
+					new asserters\mock(new asserter\Generator()),
 					$adapter = new test\adapter(),
 					'md5'
 				)

@@ -22,7 +22,7 @@ class mock extends atoum\test
 	{
 		$this
 			->if($call = new call\mock(
-					$mockAsserter = new asserters\mock(new asserter\generator()),
+					$mockAsserter = new asserters\mock(new asserter\Generator()),
 					$mockAggregator = new \mock\mageekguy\atoum\tests\units\asserters\mock\call\dummy(),
 					$function = uniqid()
 				)
@@ -39,7 +39,7 @@ class mock extends atoum\test
 	{
 		$this
 			->if($call = new call\mock(
-					$mockAsserter = new \mock\mageekguy\atoum\asserters\mock(new asserter\generator()),
+					$mockAsserter = new \mock\mageekguy\atoum\asserters\mock(new asserter\Generator()),
 					new \mock\mageekguy\atoum\tests\units\asserters\mock\call\dummy(),
 					uniqid()
 				)
@@ -64,7 +64,7 @@ class mock extends atoum\test
 	{
 		$this
 			->if($call = new call\mock(
-					new asserters\mock(new asserter\generator()),
+					new asserters\mock(new asserter\Generator()),
 					new \mock\mageekguy\atoum\tests\units\asserters\mock\call\dummy(),
 					uniqid()
 				)
@@ -81,7 +81,7 @@ class mock extends atoum\test
 	{
 		$this
 			->if($call = new call\mock(
-					new asserters\mock(new asserter\generator()),
+					new asserters\mock(new asserter\Generator()),
 					new \mock\mageekguy\atoum\tests\units\asserters\mock\call\dummy(),
 					uniqid()
 				)
@@ -97,7 +97,7 @@ class mock extends atoum\test
 	{
 		$this
 			->if($call = new call\mock(
-					new asserters\mock(new asserter\generator()),
+					new asserters\mock(new asserter\Generator()),
 					$mock = new \mock\mageekguy\atoum\tests\units\asserters\mock\call\dummy(),
 					'foo'
 				)
@@ -119,7 +119,7 @@ class mock extends atoum\test
 	{
 		$this
 			->if($call = new call\mock(
-					new asserters\mock(new asserter\generator()),
+					new asserters\mock(new asserter\Generator()),
 					$mock = new \mock\mageekguy\atoum\tests\units\asserters\mock\call\dummy(),
 					'foo'
 				)

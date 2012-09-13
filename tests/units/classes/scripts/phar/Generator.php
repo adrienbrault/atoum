@@ -12,12 +12,12 @@ use
 
 require_once __DIR__ . '/../../../runner.php';
 
-class generator extends atoum\test
+class Generator extends atoum\test
 {
 	public function testClassConstants()
 	{
 		$this->assert
-			->string(phar\generator::phar)->isEqualTo('mageekguy.atoum.phar')
+			->string(phar\Generator::phar)->isEqualTo('mageekguy.atoum.phar')
 		;
 	}
 
@@ -31,13 +31,13 @@ class generator extends atoum\test
 			->and($factory->returnWhenBuild('atoum\adapter', $adapter))
 			->then
 				->exception(function() use (& $name, $factory) {
-						$generator = new phar\generator($name = uniqid(), $factory);
+						$generator = new phar\Generator($name = uniqid(), $factory);
 					}
 				)
 					->isInstanceOf('mageekguy\atoum\exceptions\logic')
 					->hasMessage('\'' . $name . '\' must be used in CLI only')
 			->if($adapter->php_sapi_name = function() { return 'cli'; })
-			->and($generator = new phar\generator($name = uniqid(), $factory))
+			->and($generator = new phar\Generator($name = uniqid(), $factory))
 			->then
 				->object($generator->getLocale())->isInstanceOf('mageekguy\atoum\locale')
 				->object($generator->getAdapter())->isInstanceOf('mageekguy\atoum\adapter')
@@ -49,7 +49,7 @@ class generator extends atoum\test
 				->object($generator->getArgumentsParser())->isInstanceOf('mageekguy\atoum\script\arguments\parser')
 			->if($factory->returnWhenBuild('atoum\locale', $locale = new atoum\locale()))
 			->and($factory->returnWhenBuild('atoum\script\arguments\parser', $argumentsParser = new atoum\script\arguments\parser()))
-			->and($generator = new phar\generator($name = uniqid(), $factory))
+			->and($generator = new phar\Generator($name = uniqid(), $factory))
 			->then
 				->string($generator->getName())->isEqualTo($name)
 				->object($generator->getLocale())->isIdenticalTo($locale)
@@ -69,7 +69,7 @@ class generator extends atoum\test
 			->and($factory = new atoum\factory())
 			->and($factory->import('mageekguy\atoum'))
 			->and($factory->returnWhenBuild('atoum\adapter', $adapter))
-			->and($generator = new phar\generator(uniqid(), $factory))
+			->and($generator = new phar\Generator(uniqid(), $factory))
 			->then
 				->exception(function() use ($generator) {
 						$generator->setOriginDirectory('');
@@ -116,7 +116,7 @@ class generator extends atoum\test
 			->and($factory = new atoum\factory())
 			->and($factory->import('mageekguy\atoum'))
 			->and($factory->returnWhenBuild('atoum\adapter', $adapter))
-			->and($generator = new phar\generator(uniqid(), $factory))
+			->and($generator = new phar\Generator(uniqid(), $factory))
 			->then
 				->exception(function() use ($generator) {
 						$generator->setDestinationDirectory('');
@@ -160,7 +160,7 @@ class generator extends atoum\test
 			->and($factory = new atoum\factory())
 			->and($factory->import('mageekguy\atoum'))
 			->and($factory->returnWhenBuild('atoum\adapter', $adapter))
-			->and($generator = new phar\generator(uniqid(), $factory))
+			->and($generator = new phar\Generator(uniqid(), $factory))
 			->then
 				->exception(function() use ($generator) {
 						$generator->setStubFile('');
@@ -186,7 +186,7 @@ class generator extends atoum\test
 	public function testSetOutputWriter()
 	{
 		$this->assert
-			->if($generator = new phar\generator(uniqid()))
+			->if($generator = new phar\Generator(uniqid()))
 			->then
 				->object($generator->setOutputWriter($stdout = new atoum\writers\std\out()))->isIdenticalTo($generator)
 				->object($generator->getOutputWriter())->isIdenticalTo($stdout)
@@ -197,7 +197,7 @@ class generator extends atoum\test
 	{
 
 		$this->assert
-			->if($generator = new phar\generator(uniqid()))
+			->if($generator = new phar\Generator(uniqid()))
 			->then
 				->object($generator->setErrorWriter($stderr = new atoum\writers\std\err()))->isIdenticalTo($generator)
 				->object($generator->getErrorWriter())->isIdenticalTo($stderr)
@@ -208,7 +208,7 @@ class generator extends atoum\test
 	{
 		$this
 			->assert
-				->if($generator = new phar\generator(uniqid()))
+				->if($generator = new phar\Generator(uniqid()))
 				->and($stdout = new \mock\mageekguy\atoum\writers\std\out())
 				->and($stdout->getMockController()->write = function() {})
 				->and($generator->setOutputWriter($stdout))
@@ -222,7 +222,7 @@ class generator extends atoum\test
 	{
 		$this
 			->assert
-				->if($generator = new phar\generator(uniqid()))
+				->if($generator = new phar\Generator(uniqid()))
 				->and($stderr = new \mock\mageekguy\atoum\writers\std\err())
 				->and($stderr->getMockController()->write = function() {})
 				->and($generator->setErrorWriter($stderr))
@@ -248,7 +248,7 @@ class generator extends atoum\test
 				->and($factory = new atoum\factory())
 				->and($factory->import('mageekguy\atoum'))
 				->and($factory->returnWhenBuild('atoum\adapter', $adapter))
-				->and($generator = new phar\generator(uniqid(), $factory))
+				->and($generator = new phar\Generator(uniqid(), $factory))
 				->then
 					->exception(function () use ($generator) {
 							$generator->run();
@@ -360,7 +360,7 @@ class generator extends atoum\test
 				->then
 					->object($generator->run())->isIdenticalTo($generator)
 					->mock($phar)
-						->call('__construct')->withArguments($generator->getDestinationDirectory() . DIRECTORY_SEPARATOR . atoum\scripts\phar\generator::phar, null, null, null)->once()
+						->call('__construct')->withArguments($generator->getDestinationDirectory() . DIRECTORY_SEPARATOR . atoum\scripts\phar\Generator::phar, null, null, null)->once()
 						->call('setMetadata')
 							->withArguments(array(
 									'version' => atoum\version,
@@ -414,7 +414,7 @@ class generator extends atoum\test
 					->string($generator->getDestinationDirectory())->isEqualTo($directory)
 					->mock($phar)
 						->call('__construct')
-							->withArguments($generator->getDestinationDirectory() . DIRECTORY_SEPARATOR . atoum\scripts\phar\generator::phar, null, null, null)
+							->withArguments($generator->getDestinationDirectory() . DIRECTORY_SEPARATOR . atoum\scripts\phar\Generator::phar, null, null, null)
 							->once()
 						->call('setMetadata')
 							->withArguments(
@@ -436,7 +436,7 @@ class generator extends atoum\test
 							->withArguments(\phar::SHA1, null)
 							->once()
 					->adapter($adapter)
-						->call('unlink')->withArguments($directory . DIRECTORY_SEPARATOR . phar\generator::phar)->once()
+						->call('unlink')->withArguments($directory . DIRECTORY_SEPARATOR . phar\Generator::phar)->once()
 		;
 	}
 }

@@ -21,7 +21,7 @@ class float extends atoum\test
 	public function test__construct()
 	{
 		$this
-			->if($asserter = new asserters\float($generator = new asserter\generator()))
+			->if($asserter = new asserters\float($generator = new asserter\Generator()))
 			->then
 				->object($asserter->getLocale())->isIdenticalTo($generator->getLocale())
 				->object($asserter->getGenerator())->isIdenticalTo($generator)
@@ -33,7 +33,7 @@ class float extends atoum\test
 	public function testSetWith()
 	{
 		$this
-			->if($asserter = new asserters\float($generator = new asserter\generator()))
+			->if($asserter = new asserters\float($generator = new asserter\Generator()))
 			->exception(function() use (& $line, $asserter, & $value) { $line = __LINE__; $asserter->setWith($value = uniqid()); })
 				->isInstanceOf('mageekguy\atoum\asserter\exception')
 				->hasMessage(sprintf($generator->getLocale()->_('%s is not a float'), $asserter->getTypeOf($value)))
@@ -46,7 +46,7 @@ class float extends atoum\test
 	public function testIsEqualTo()
 	{
 		$this
-			->if($asserter = new asserters\float($generator = new asserter\generator()))
+			->if($asserter = new asserters\float($generator = new asserter\Generator()))
 			->and($asserter->setWith($value = (float) rand(1, PHP_INT_MAX)))
 			->then
 				->object($asserter->isEqualTo($value))->isIdenticalTo($asserter)
@@ -68,7 +68,7 @@ class float extends atoum\test
 	public function testIsNearlyEqualTo($value, $testValue, $epsilon, $pass)
 	{
 		$this
-			->if($asserter = new asserters\float($generator = new asserter\generator()))
+			->if($asserter = new asserters\float($generator = new asserter\Generator()))
 			->and($asserter->setWith($value));
 
 			if ($pass) {

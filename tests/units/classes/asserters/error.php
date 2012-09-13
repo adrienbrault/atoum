@@ -20,7 +20,7 @@ class error extends atoum\test
 	public function testInitWithTest()
 	{
 		$this
-			->if($asserter = new asserters\error($generator = new asserter\generator()))
+			->if($asserter = new asserters\error($generator = new asserter\Generator()))
 			->then
 				->object($asserter->setWithTest($this))->isIdenticalTo($asserter)
 				->object($asserter->getScore())->isIdenticalTo($this->getScore())
@@ -53,7 +53,7 @@ class error extends atoum\test
 	public function test__construct()
 	{
 		$this
-			->if($asserter = new asserters\error($generator = new asserter\generator()))
+			->if($asserter = new asserters\error($generator = new asserter\Generator()))
 			->then
 				->object($asserter->getLocale())->isIdenticalTo($generator->getLocale())
 				->object($asserter->getGenerator())->isIdenticalTo($generator)
@@ -65,7 +65,7 @@ class error extends atoum\test
 	public function testSetWith()
 	{
 		$this
-			->if($asserter = new asserters\error($generator = new asserter\generator()))
+			->if($asserter = new asserters\error($generator = new asserter\Generator()))
 			->then
 				->object($asserter->setWith(null, null))->isIdenticalTo($asserter)
 				->variable($asserter->getMessage())->isNull()
@@ -82,7 +82,7 @@ class error extends atoum\test
 	public function testExists()
 	{
 		$this
-			->if($asserter = new asserters\error($generator = new asserter\generator()))
+			->if($asserter = new asserters\error($generator = new asserter\Generator()))
 			->then
 				->exception(function() use (& $line, $asserter) { $asserter->exists(); })
 					->isInstanceOf('mageekguy\atoum\asserter\exception')
@@ -129,7 +129,7 @@ class error extends atoum\test
 	public function testWithType()
 	{
 		$this
-			->if($asserter = new asserters\error(new asserter\generator()))
+			->if($asserter = new asserters\error(new asserter\Generator()))
 			->then
 				->object($asserter->withType($type = rand(1, PHP_INT_MAX)))->isIdenticalTo($asserter)
 				->integer($asserter->getType())->isEqualTo($type)
@@ -140,7 +140,7 @@ class error extends atoum\test
 	{
 
 		$this
-			->if($asserter = new asserters\error(new asserter\generator()))
+			->if($asserter = new asserters\error(new asserter\Generator()))
 			->and($asserter->withType(rand(1, PHP_INT_MAX)))
 			->then
 				->variable($asserter->getType())->isNotNull()
@@ -152,7 +152,7 @@ class error extends atoum\test
 	public function testWithMessage()
 	{
 		$this
-			->if($asserter = new asserters\error(new asserter\generator()))
+			->if($asserter = new asserters\error(new asserter\Generator()))
 			->then
 				->object($asserter->withMessage($message = uniqid()))->isIdenticalTo($asserter)
 				->string($asserter->getMessage())->isEqualTo($message)
@@ -163,7 +163,7 @@ class error extends atoum\test
 	public function testWithPattern()
 	{
 		$this
-			->if($asserter = new asserters\error(new asserter\generator()))
+			->if($asserter = new asserters\error(new asserter\Generator()))
 			->then
 				->boolean($asserter->messageIsPattern())->isFalse()
 				->object($asserter->withPattern($pattern = uniqid()))->isIdenticalTo($asserter)
@@ -175,7 +175,7 @@ class error extends atoum\test
 	public function testWithAnyMessage()
 	{
 		$this
-			->if($asserter = new asserters\error(new asserter\generator()))
+			->if($asserter = new asserters\error(new asserter\Generator()))
 			->and($asserter->withMessage(uniqid()))
 			->then
 				->variable($asserter->getMessage())->isNotNull()

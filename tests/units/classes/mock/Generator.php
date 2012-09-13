@@ -5,12 +5,12 @@ namespace mageekguy\atoum\tests\units\mock;
 use
 	mageekguy\atoum,
 	mageekguy\atoum\mock,
-	mageekguy\atoum\mock\generator as testedClass
+	mageekguy\atoum\mock\Generator as testedClass
 ;
 
 require_once __DIR__ . '/../../runner.php';
 
-class generator extends atoum\test
+class Generator extends atoum\test
 {
 	public function test__construct()
 	{

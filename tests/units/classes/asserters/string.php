@@ -21,7 +21,7 @@ class string extends atoum\test
 	public function test__construct()
 	{
 		$this
-			->if($asserter = new asserters\string($generator = new asserter\generator()))
+			->if($asserter = new asserters\string($generator = new asserter\Generator()))
 			->then
 				->object($asserter->getLocale())->isIdenticalTo($generator->getLocale())
 				->object($asserter->getGenerator())->isIdenticalTo($generator)
@@ -34,7 +34,7 @@ class string extends atoum\test
 	public function test__toString()
 	{
 		$this
-			->if($asserter = new asserters\string($generator = new asserter\generator()))
+			->if($asserter = new asserters\string($generator = new asserter\Generator()))
 			->and($asserter->setWith($value = uniqid()))
 			->then
 				->castToString($asserter)->isEqualTo('string(' . strlen($value) . ') \'' . $value . '\'')
@@ -47,7 +47,7 @@ class string extends atoum\test
 	public function testSetWith()
 	{
 		$this
-			->if($asserter = new asserters\string($generator = new asserter\generator()))
+			->if($asserter = new asserters\string($generator = new asserter\Generator()))
 			->then
 				->exception(function() use (& $line, $asserter, & $value) { $line = __LINE__; $asserter->setWith($value = rand(- PHP_INT_MAX, PHP_INT_MAX)); })
 					->isInstanceOf('mageekguy\atoum\asserter\exception')
@@ -66,7 +66,7 @@ class string extends atoum\test
 	public function testIsEqualTo()
 	{
 		$this
-			->if($asserter = new asserters\string($generator = new asserter\generator()))
+			->if($asserter = new asserters\string($generator = new asserter\Generator()))
 			->then
 				->boolean($asserter->wasSet())->isFalse()
 				->exception(function() use ($asserter) { $asserter->isEqualTo(uniqid()); })
@@ -85,7 +85,7 @@ class string extends atoum\test
 	public function testIsEqualToFileContents()
 	{
 		$this
-			->if($asserter = new asserters\string($generator = new asserter\generator(), $adapter = new atoum\test\adapter()))
+			->if($asserter = new asserters\string($generator = new asserter\Generator(), $adapter = new atoum\test\adapter()))
 			->then
 				->boolean($asserter->wasSet())->isFalse()
 				->exception(function() use ($asserter) { $asserter->isEqualToContentsOfFile(uniqid()); })
@@ -112,7 +112,7 @@ class string extends atoum\test
 	public function testIsEmpty()
 	{
 		$this
-			->if($asserter = new asserters\string($generator = new asserter\generator()))
+			->if($asserter = new asserters\string($generator = new asserter\Generator()))
 			->then
 				->exception(function() use ($asserter) { $asserter->isEmpty(); })
 					->isInstanceOf('mageekguy\atoum\exceptions\logic')
@@ -132,7 +132,7 @@ class string extends atoum\test
 	public function testIsNotEmpty()
 	{
 		$this
-			->if($asserter = new asserters\string($generator = new asserter\generator()))
+			->if($asserter = new asserters\string($generator = new asserter\Generator()))
 			->then
 				->exception(function() use ($asserter) { $asserter->isNotEmpty(); })
 					->isInstanceOf('mageekguy\atoum\exceptions\logic')
@@ -152,7 +152,7 @@ class string extends atoum\test
 	public function testHasLength()
 	{
 		$this
-			->if($asserter = new asserters\string($generator = new asserter\generator()))
+			->if($asserter = new asserters\string($generator = new asserter\Generator()))
 			->then
 				->exception(function() use ($asserter) { $asserter->hasLength(rand(0, PHP_INT_MAX)); })
 					->isInstanceOf('mageekguy\atoum\exceptions\logic')
@@ -173,7 +173,7 @@ class string extends atoum\test
 	public function testContains()
 	{
 		$this
-			->if($asserter = new asserters\string($generator = new asserter\generator()))
+			->if($asserter = new asserters\string($generator = new asserter\Generator()))
 			->then
 				->exception(function() use ($asserter) { $asserter->contains(uniqid()); })
 					->isInstanceOf('mageekguy\atoum\exceptions\logic')

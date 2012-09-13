@@ -7,7 +7,7 @@ use
 	mageekguy\atoum\asserter
 ;
 
-class generator extends asserter\generator
+class Generator extends asserter\Generator
 {
 	protected $test = null;
 

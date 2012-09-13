@@ -143,12 +143,12 @@ namespace mageekguy\atoum\tests\units
 				->if($test = new emptyTest())
 				->then
 					->object($test->assert)->isInstanceOf('mageekguy\atoum\test')
-					->object($test->define)->isInstanceOf('mageekguy\atoum\test\asserter\generator')
-					->object($test->mockGenerator)->isInstanceOf('mageekguy\atoum\mock\generator')
-				->if($test->setMockGenerator($mockGenerator = new atoum\test\mock\generator($this)))
+					->object($test->define)->isInstanceOf('mageekguy\atoum\test\asserter\Generator')
+					->object($test->mockGenerator)->isInstanceOf('mageekguy\atoum\mock\Generator')
+				->if($test->setMockGenerator($mockGenerator = new atoum\test\mock\Generator($this)))
 				->then
 					->object($test->mockGenerator)->isIdenticalTo($mockGenerator)
-				->if($test->setAsserterGenerator($asserterGenerator = new atoum\test\asserter\generator(new emptyTest())))
+				->if($test->setAsserterGenerator($asserterGenerator = new atoum\test\asserter\Generator(new emptyTest())))
 				->then
 					->object($test->assert)->isIdenticalTo($test)
 					->exception(function() use ($test, & $property) { $test->{$property = uniqid()}; })
@@ -250,8 +250,8 @@ namespace mageekguy\atoum\tests\units
 			$this
 				->if($test = new emptyTest())
 				->then
-					->object($test->getMockGenerator())->isInstanceOf('mageekguy\atoum\mock\generator')
-				->if($test->setMockGenerator($mockGenerator = new atoum\test\mock\generator($this)))
+					->object($test->getMockGenerator())->isInstanceOf('mageekguy\atoum\mock\Generator')
+				->if($test->setMockGenerator($mockGenerator = new atoum\test\mock\Generator($this)))
 				->then
 					->object($test->getMockGenerator())->isIdenticalTo($mockGenerator)
 					->object($mockGenerator->getTest())->isIdenticalTo($test)
@@ -263,7 +263,7 @@ namespace mageekguy\atoum\tests\units
 			$this
 				->if($test = new emptyTest())
 				->then
-					->object($test->setMockGenerator($mockGenerator = new atoum\test\mock\generator($this)))->isIdenticalTo($test)
+					->object($test->setMockGenerator($mockGenerator = new atoum\test\mock\Generator($this)))->isIdenticalTo($test)
 					->object($test->getMockGenerator())->isIdenticalTo($mockGenerator)
 					->object($mockGenerator->getTest())->isIdenticalTo($test)
 			;
@@ -274,8 +274,8 @@ namespace mageekguy\atoum\tests\units
 			$this
 				->if($test = new emptyTest())
 				->then
-					->object($test->getAsserterGenerator())->isInstanceOf('mageekguy\atoum\test\asserter\generator')
-				->if($test->setAsserterGenerator($asserterGenerator = new atoum\test\asserter\generator($this)))
+					->object($test->getAsserterGenerator())->isInstanceOf('mageekguy\atoum\test\asserter\Generator')
+				->if($test->setAsserterGenerator($asserterGenerator = new atoum\test\asserter\Generator($this)))
 				->then
 					->object($test->getAsserterGenerator())->isIdenticalTo($asserterGenerator)
 					->object($asserterGenerator->getTest())->isIdenticalTo($test)
@@ -287,7 +287,7 @@ namespace mageekguy\atoum\tests\units
 			$this
 				->if($test = new emptyTest())
 				->then
-					->object($test->setAsserterGenerator($asserterGenerator = new atoum\test\asserter\generator($test)))->isIdenticalTo($test)
+					->object($test->setAsserterGenerator($asserterGenerator = new atoum\test\asserter\Generator($test)))->isIdenticalTo($test)
 					->object($test->getAsserterGenerator())->isIdenticalTo($asserterGenerator)
 					->object($asserterGenerator->getTest())->isIdenticalTo($test)
 					->object($asserterGenerator->getLocale())->isIdenticalTo($test->getLocale())

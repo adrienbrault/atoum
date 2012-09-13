@@ -12,7 +12,7 @@ abstract class asserter
 {
 	protected $generator = null;
 
-	public function __construct(asserter\generator $generator)
+	public function __construct(asserter\Generator $generator)
 	{
 		$this->generator = $generator;
 	}

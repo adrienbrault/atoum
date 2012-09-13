@@ -20,7 +20,7 @@ class object extends atoum\test
 	public function test__construct()
 	{
 		$this
-			->if($asserter = new asserters\object($generator = new asserter\generator()))
+			->if($asserter = new asserters\object($generator = new asserter\Generator()))
 			->then
 				->object($asserter->getLocale())->isIdenticalTo($generator->getLocale())
 				->object($asserter->getGenerator())->isIdenticalTo($generator)
@@ -32,7 +32,7 @@ class object extends atoum\test
 	public function test__get()
 	{
 		$this
-			->if($asserter = new asserters\object($generator = new asserter\generator()))
+			->if($asserter = new asserters\object($generator = new asserter\Generator()))
 			->then
 				->exception(function() use ($asserter) { $asserter->toString; })
 					->isInstanceOf('mageekguy\atoum\exceptions\logic')
@@ -49,7 +49,7 @@ class object extends atoum\test
 	public function testSetWith()
 	{
 		$this
-			->if($asserter = new asserters\object($generator = new asserter\generator()))
+			->if($asserter = new asserters\object($generator = new asserter\Generator()))
 			->then
 				->exception(function() use ($asserter, & $value) { $asserter->setWith($value = uniqid()); })
 					->isInstanceOf('mageekguy\atoum\asserter\exception')
@@ -65,7 +65,7 @@ class object extends atoum\test
 	public function testHasSize()
 	{
 		$this
-			->if($asserter = new asserters\object($generator = new asserter\generator()))
+			->if($asserter = new asserters\object($generator = new asserter\Generator()))
 			->then
 				->exception(function() use ($asserter) { $asserter->hasSize(rand(0, PHP_INT_MAX)); })
 					->isInstanceOf('mageekguy\atoum\exceptions\logic')
@@ -82,7 +82,7 @@ class object extends atoum\test
 	public function testIsEmpty()
 	{
 		$this
-			->if($asserter = new asserters\object($generator = new asserter\generator()))
+			->if($asserter = new asserters\object($generator = new asserter\Generator()))
 			->then
 				->exception(function() use ($asserter) { $asserter->hasSize(rand(0, PHP_INT_MAX)); })
 					->isInstanceOf('mageekguy\atoum\exceptions\logic')
@@ -101,7 +101,7 @@ class object extends atoum\test
 	public function testToString()
 	{
 		$this
-			->if($asserter = new asserters\object($generator = new asserter\generator()))
+			->if($asserter = new asserters\object($generator = new asserter\Generator()))
 			->then
 				->exception(function() use ($asserter) { $asserter->toString(); })
 					->isInstanceOf('mageekguy\atoum\exceptions\logic')

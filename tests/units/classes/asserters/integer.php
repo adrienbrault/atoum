@@ -21,7 +21,7 @@ class integer extends atoum\test
 	public function test__construct()
 	{
 		$this
-			->if($asserter = new asserters\integer($generator = new asserter\generator()))
+			->if($asserter = new asserters\integer($generator = new asserter\Generator()))
 			->then
 				->object($asserter->getLocale())->isIdenticalTo($generator->getLocale())
 				->object($asserter->getGenerator())->isIdenticalTo($generator)
@@ -33,7 +33,7 @@ class integer extends atoum\test
 	public function testSetWith()
 	{
 		$this
-			->if($asserter = new asserters\integer($generator = new asserter\generator()))
+			->if($asserter = new asserters\integer($generator = new asserter\Generator()))
 			->then
 				->exception(function() use ($asserter, & $value) { $asserter->setWith($value = uniqid()); })
 					->isInstanceOf('mageekguy\atoum\asserter\exception')
@@ -47,7 +47,7 @@ class integer extends atoum\test
 	public function testIsEqualTo()
 	{
 		$this
-			->if($asserter = new asserters\integer($generator = new asserter\generator()))
+			->if($asserter = new asserters\integer($generator = new asserter\Generator()))
 			->and($asserter->setWith($value = rand(1, PHP_INT_MAX)))
 			->then
 				->object($asserter->isEqualTo($value))->isIdenticalTo($asserter)
@@ -63,7 +63,7 @@ class integer extends atoum\test
 	public function testIsGreaterThan()
 	{
 		$this
-			->if($asserter = new asserters\integer($generator = new asserter\generator()))
+			->if($asserter = new asserters\integer($generator = new asserter\Generator()))
 			->and($asserter->setWith($value = rand(1, PHP_INT_MAX - 1)))
 			->then
 				->object($asserter->isGreaterThan(0))->isIdenticalTo($asserter)
@@ -85,7 +85,7 @@ class integer extends atoum\test
 	public function testIsLessThan()
 	{
 		$this
-			->if($asserter = new asserters\integer($generator = new asserter\generator()))
+			->if($asserter = new asserters\integer($generator = new asserter\Generator()))
 			->and($asserter->setWith($value = - rand(1, PHP_INT_MAX - 1)))
 			->then
 				->object($asserter->isLessThan(0))->isIdenticalTo($asserter)
@@ -107,7 +107,7 @@ class integer extends atoum\test
 	public function testIsGreaterThanOrEqualTo()
 	{
 		$this
-			->if($asserter = new asserters\integer($generator = new asserter\generator()))
+			->if($asserter = new asserters\integer($generator = new asserter\Generator()))
 			->and($asserter->setWith($value = rand(1, PHP_INT_MAX - 1)))
 			->then
 				->object($asserter->isGreaterThanOrEqualTo(0))->isIdenticalTo($asserter)
@@ -124,7 +124,7 @@ class integer extends atoum\test
 	public function testIsLessThanOrEqualTo()
 	{
 		$this
-			->if($asserter = new asserters\integer($generator = new asserter\generator()))
+			->if($asserter = new asserters\integer($generator = new asserter\Generator()))
 			->and($asserter->setWith($value = - rand(1, PHP_INT_MAX - 1)))
 			->then
 				->object($asserter->isLessThanOrEqualTo(0))->isIdenticalTo($asserter)

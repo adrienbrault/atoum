@@ -20,7 +20,7 @@ class mysqlDateTime extends atoum\test
 	public function testSetWith()
 	{
 		$this
-			->if($asserter = new asserters\mysqlDateTime($generator = new asserter\generator()))
+			->if($asserter = new asserters\mysqlDateTime($generator = new asserter\Generator()))
 			->then
 				->exception(function() use ($asserter, & $value) { $asserter->setWith($value = uniqid()); })
 					->isInstanceOf('mageekguy\atoum\asserter\exception')

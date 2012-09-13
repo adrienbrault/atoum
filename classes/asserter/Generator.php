@@ -7,7 +7,7 @@ use
 	mageekguy\atoum\exceptions
 ;
 
-class generator
+class Generator
 {
 	protected $locale = null;
 	protected $aliases = array();

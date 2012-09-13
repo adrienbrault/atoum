@@ -14,7 +14,7 @@ class adapter extends atoum\test
 	{
 		$this
 			->dump('foo')
-			->if($asserter = new \mock\mageekguy\atoum\asserter($generator = new atoum\asserter\generator()))
+			->if($asserter = new \mock\mageekguy\atoum\asserter($generator = new atoum\asserter\Generator()))
 			->then
 				->object($asserter->getGenerator())->isIdenticalTo($generator)
 		;

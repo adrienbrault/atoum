@@ -21,7 +21,7 @@ class hash extends atoum\test
 	public function testIsSha1()
 	{
 		$this
-			->if($asserter = new asserters\hash($generator = new asserter\generator()))
+			->if($asserter = new asserters\hash($generator = new asserter\Generator()))
 			->and($asserter->setWith($value = hash('sha1', 'hello')))
 			->then
 				->object($asserter->isSha1())->isIdenticalTo($asserter)
@@ -45,7 +45,7 @@ class hash extends atoum\test
 	public function testIsSha256()
 	{
 		$this
-			->if($asserter = new asserters\hash($generator = new asserter\generator()))
+			->if($asserter = new asserters\hash($generator = new asserter\Generator()))
 			->and($asserter->setWith($value = hash('sha256', 'hello')))
 			->then
 				->object($asserter->isSha256())->isIdenticalTo($asserter)
@@ -69,7 +69,7 @@ class hash extends atoum\test
 	public function testIsSha512()
 	{
 		$this
-			->if($asserter = new asserters\hash($generator = new asserter\generator()))
+			->if($asserter = new asserters\hash($generator = new asserter\Generator()))
 			->and($asserter->setWith($value = hash('sha512', 'hello')))
 			->then
 				->object($asserter->isSha512())->isIdenticalTo($asserter)
@@ -93,7 +93,7 @@ class hash extends atoum\test
 	public function testIsMd5()
 	{
 		$this
-			->if($asserter = new asserters\hash($generator = new asserter\generator()))
+			->if($asserter = new asserters\hash($generator = new asserter\Generator()))
 			->and($asserter->setWith($value = hash('md5', 'hello')))
 			->then
 				->object($asserter->isMd5())->isIdenticalTo($asserter)

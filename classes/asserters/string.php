@@ -12,7 +12,7 @@ class string extends variable
 {
 	protected $charlist = null;
 
-	public function __construct(asserter\generator $generator, atoum\adapter $adapter = null)
+	public function __construct(asserter\Generator $generator, atoum\adapter $adapter = null)
 	{
 		parent::__construct($generator);
 

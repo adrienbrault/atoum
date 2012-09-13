@@ -20,7 +20,7 @@ class testedClass extends atoum\test
 	public function testSetWith()
 	{
 		$this
-			->if($asserter = new asserters\testedClass(new asserter\generator()))
+			->if($asserter = new asserters\testedClass(new asserter\Generator()))
 			->then
 				->exception(function() use ($asserter) { $asserter->setWith(uniqid()); })
 					->isInstanceOf('mageekguy\atoum\exceptions\logic\badMethodCall')

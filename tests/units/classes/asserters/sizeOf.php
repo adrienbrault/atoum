@@ -21,7 +21,7 @@ class sizeOf extends atoum\test
 	public function test__construct()
 	{
 		$this
-			->if($asserter = new asserters\sizeOf($generator = new asserter\generator()))
+			->if($asserter = new asserters\sizeOf($generator = new asserter\Generator()))
 			->then
 				->object($asserter->getLocale())->isIdenticalTo($generator->getLocale())
 				->object($asserter->getGenerator())->isIdenticalTo($generator)
@@ -33,7 +33,7 @@ class sizeOf extends atoum\test
 	public function testSetWith()
 	{
 		$this
-			->if($asserter = new asserters\sizeOf($generator = new asserter\generator()))
+			->if($asserter = new asserters\sizeOf($generator = new asserter\Generator()))
 			->then
 				->object($asserter->setWith(array()))->isIdenticalTo($asserter)
 				->boolean($asserter->wasSet())->isTrue()

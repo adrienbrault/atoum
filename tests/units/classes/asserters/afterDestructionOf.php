@@ -27,7 +27,7 @@ class afterDestructionOf extends atoum\test
 	public function test__construct()
 	{
 		$this
-			->if($asserter = new asserters\afterDestructionOf($generator = new asserter\generator()))
+			->if($asserter = new asserters\afterDestructionOf($generator = new asserter\Generator()))
 			->then
 				->object($asserter->getGenerator())->isIdenticalTo($generator)
 				->object($asserter->getLocale())->isIdenticalTo($generator->getLocale())
@@ -37,7 +37,7 @@ class afterDestructionOf extends atoum\test
 	public function testSetWith()
 	{
 		$this
-			->if($asserter = new asserters\afterDestructionOf($generator = new asserter\generator()))
+			->if($asserter = new asserters\afterDestructionOf($generator = new asserter\Generator()))
 			->and($value = uniqid())
 			->then
 				->exception(function() use (& $line, $asserter, $value) { $line = __LINE__; $asserter->setWith($value); })

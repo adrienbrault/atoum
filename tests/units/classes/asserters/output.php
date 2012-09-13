@@ -20,7 +20,7 @@ class output extends atoum\test
 	public function test__construct()
 	{
 		$this
-			->if($asserter = new asserters\output($generator = new asserter\generator()))
+			->if($asserter = new asserters\output($generator = new asserter\Generator()))
 			->then
 				->object($asserter->getLocale())->isIdenticalTo($generator->getLocale())
 				->object($asserter->getGenerator())->isIdenticalTo($generator)
@@ -32,7 +32,7 @@ class output extends atoum\test
 	public function testSetWith()
 	{
 		$this
-			->if($asserter = new asserters\output(new asserter\generator()))
+			->if($asserter = new asserters\output(new asserter\Generator()))
 			->then
 				->object($asserter->setWith(function() use (& $output) { echo ($output = uniqid()); }))->isIdenticalTo($asserter)
 				->string($asserter->getValue())->isEqualTo($output)
