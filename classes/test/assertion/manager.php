@@ -52,7 +52,7 @@ class manager
 		switch (true)
 		{
 			case $handlerExists === false && $this->defaultHandler === null:
-				throw new assertion\manager\exception('There is no handler defined for event \'' . $event . '\'');
+				throw new assertion\manager\Exception('There is no handler defined for event \'' . $event . '\'');
 
 			case $handlerExists === true:
 				return call_user_func_array($this->handlers[$event], $arguments);

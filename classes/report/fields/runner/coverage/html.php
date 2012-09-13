@@ -319,7 +319,7 @@ class html extends report\fields\runner\coverage\cli
 
 				$string .= $this->urlPrompt . $this->urlColorizer->colorize(sprintf($this->locale->_('Details of code coverage are available at %s.'), $this->rootUrl)) . PHP_EOL;
 			}
-			catch (\exception $exception)
+			catch (\Exception $exception)
 			{
 				$string .= $this->urlPrompt . $this->urlColorizer->colorize(sprintf($this->locale->_('Unable to generate code coverage at %s: %s.'), $this->rootUrl, $exception->getMessage())) . PHP_EOL;
 			}
@@ -483,7 +483,7 @@ class html extends report\fields\runner\coverage\cli
 				}
 			}
 		}
-		catch (\exception $exception) {}
+		catch (\Exception $exception) {}
 
 		return $this;
 	}

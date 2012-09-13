@@ -30,14 +30,14 @@ class hash extends atoum\test
 			->and($diff->setReference( $newvalue )->setData($value))
 			->then
 				->exception(function() use ($asserter, & $line) { $line = __LINE__; $asserter->isSha1(); })
-					->isInstanceOf('mageekguy\atoum\asserter\exception')
+					->isInstanceOf('mageekguy\atoum\asserter\Exception')
 					->hasMessage(sprintf($this->getLocale()->_('%s should be a string of %d characters'), $asserter, strlen($value)))
 			->if($asserter->setWith($newvalue = 'z'.substr($value, 1) ))
 			->and($diff = new diffs\variable())
 			->and($diff->setReference($newvalue)->setData($value))
 			->then
 				->exception(function() use ($asserter, & $line) { $line = __LINE__; $asserter->isSha1(); })
-					->isInstanceOf('mageekguy\atoum\asserter\exception')
+					->isInstanceOf('mageekguy\atoum\asserter\Exception')
 					->hasMessage(sprintf($generator->getLocale()->_('%s does not match given pattern'), $asserter))
 		;
 	}
@@ -54,14 +54,14 @@ class hash extends atoum\test
 			->and($diff->setReference( $newvalue )->setData($value))
 			->then
 				->exception(function() use ($asserter, & $line) { $line = __LINE__; $asserter->isSha256(); })
-					->isInstanceOf('mageekguy\atoum\asserter\exception')
+					->isInstanceOf('mageekguy\atoum\asserter\Exception')
 					->hasMessage(sprintf($this->getLocale()->_('%s should be a string of %d characters'), $asserter, strlen($value)))
 			->if($asserter->setWith($newvalue = 'z'.substr($value, 1) ))
 			->and($diff = new diffs\variable())
 			->and($diff->setReference($newvalue)->setData($value))
 			->then
 				->exception(function() use ($asserter, & $line) { $line = __LINE__; $asserter->isSha256(); })
-					->isInstanceOf('mageekguy\atoum\asserter\exception')
+					->isInstanceOf('mageekguy\atoum\asserter\Exception')
 					->hasMessage(sprintf($generator->getLocale()->_('%s does not match given pattern'), $asserter))
 		;
 	}
@@ -78,14 +78,14 @@ class hash extends atoum\test
 			->and($diff->setReference( $newvalue )->setData($value))
 			->then
 				->exception(function() use ($asserter, & $line) { $line = __LINE__; $asserter->isSha512(); })
-					->isInstanceOf('mageekguy\atoum\asserter\exception')
+					->isInstanceOf('mageekguy\atoum\asserter\Exception')
 					->hasMessage(sprintf($this->getLocale()->_('%s should be a string of %d characters'), $asserter, strlen($value)))
 			->if($asserter->setWith($newvalue = 'z'.substr($value, 1) ))
 			->and($diff = new diffs\variable())
 			->and($diff->setReference($newvalue)->setData($value))
 			->then
 				->exception(function() use ($asserter, & $line) { $line = __LINE__; $asserter->isSha512(); })
-					->isInstanceOf('mageekguy\atoum\asserter\exception')
+					->isInstanceOf('mageekguy\atoum\asserter\Exception')
 					->hasMessage(sprintf($generator->getLocale()->_('%s does not match given pattern'), $asserter))
 		;
 	}
@@ -102,14 +102,14 @@ class hash extends atoum\test
 			->and($diff->setReference( $newvalue )->setData($value))
 			->then
 				->exception(function() use ($asserter, & $line) { $line = __LINE__; $asserter->isMd5(); })
-					->isInstanceOf('mageekguy\atoum\asserter\exception')
+					->isInstanceOf('mageekguy\atoum\asserter\Exception')
 					->hasMessage(sprintf($this->getLocale()->_('%s should be a string of %d characters'), $asserter, strlen($value)))
 			->if($asserter->setWith($newvalue = 'z'.substr($value, 1) ))
 			->and($diff = new diffs\variable())
 			->and($diff->setReference($newvalue)->setData($value))
 			->then
 				->exception(function() use ($asserter, & $line) { $line = __LINE__; $asserter->isMd5(); })
-					->isInstanceOf('mageekguy\atoum\asserter\exception')
+					->isInstanceOf('mageekguy\atoum\asserter\Exception')
 					->hasMessage(sprintf($generator->getLocale()->_('%s does not match given pattern'), $asserter))
 		;
 	}

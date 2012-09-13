@@ -178,7 +178,7 @@ class runner implements observable, adapter\Aggregator
 		{
 			$this->includer->includePath($path, function($path) { include_once($path); });
 		}
-		catch (atoum\includer\exception $exception)
+		catch (atoum\includer\Exception $exception)
 		{
 			throw new exceptions\runtime\file(sprintf($this->getLocale()->_('Unable to use bootstrap file \'%s\''), $path));
 		}
@@ -511,7 +511,7 @@ class runner implements observable, adapter\Aggregator
 		{
 			$this->includer->includePath($path, function($path) use ($runner) { include_once($path); });
 		}
-		catch (atoum\includer\exception $exception)
+		catch (atoum\includer\Exception $exception)
 		{
 			throw new exceptions\runtime\file(sprintf($this->getLocale()->_('Unable to add test file \'%s\''), $path));
 		}

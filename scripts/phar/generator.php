@@ -25,7 +25,7 @@ try
 {
 	$generator->run();
 }
-catch (\exception $exception)
+catch (\Exception $exception)
 {
 	$generator->writeError($exception->getMessage());
 

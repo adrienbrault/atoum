@@ -77,7 +77,7 @@ class parser extends atoum\test
 
 	public function testCheckString()
 	{
-		$this->define->parserException = '\mageekguy\atoum\tests\units\asserters\template\parser\exception';
+		$this->define->parserException = '\mageekguy\atoum\tests\units\asserters\template\parser\Exception';
 
 		$parser = new template\parser();
 
@@ -99,7 +99,7 @@ class parser extends atoum\test
 				}
 			)
 				->isInstanceOf('mageekguy\atoum\exceptions\runtime')
-				->isInstanceOf('mageekguy\atoum\template\parser\exception')
+				->isInstanceOf('mageekguy\atoum\template\parser\Exception')
 				->hasMessage('Id must not be empty')
 				->hasErrorLine(1)
 				->hasErrorOffset(1)
@@ -117,7 +117,7 @@ class parser extends atoum\test
 				}
 			)
 				->isInstanceOf('mageekguy\atoum\exceptions\runtime')
-				->isInstanceOf('mageekguy\atoum\template\parser\exception')
+				->isInstanceOf('mageekguy\atoum\template\parser\Exception')
 				->hasMessage('Id \'' . $id . '\' is already defined in line 1 at offset 1')
 				->hasErrorLine(1)
 				->hasErrorOffset(41)
@@ -131,7 +131,7 @@ class parser extends atoum\test
 				}
 			)
 				->isInstanceOf('mageekguy\atoum\exceptions\runtime')
-				->isInstanceOf('mageekguy\atoum\template\parser\exception')
+				->isInstanceOf('mageekguy\atoum\template\parser\Exception')
 				->hasMessage('Attribute \'foo\' is unknown')
 				->hasErrorLine(1)
 				->hasErrorOffset(1)
@@ -145,7 +145,7 @@ class parser extends atoum\test
 				}
 			)
 				->isInstanceOf('mageekguy\atoum\exceptions\runtime')
-				->isInstanceOf('mageekguy\atoum\template\parser\exception')
+				->isInstanceOf('mageekguy\atoum\template\parser\Exception')
 				->hasMessage('Tag \'' . $tag . '\' must be closed')
 				->hasErrorLine(1)
 				->hasErrorOffset(strlen($firstTag) + 1)
@@ -161,7 +161,7 @@ class parser extends atoum\test
 				}
 			)
 				->isInstanceOf('mageekguy\atoum\exceptions\runtime')
-				->isInstanceOf('mageekguy\atoum\template\parser\exception')
+				->isInstanceOf('mageekguy\atoum\template\parser\Exception')
 				->hasMessage('Tag \'' . $tag . '\' must be closed')
 				->hasErrorLine(strlen($eols) + 1)
 				->hasErrorOffset(strlen($firstTag) + 1)
@@ -175,7 +175,7 @@ class parser extends atoum\test
 				}
 			)
 				->isInstanceOf('mageekguy\atoum\exceptions\runtime')
-				->isInstanceOf('mageekguy\atoum\template\parser\exception')
+				->isInstanceOf('mageekguy\atoum\template\parser\Exception')
 				->hasMessage('Tag \'' . $tag . '\' must be closed')
 				->hasErrorLine(strlen($eols) + 1)
 				->hasErrorOffset(strlen($firstTag) + strlen($spaces) + 1)
@@ -190,7 +190,7 @@ class parser extends atoum\test
 				}
 			)
 				->isInstanceOf('mageekguy\atoum\exceptions\runtime')
-				->isInstanceOf('mageekguy\atoum\template\parser\exception')
+				->isInstanceOf('mageekguy\atoum\template\parser\Exception')
 				->hasMessage('Tag \'' . $notOpenTag . '\' is not open')
 				->hasErrorLine(1)
 				->hasErrorOffset(strlen($firstTag) + 1)
@@ -199,7 +199,7 @@ class parser extends atoum\test
 				}
 			)
 				->isInstanceOf('mageekguy\atoum\exceptions\runtime')
-				->isInstanceOf('mageekguy\atoum\template\parser\exception')
+				->isInstanceOf('mageekguy\atoum\template\parser\Exception')
 				->hasMessage('Tag \'' . $notOpenTag . '\' is not open')
 				->hasErrorLine(strlen($eols) + 1)
 				->hasErrorOffset(strlen($firstTag) + 1)
@@ -208,7 +208,7 @@ class parser extends atoum\test
 				}
 			)
 				->isInstanceOf('mageekguy\atoum\exceptions\runtime')
-				->isInstanceOf('mageekguy\atoum\template\parser\exception')
+				->isInstanceOf('mageekguy\atoum\template\parser\Exception')
 				->hasMessage('Tag \'' . $notOpenTag . '\' is not open')
 				->hasErrorLine(strlen($eols) + 1)
 				->hasErrorOffset(strlen($firstTag) + strlen($spaces) + 1)
@@ -217,7 +217,7 @@ class parser extends atoum\test
 
 	public function testCheckFile()
 	{
-		$this->define->parserException = '\mageekguy\atoum\tests\units\asserters\template\parser\exception';
+		$this->define->parserException = '\mageekguy\atoum\tests\units\asserters\template\parser\Exception';
 
 		$parser = new template\parser(null, $adapter = new test\adapter());
 
@@ -276,7 +276,7 @@ class parser extends atoum\test
 				}
 			)
 				->isInstanceOf('mageekguy\atoum\exceptions\runtime')
-				->isInstanceOf('mageekguy\atoum\template\parser\exception')
+				->isInstanceOf('mageekguy\atoum\template\parser\Exception')
 				->hasMessage('Id must not be empty')
 				->hasErrorLine(1)
 				->hasErrorOffset(1)
@@ -316,7 +316,7 @@ class parser extends atoum\test
 				}
 			)
 				->isInstanceOf('mageekguy\atoum\exceptions\runtime')
-				->isInstanceOf('mageekguy\atoum\template\parser\exception')
+				->isInstanceOf('mageekguy\atoum\template\parser\Exception')
 				->hasMessage('Id \'' . $id . '\' is already defined in line 1 at offset 1')
 				->hasErrorLine(1)
 				->hasErrorOffset(41)
@@ -330,7 +330,7 @@ class parser extends atoum\test
 				}
 			)
 				->isInstanceOf('mageekguy\atoum\exceptions\runtime')
-				->isInstanceOf('mageekguy\atoum\template\parser\exception')
+				->isInstanceOf('mageekguy\atoum\template\parser\Exception')
 				->hasMessage('Attribute \'foo\' is unknown')
 				->hasErrorLine(1)
 				->hasErrorOffset(1)
@@ -344,7 +344,7 @@ class parser extends atoum\test
 				}
 			)
 				->isInstanceOf('mageekguy\atoum\exceptions\runtime')
-				->isInstanceOf('mageekguy\atoum\template\parser\exception')
+				->isInstanceOf('mageekguy\atoum\template\parser\Exception')
 				->hasMessage('Tag \'' . $tag . '\' must be closed')
 				->hasErrorLine(1)
 				->hasErrorOffset(strlen($firstTag) + 1)
@@ -358,7 +358,7 @@ class parser extends atoum\test
 				}
 			)
 				->isInstanceOf('mageekguy\atoum\exceptions\runtime')
-				->isInstanceOf('mageekguy\atoum\template\parser\exception')
+				->isInstanceOf('mageekguy\atoum\template\parser\Exception')
 				->hasMessage('Tag \'' . $tag . '\' must be closed')
 				->hasErrorLine(strlen($eols) + 1)
 				->hasErrorOffset(strlen($firstTag) + 1)
@@ -372,7 +372,7 @@ class parser extends atoum\test
 				}
 			)
 				->isInstanceOf('mageekguy\atoum\exceptions\runtime')
-				->isInstanceOf('mageekguy\atoum\template\parser\exception')
+				->isInstanceOf('mageekguy\atoum\template\parser\Exception')
 				->hasMessage('Tag \'' . $tag . '\' must be closed')
 				->hasErrorLine(strlen($eols) + 1)
 				->hasErrorOffset(strlen($firstTag) + strlen($spaces) + 1)
@@ -389,7 +389,7 @@ class parser extends atoum\test
 				}
 			)
 				->isInstanceOf('mageekguy\atoum\exceptions\runtime')
-				->isInstanceOf('mageekguy\atoum\template\parser\exception')
+				->isInstanceOf('mageekguy\atoum\template\parser\Exception')
 				->hasMessage('Tag \'' . $notOpenTag . '\' is not open')
 				->hasErrorLine(1)
 				->hasErrorOffset(strlen($firstTag) + 1)
@@ -403,7 +403,7 @@ class parser extends atoum\test
 				}
 			)
 				->isInstanceOf('mageekguy\atoum\exceptions\runtime')
-				->isInstanceOf('mageekguy\atoum\template\parser\exception')
+				->isInstanceOf('mageekguy\atoum\template\parser\Exception')
 				->hasMessage('Tag \'' . $notOpenTag . '\' is not open')
 				->hasErrorLine(strlen($eols) + 1)
 				->hasErrorOffset(strlen($firstTag) + 1)
@@ -417,7 +417,7 @@ class parser extends atoum\test
 				}
 			)
 				->isInstanceOf('mageekguy\atoum\exceptions\runtime')
-				->isInstanceOf('mageekguy\atoum\template\parser\exception')
+				->isInstanceOf('mageekguy\atoum\template\parser\Exception')
 				->hasMessage('Tag \'' . $notOpenTag . '\' is not open')
 				->hasErrorLine(strlen($eols) + 1)
 				->hasErrorOffset(strlen($firstTag) + strlen($spaces) + 1)

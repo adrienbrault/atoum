@@ -23,7 +23,7 @@ class mysqlDateTime extends atoum\test
 			->if($asserter = new asserters\mysqlDateTime($generator = new asserter\Generator()))
 			->then
 				->exception(function() use ($asserter, & $value) { $asserter->setWith($value = uniqid()); })
-					->isInstanceOf('mageekguy\atoum\asserter\exception')
+					->isInstanceOf('mageekguy\atoum\asserter\Exception')
 					->hasMessage(sprintf($generator->getLocale()->_('%s is not in format Y-m-d H:i:s'), $asserter->getTypeOf($value)))
 				->string($asserter->getValue())->isEqualTo($value)
 			->object($asserter->setWith($value = '1976-10-06 14:05:54'))->isIdenticalTo($asserter)

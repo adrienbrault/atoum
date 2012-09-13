@@ -52,7 +52,7 @@ class object extends atoum\test
 			->if($asserter = new asserters\object($generator = new asserter\Generator()))
 			->then
 				->exception(function() use ($asserter, & $value) { $asserter->setWith($value = uniqid()); })
-					->isInstanceOf('mageekguy\atoum\asserter\exception')
+					->isInstanceOf('mageekguy\atoum\asserter\Exception')
 					->hasMessage(sprintf($generator->getLocale()->_('%s is not an object'), $asserter->getTypeOf($value)))
 				->string($asserter->getValue())->isEqualTo($value)
 				->object($asserter->setWith($value = $this))->isIdenticalTo($asserter)
@@ -73,7 +73,7 @@ class object extends atoum\test
 			->if($asserter->setWith($this))
 			->then
 				->exception(function() use ($asserter) { $asserter->hasSize(0); })
-					->isInstanceOf('mageekguy\atoum\asserter\exception')
+					->isInstanceOf('mageekguy\atoum\asserter\Exception')
 					->hasMessage(sprintf($generator->getLocale()->_('%s has not size %d'), $asserter, 0))
 				->object($asserter->hasSize(sizeof($this)))->isIdenticalTo($asserter);
 		;
@@ -90,7 +90,7 @@ class object extends atoum\test
 			->if($asserter->setWith($this))
 			->then
 				->exception(function() use ($asserter) { $asserter->isEmpty(); })
-					->isInstanceOf('mageekguy\atoum\asserter\exception')
+					->isInstanceOf('mageekguy\atoum\asserter\Exception')
 					->hasMessage(sprintf($generator->getLocale()->_('%s has size %d'), $asserter, sizeof($this)))
 			->if($asserter->setWith(new \arrayIterator()))
 			->then

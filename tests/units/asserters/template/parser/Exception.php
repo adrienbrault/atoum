@@ -6,7 +6,7 @@ use
 	mageekguy\atoum\asserters
 ;
 
-class exception extends asserters\exception
+class Exception extends asserters\Exception
 {
 	public function hasErrorLine($line, $failMessage = null)
 	{

@@ -58,7 +58,7 @@ class stream extends atoum\test
 			->and($asserter->setWith($streamName))
 			->then
 				->exception(function() use (& $line, $asserter) { $line = __LINE__; $asserter->isRead(); })
-					->isInstanceOf('mageekguy\atoum\asserter\exception')
+					->isInstanceOf('mageekguy\atoum\asserter\Exception')
 					->hasMessage($failMessage = sprintf($generator->getLocale()->_('stream %s is not read'), $streamName))
 				->when(function() use ($streamName) { file_get_contents('atoum://' . $streamName); })
 					->object($asserter->isRead())->isIdenticalTo($asserter)
@@ -78,7 +78,7 @@ class stream extends atoum\test
 			->and($asserter->setWith($streamName))
 			->then
 				->exception(function() use (& $line, $asserter) { $line = __LINE__; $asserter->isWrited(); })
-					->isInstanceOf('mageekguy\atoum\asserter\exception')
+					->isInstanceOf('mageekguy\atoum\asserter\Exception')
 					->hasMessage($failMessage = sprintf($generator->getLocale()->_('stream %s is not writed'), $streamName))
 				->when(function() use ($streamName, $contents) { file_put_contents('atoum://' . $streamName, $contents); })
 					->object($asserter->isWrited())->isIdenticalTo($asserter)

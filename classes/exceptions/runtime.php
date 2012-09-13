@@ -6,4 +6,4 @@ use
 	mageekguy\atoum
 ;
 
-class runtime extends \runtimeException implements atoum\exception {}
+class runtime extends \runtimeException implements atoum\Exception {}

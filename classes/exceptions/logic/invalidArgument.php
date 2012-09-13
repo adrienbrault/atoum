@@ -6,4 +6,4 @@ use
 	mageekguy\atoum
 ;
 
-class invalidArgument extends \invalidArgumentException implements atoum\exception {}
+class invalidArgument extends \invalidArgumentException implements atoum\Exception {}

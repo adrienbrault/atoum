@@ -9,7 +9,7 @@ use
 
 require __DIR__ . '/../../runner.php';
 
-class exception extends atoum\test
+class Exception extends atoum\test
 {
 	public function testClass()
 	{

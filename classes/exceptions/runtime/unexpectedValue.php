@@ -6,4 +6,4 @@ use
 	mageekguy\atoum
 ;
 
-class unexpectedValue extends \unexpectedValueException implements atoum\exception {}
+class unexpectedValue extends \unexpectedValueException implements atoum\Exception {}

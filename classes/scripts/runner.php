@@ -162,7 +162,7 @@ class runner extends atoum\script
 				}
 			}
 		}
-		catch (atoum\exception $exception)
+		catch (atoum\Exception $exception)
 		{
 			$this->writeError($exception->getMessage());
 
@@ -200,9 +200,9 @@ class runner extends atoum\script
 		{
 			$this->includer->includePath($path, function($path) use ($script, $runner) { include_once($path); });
 		}
-		catch (atoum\includer\exception $exception)
+		catch (atoum\includer\Exception $exception)
 		{
-			throw new atoum\includer\exception(sprintf($this->getLocale()->_('Unable to find configuration file \'%s\''), $path));
+			throw new atoum\includer\Exception(sprintf($this->getLocale()->_('Unable to find configuration file \'%s\''), $path));
 		}
 
 		return $this;
@@ -221,7 +221,7 @@ class runner extends atoum\script
 			{
 				$this->useConfigFile($directory . self::defaultConfigFile);
 			}
-			catch (atoum\includer\exception $exception) {}
+			catch (atoum\includer\Exception $exception) {}
 		}
 
 		return $this;
@@ -404,7 +404,7 @@ class runner extends atoum\script
 							{
 								$script->useConfigFile($path);
 							}
-							catch (includer\exception $exception)
+							catch (includer\Exception $exception)
 							{
 								throw new exceptions\logic\invalidArgument(sprintf($script->getLocale()->_('Configuration file \'%s\' does not exist'), $path));
 							}

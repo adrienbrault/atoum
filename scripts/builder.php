@@ -22,7 +22,7 @@ try
 {
 	$builder->run();
 }
-catch (\exception $exception)
+catch (\Exception $exception)
 {
 	$builder->writeError(sprintf($builder->getLocale()->_('Exception: %s'), $exception->getMessage()));
 	exit($exception->getCode());

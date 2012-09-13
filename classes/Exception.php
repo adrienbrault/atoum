@@ -2,4 +2,4 @@
 
 namespace mageekguy\atoum;
 
-interface exception {}
+interface Exception {}

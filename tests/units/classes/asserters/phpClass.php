@@ -88,7 +88,7 @@ class phpClass extends atoum\test
 			->and($class = uniqid())
 			->then
 				->exception(function() use ($asserter, $class) { $asserter->setWith($class); })
-					->isInstanceOf('mageekguy\atoum\asserter\exception')
+					->isInstanceOf('mageekguy\atoum\asserter\Exception')
 					->hasMessage(sprintf($generator->getLocale()->_('Class \'%s\' does not exist'), $class))
 			->if($asserter = new asserters\phpClass($generator = new asserter\Generator()))
 			->then
@@ -118,7 +118,7 @@ class phpClass extends atoum\test
 			->and($mockController->getParentClass = function() use ($parent, $parentMockController) { return new \mock\reflectionClass($parent, $parentMockController); })
 			->then
 				->exception(function() use ($asserter, $parent) { $asserter->hasParent($parent); })
-					->isInstanceOf('mageekguy\atoum\asserter\exception')
+					->isInstanceOf('mageekguy\atoum\asserter\Exception')
 					->hasMessage(sprintf($generator->getLocale()->_('%s is not the parent of class %s'), $parent, $class))
 			->if($parentMockController->getName = function() use ($parent) { return $parent; })
 			->then
@@ -149,7 +149,7 @@ class phpClass extends atoum\test
 			->and($reflectionClass->getMockController()->getParentClass = function() use ($parentClass) { return $parentClass; })
 			->then
 				->exception(function() use ($asserter) { $asserter->hasNoParent(); })
-					->isInstanceOf('mageekguy\atoum\asserter\exception')
+					->isInstanceOf('mageekguy\atoum\asserter\Exception')
 					->hasMessage(sprintf($generator->getLocale()->_('class %s has parent %s'), $className, $parentClass))
 		;
 	}
@@ -174,7 +174,7 @@ class phpClass extends atoum\test
 			->and($mockController->isSubclassOf = false)
 			->then
 				->exception(function() use ($asserter, $parentClass) { $asserter->isSubclassOf($parentClass); })
-					->isInstanceOf('mageekguy\atoum\asserter\exception')
+					->isInstanceOf('mageekguy\atoum\asserter\Exception')
 					->hasMessage(sprintf($generator->getLocale()->_('Class %s is not a sub-class of %s'), $class, $parentClass))
 			->if($mockController->isSubclassOf = true)
 			->then
@@ -202,7 +202,7 @@ class phpClass extends atoum\test
 			->and($mockController->implementsInterface = false)
 			->then
 				->exception(function() use ($asserter, $interface) { $asserter->hasInterface($interface); })
-					->isInstanceOf('mageekguy\atoum\asserter\exception')
+					->isInstanceOf('mageekguy\atoum\asserter\Exception')
 					->hasMessage(sprintf($generator->getLocale()->_('Class %s does not implement interface %s'), $class, $interface))
 			->if($mockController->implementsInterface = true)
 			->then
@@ -229,7 +229,7 @@ class phpClass extends atoum\test
 			->and($mockController->isAbstract = false)
 			->then
 				->exception(function() use ($asserter) { $asserter->isAbstract(); })
-					->isInstanceOf('mageekguy\atoum\asserter\exception')
+					->isInstanceOf('mageekguy\atoum\asserter\Exception')
 					->hasMessage(sprintf($generator->getLocale()->_('Class %s is not abstract'), $class))
 			->if($mockController->isAbstract = true)
 			->then
@@ -257,7 +257,7 @@ class phpClass extends atoum\test
 			)
 			->then
 				->exception(function() use ($asserter, $method) { $asserter->hasMethod($method); })
-					->isInstanceOf('mageekguy\atoum\asserter\exception')
+					->isInstanceOf('mageekguy\atoum\asserter\Exception')
 					->hasMessage(sprintf($generator->getLocale()->_('Method %s::%s() does not exist'), $class, $method))
 			->if($reflectionClassController->hasMethod = true)
 			->then

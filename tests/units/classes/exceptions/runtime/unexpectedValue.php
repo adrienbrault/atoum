@@ -19,7 +19,7 @@ class unexpectedValue extends atoum\test
 			->object($unexpectedValueException)
 				->isInstanceOf('runtimeException')
 				->isInstanceOf('unexpectedValueException')
-				->isInstanceOf('mageekguy\atoum\exception')
+				->isInstanceOf('mageekguy\atoum\Exception')
 		;
 	}
 }

@@ -5,7 +5,7 @@ namespace mageekguy\atoum\tests\units\reports\asynchronous;
 use
 	mageekguy\atoum,
 	mageekguy\atoum\report,
-	ageekguy\atoum\asserter\exception,
+	ageekguy\atoum\asserter\Exception,
 	mageekguy\atoum\reports\asynchronous as reports
 ;
 

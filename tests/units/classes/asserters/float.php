@@ -35,7 +35,7 @@ class float extends atoum\test
 		$this
 			->if($asserter = new asserters\float($generator = new asserter\Generator()))
 			->exception(function() use (& $line, $asserter, & $value) { $line = __LINE__; $asserter->setWith($value = uniqid()); })
-				->isInstanceOf('mageekguy\atoum\asserter\exception')
+				->isInstanceOf('mageekguy\atoum\asserter\Exception')
 				->hasMessage(sprintf($generator->getLocale()->_('%s is not a float'), $asserter->getTypeOf($value)))
 			->string($asserter->getValue())->isEqualTo($value)
 			->object($asserter->setWith($value = (float) rand(- PHP_INT_MAX, PHP_INT_MAX)))->isIdenticalTo($asserter)
@@ -57,7 +57,7 @@ class float extends atoum\test
 			->and($diff->setReference(- $value)->setData($value))
 			->then
 				->exception(function() use ($asserter, $value) { $asserter->isEqualTo(- $value); })
-					->isInstanceOf('mageekguy\atoum\asserter\exception')
+					->isInstanceOf('mageekguy\atoum\asserter\Exception')
 					->hasMessage(sprintf($generator->getLocale()->_('%s is not equal to %s'), $asserter, $asserter->getTypeOf(- $value)) . PHP_EOL . $diff)
 		;
 	}
@@ -79,7 +79,7 @@ class float extends atoum\test
 					->and($diff->setReference($testValue)->setData($value))
 					->then
 						->exception(function() use ($asserter, $testValue, $epsilon) { $asserter->isNearlyEqualTo($testValue, $epsilon); })
-							->isInstanceOf('mageekguy\atoum\asserter\exception')
+							->isInstanceOf('mageekguy\atoum\asserter\Exception')
 							->hasMessage(sprintf($generator->getLocale()->_('%s is not nearly equal to %s with epsilon %s'), $asserter, $asserter->getTypeOf($testValue), $epsilon) . PHP_EOL . $diff);
 			}
 

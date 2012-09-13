@@ -25,7 +25,7 @@ class score extends atoum\score
 		return parent::addFail($file, $class, $method, $line, $asserter, $reason, $case ?: $this->case, $dataSetKey ?: $this->dataSetKey, $dataSetProvider ?: $this->dataSetProvider);
 	}
 
-	public function addException($file, $class, $method, $line, \exception $exception, $case = null, $dataSetKey = null, $dataSetProvider = null)
+	public function addException($file, $class, $method, $line, \Exception $exception, $case = null, $dataSetKey = null, $dataSetProvider = null)
 	{
 		return parent::addException($file, $class, $method, $line, $exception, $case ?: $this->case, $dataSetKey ?: $this->dataSetKey, $dataSetProvider ?: $this->dataSetProvider);
 	}

@@ -6,4 +6,4 @@ use
 	mageekguy\atoum
 ;
 
-class exception extends \exception implements atoum\exception {}
+class Exception extends \Exception implements atoum\Exception {}

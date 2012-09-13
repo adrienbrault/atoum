@@ -126,9 +126,9 @@ class parser implements atoum\adapter\Aggregator
 						{
 							$child->setAttribute($attribute, $attributes[2][$index]);
 						}
-						catch (\exception $exception)
+						catch (\Exception $exception)
 						{
-							throw new parser\exception($exception->getMessage(), $line, $offset, $exception);
+							throw new parser\Exception($exception->getMessage(), $line, $offset, $exception);
 						}
 					}
 				}
@@ -145,7 +145,7 @@ class parser implements atoum\adapter\Aggregator
 
 				if ($stackedTemplateTag === null || $stackedTemplateTag->getTag() != $tag[2][0])
 				{
-					throw new parser\exception('Tag \'' . $tag[2][0] . '\' is not open', $line, $offset);
+					throw new parser\Exception('Tag \'' . $tag[2][0] . '\' is not open', $line, $offset);
 				}
 				else
 				{
@@ -168,7 +168,7 @@ class parser implements atoum\adapter\Aggregator
 
 		if (sizeof($stack) > 0)
 		{
-			throw new parser\exception('Tag \'' . $currentTag->getTag() . '\' must be closed', $line, $offset + strlen($string));
+			throw new parser\Exception('Tag \'' . $currentTag->getTag() . '\' must be closed', $line, $offset + strlen($string));
 		}
 
 		return $this;

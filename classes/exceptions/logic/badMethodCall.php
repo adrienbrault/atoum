@@ -6,4 +6,4 @@ use
 	mageekguy\atoum
 ;
 
-class badMethodCall extends \badMethodCallException implements atoum\exception {}
+class badMethodCall extends \badMethodCallException implements atoum\Exception {}

@@ -58,7 +58,7 @@ class phpClass extends atoum\asserter
 		{
 			$this->class = $this->getReflectionClass($class);
 		}
-		catch (\exception $exception)
+		catch (\Exception $exception)
 		{
 			$this->fail(sprintf($this->getLocale()->_('Class \'%s\' does not exist'), $class));
 		}

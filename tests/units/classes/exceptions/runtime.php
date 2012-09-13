@@ -18,7 +18,7 @@ class runtime extends atoum\test
 		$this->assert
 			->object($runtimeExcepion)
 				->isInstanceOf('runtimeException')
-				->isInstanceOf('mageekguy\atoum\exception')
+				->isInstanceOf('mageekguy\atoum\Exception')
 		;
 	}
 }

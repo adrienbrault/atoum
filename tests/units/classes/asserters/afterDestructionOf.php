@@ -41,7 +41,7 @@ class afterDestructionOf extends atoum\test
 			->and($value = uniqid())
 			->then
 				->exception(function() use (& $line, $asserter, $value) { $line = __LINE__; $asserter->setWith($value); })
-					->isInstanceOf('mageekguy\atoum\asserter\exception')
+					->isInstanceOf('mageekguy\atoum\asserter\Exception')
 					->hasMessage(sprintf($generator->getLocale()->_('%s is not an object'), $asserter->getTypeOf($value)))
 			->object($asserter->setWith($objectWithDestructor = new \mock\mageekguy\atoum\tests\units\asserters\classWithDestructor()))->isIdenticalTo($asserter)
 				->mock($objectWithDestructor)
@@ -49,7 +49,7 @@ class afterDestructionOf extends atoum\test
 			->if($objectWithoutDestructor = new classWithoutDestructor())
 			->then
 				->exception(function() use (& $otherLine, $asserter, $objectWithoutDestructor) { $otherLine = __LINE__; $asserter->setWith($objectWithoutDestructor); })
-					->isInstanceOf('mageekguy\atoum\asserter\exception')
+					->isInstanceOf('mageekguy\atoum\asserter\Exception')
 					->hasMessage(sprintf($generator->getLocale()->_('Destructor of class %s is undefined'), get_class($objectWithoutDestructor)))
 		;
 	}

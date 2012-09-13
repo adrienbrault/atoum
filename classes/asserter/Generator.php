@@ -70,7 +70,7 @@ class Generator
 
 	public function asserterFail(atoum\asserter $asserter, $reason)
 	{
-		throw new exception($reason);
+		throw new Exception($reason);
 	}
 
 	public function getAsserterClass($asserter)

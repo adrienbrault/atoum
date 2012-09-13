@@ -188,7 +188,7 @@ class coverage implements \countable, \serializable
 					}
 				}
 			}
-			catch (\exception $exception) {}
+			catch (\Exception $exception) {}
 		}
 
 		return $this;

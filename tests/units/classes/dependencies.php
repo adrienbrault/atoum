@@ -31,7 +31,7 @@ class dependencies extends atoum\test
 			->if($dependencies = new testedClass())
 			->then
 				->exception(function() use ($dependencies) { $dependencies(); })
-					->isInstanceOf('mageekguy\atoum\dependencies\exception')
+					->isInstanceOf('mageekguy\atoum\dependencies\Exception')
 					->hasMessage('Value is undefined')
 			->if($dependencies->setValue($value = uniqid()))
 			->then

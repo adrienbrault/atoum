@@ -24,7 +24,7 @@ try
 {
 	$tagger->run();
 }
-catch (\exception $exception)
+catch (\Exception $exception)
 {
 	$tagger->writeError($exception->getMessage());
 

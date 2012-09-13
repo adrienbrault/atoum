@@ -8,7 +8,7 @@ use
 	mageekguy\atoum\tools\diffs
 ;
 
-class exception extends asserters\object
+class Exception extends asserters\object
 {
 	public function setWith($value, $label = null, $check = true)
 	{
@@ -22,7 +22,7 @@ class exception extends asserters\object
 			{
 				$value();
 			}
-			catch (\exception $exception) {}
+			catch (\Exception $exception) {}
 		}
 
 		parent::setWith($exception, $label, false);
@@ -50,9 +50,9 @@ class exception extends asserters\object
 		}
 		catch (\logicException $exception)
 		{
-			if (self::classExists($value) === false || (strtolower(ltrim($value, '\\')) !== 'exception' && is_subclass_of($value, 'exception') === false))
+			if (self::classExists($value) === false || (ucfirst(strtolower(ltrim($value, '\\'))) !== 'Exception' && is_subclass_of($value, 'Exception') === false))
 			{
-				throw new exceptions\logic\invalidArgument('Argument of ' . __METHOD__ . '() must be a \exception instance or an exception class name');
+				throw new exceptions\logic\invalidArgument('Argument of ' . __METHOD__ . '() must be a \Exception instance or an exception class name');
 			}
 		}
 
@@ -95,7 +95,7 @@ class exception extends asserters\object
 		}
 	}
 
-	public function hasNestedException(\exception $exception = null, $failMessage = null)
+	public function hasNestedException(\Exception $exception = null, $failMessage = null)
 	{
 		if ($exception === null)
 		{
@@ -136,6 +136,6 @@ class exception extends asserters\object
 
 	protected static function isException($value)
 	{
-		return (parent::isObject($value) === true && $value instanceof \exception === true);
+		return (parent::isObject($value) === true && $value instanceof \Exception === true);
 	}
 }

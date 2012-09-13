@@ -229,7 +229,7 @@ class html extends atoum\test
 					->call('unlink')->withArguments((string) $file)->once()
 					->call('rmdir')->withArguments((string) $emptyDirectory)->once()
 					->call('rmdir')->withArguments((string) $destinationDirectory)->never()
-			->if($field->getMockController()->getDestinationDirectoryIterator->throw = new \exception())
+			->if($field->getMockController()->getDestinationDirectoryIterator->throw = new \Exception())
 			->then
 				->object($field->cleanDestinationDirectory())->isIdenticalTo($field)
 		;
@@ -556,7 +556,7 @@ class html extends atoum\test
 					->call('fopen')->withArguments($classFile, 'r')->once()
 					->call('fgets')->withArguments($classResource)->atLeastOnce()
 					->call('fclose')->withArguments($classResource)->once()
-			->if($indexTemplateController->build->throw = new \exception($errorMessage = uniqid()))
+			->if($indexTemplateController->build->throw = new \Exception($errorMessage = uniqid()))
 			->then
 				->castToString($field)->isIdenticalTo(sprintf($field->getLocale()->_('Code coverage: %3.2f%%.'),  round($coverageValue * 100, 2)) . PHP_EOL . 'Unable to generate code coverage at ' . $rootUrl . '/: ' . $errorMessage . '.' . PHP_EOL)
 		;

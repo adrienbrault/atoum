@@ -31,7 +31,7 @@ class manager extends atoum\test
 						$assertionManager->{$event = uniqid()};
 					}
 				)
-					->isInstanceOf('mageekguy\atoum\test\assertion\manager\exception')
+					->isInstanceOf('mageekguy\atoum\test\assertion\manager\Exception')
 					->hasMessage('There is no handler defined for event \'' . $event . '\'')
 			->if($assertionManager->setDefaultHandler(function() use (& $defaultReturn) { return ($defaultReturn = uniqid()); }))
 			->then
@@ -51,7 +51,7 @@ class manager extends atoum\test
 						$assertionManager->{$event = uniqid()}();
 					}
 				)
-					->isInstanceOf('mageekguy\atoum\test\assertion\manager\exception')
+					->isInstanceOf('mageekguy\atoum\test\assertion\manager\Exception')
 					->hasMessage('There is no handler defined for event \'' . $event . '\'')
 			->if($assertionManager->setDefaultHandler(function($event, $defaultArg) { return $defaultArg; }))
 			->then
@@ -95,7 +95,7 @@ class manager extends atoum\test
 						$assertionManager->invoke($event = uniqid());
 					}
 				)
-					->isInstanceOf('mageekguy\atoum\test\assertion\manager\exception')
+					->isInstanceOf('mageekguy\atoum\test\assertion\manager\Exception')
 					->hasMessage('There is no handler defined for event \'' . $event . '\'')
 			->if($assertionManager->setDefaultHandler(function($event, $arg) { return $arg; }))
 			->then

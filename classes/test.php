@@ -144,6 +144,7 @@ abstract class test implements observable, adapter\Aggregator, \countable
 			->getAsserterGenerator()
 				->setAlias('array', 'phpArray')
 				->setAlias('class', 'phpClass')
+                ->setAlias('exception', 'Exception')
 		;
 
 		$this->setAssertionManager($this->factory['mageekguy\atoum\test\assertion\manager']());
@@ -794,7 +795,7 @@ abstract class test implements observable, adapter\Aggregator, \countable
 						$this->score->addVoidMethod($this->path, $this->class, $this->currentMethod);
 					}
 				}
-				catch (\exception $exception)
+				catch (\Exception $exception)
 				{
 					foreach ($this->executeOnFailure as $closure)
 					{
@@ -806,7 +807,7 @@ abstract class test implements observable, adapter\Aggregator, \countable
 					throw $exception;
 				}
 			}
-			catch (asserter\exception $exception)
+			catch (asserter\Exception $exception)
 			{
 				if ($this->score->failExists($exception) === false)
 				{
@@ -820,7 +821,7 @@ abstract class test implements observable, adapter\Aggregator, \countable
 			catch (test\exceptions\stop $exception)
 			{
 			}
-			catch (\exception $exception)
+			catch (\Exception $exception)
 			{
 				$this->addExceptionToScore($exception);
 			}
@@ -859,7 +860,7 @@ abstract class test implements observable, adapter\Aggregator, \countable
 			{
 				$this->runEngines();
 			}
-			catch (\exception $exception)
+			catch (\Exception $exception)
 			{
 				$this->stopEngines();
 
@@ -964,7 +965,7 @@ abstract class test implements observable, adapter\Aggregator, \countable
 		return false;
 	}
 
-	protected function addExceptionToScore(\exception $exception)
+	protected function addExceptionToScore(\Exception $exception)
 	{
 		list($file, $line) = $this->getBacktrace($exception->getTrace());
 

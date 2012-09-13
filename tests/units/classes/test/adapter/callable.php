@@ -28,7 +28,7 @@ class invoker extends atoum\test
 			->string($invoker->invoke())->isEqualTo($return)
 		;
 
-		$invoker->throw = $exception = new \exception();
+		$invoker->throw = $exception = new \Exception();
 
 		$this->assert
 			->exception(function() use ($invoker) {

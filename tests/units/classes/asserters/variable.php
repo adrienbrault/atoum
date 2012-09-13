@@ -119,14 +119,14 @@ class variable extends atoum\test
 			->if($diff = new diffs\variable())
 			->then
 				->exception(function() use (& $line, $asserter, & $notEqualValue) { $line = __LINE__; $asserter->isEqualTo($notEqualValue = uniqid()); })
-					->isInstanceOf('mageekguy\atoum\asserter\exception')
+					->isInstanceOf('mageekguy\atoum\asserter\Exception')
 					->hasMessage(sprintf($generator->getLocale()->_('%s is not equal to %s'), $asserter, $asserter->getTypeOf($notEqualValue)) . PHP_EOL . $diff->setReference($notEqualValue)->setData($asserter->getValue()))
 			->if($asserter->setWith(1))
 			->and($otherDiff = new diffs\variable())
 			->then
 				->object($asserter->isEqualTo('1'))->isIdenticalTo($asserter)
 				->exception(function() use (& $otherLine, $asserter, & $otherNotEqualValue, & $otherFailMessage) { $otherLine = __LINE__; $asserter->isEqualTo($otherNotEqualValue = uniqid(), $otherFailMessage = uniqid()); })
-					->isInstanceOf('mageekguy\atoum\asserter\exception')
+					->isInstanceOf('mageekguy\atoum\asserter\Exception')
 					->hasMessage($otherFailMessage . PHP_EOL . $otherDiff->setReference($otherNotEqualValue)->setData($asserter->getValue()))
 		;
 	}
@@ -144,10 +144,10 @@ class variable extends atoum\test
 				->then
 					->object($asserter->isNotEqualTo(uniqid()))->isIdenticalTo($asserter)
 					->exception(function() use ($asserter, $value) { $asserter->isNotEqualTo($value); })
-						->isInstanceOf('mageekguy\atoum\asserter\exception')
+						->isInstanceOf('mageekguy\atoum\asserter\Exception')
 						->hasMessage(sprintf($generator->getLocale()->_('%s is equal to %s'), $asserter, $asserter->getTypeOf($value)))
 					->exception(function() use ($asserter, $value, & $failMessage) { $asserter->isNotEqualTo($value, $failMessage = uniqid()); })
-						->isInstanceOf('mageekguy\atoum\asserter\exception')
+						->isInstanceOf('mageekguy\atoum\asserter\Exception')
 						->hasMessage($failMessage)
 		;
 	}
@@ -167,10 +167,10 @@ class variable extends atoum\test
 			->if($diff = new diffs\variable())
 			->then
 				->exception(function() use ($asserter, & $notIdenticalValue, $value) { $asserter->isIdenticalTo($notIdenticalValue = (string) $value); })
-					->isInstanceOf('mageekguy\atoum\asserter\exception')
+					->isInstanceOf('mageekguy\atoum\asserter\Exception')
 					->hasMessage(sprintf($generator->getLocale()->_('%s is not identical to %s'), $asserter, $asserter->getTypeOf($notIdenticalValue)) . PHP_EOL . $diff->setReference($notIdenticalValue)->setData($asserter->getValue()))
 				->exception(function() use ($asserter, $notIdenticalValue, & $failMessage) { $asserter->isIdenticalTo($notIdenticalValue, $failMessage = uniqid()); })
-					->isInstanceOf('mageekguy\atoum\asserter\exception')
+					->isInstanceOf('mageekguy\atoum\asserter\Exception')
 					->hasMessage($failMessage . PHP_EOL . $diff->setReference($notIdenticalValue)->setData($asserter->getValue()))
 		;
 	}
@@ -188,7 +188,7 @@ class variable extends atoum\test
 			->then
 			->object($asserter->isNotIdenticalTo(uniqid()))->isIdenticalTo($asserter)
 			->exception(function() use ($asserter, & $notIdenticalValue, $value) { $asserter->isNotIdenticalTo($value); })
-				->isInstanceOf('mageekguy\atoum\asserter\exception')
+				->isInstanceOf('mageekguy\atoum\asserter\Exception')
 				->hasMessage(sprintf($generator->getLocale()->_('%s is identical to %s'), $asserter, $asserter->getTypeOf($value)))
 		;
 	}
@@ -208,22 +208,22 @@ class variable extends atoum\test
 			->if($asserter->setWith(''))
 			->then
 				->exception(function() use ($asserter) { $asserter->isNull(); })
-					->isInstanceOf('mageekguy\atoum\asserter\exception')
+					->isInstanceOf('mageekguy\atoum\asserter\Exception')
 					->hasMessage(sprintf($generator->getLocale()->_('%s is not null'), $asserter))
 			->if($asserter->setWith(uniqid()))
 			->then
 				->exception(function() use ($asserter) { $asserter->isNull(); })
-					->isInstanceOf('mageekguy\atoum\asserter\exception')
+					->isInstanceOf('mageekguy\atoum\asserter\Exception')
 					->hasMessage(sprintf($generator->getLocale()->_('%s is not null'), $asserter))
 			->if($asserter->setWith(0))
 			->then
 				->exception(function() use ($asserter) { $asserter->isNull(); })
-					->isInstanceOf('mageekguy\atoum\asserter\exception')
+					->isInstanceOf('mageekguy\atoum\asserter\Exception')
 					->hasMessage(sprintf($generator->getLocale()->_('%s is not null'), $asserter))
 			->if($asserter->setWith(false))
 			->then
 				->exception(function() use ($asserter) { $asserter->isNull(); })
-					->isInstanceOf('mageekguy\atoum\asserter\exception')
+					->isInstanceOf('mageekguy\atoum\asserter\Exception')
 					->hasMessage(sprintf($generator->getLocale()->_('%s is not null'), $asserter))
 		;
 	}
@@ -243,7 +243,7 @@ class variable extends atoum\test
 			->if($asserter->setWith(null))
 			->then
 				->exception(function() use ($asserter) { $asserter->isNotNull(); })
-					->isInstanceOf('mageekguy\atoum\asserter\exception')
+					->isInstanceOf('mageekguy\atoum\asserter\Exception')
 					->hasMessage(sprintf($generator->getLocale()->_('%s is null'), $asserter))
 		;
 	}
@@ -273,19 +273,19 @@ class variable extends atoum\test
 			->if($notReference = uniqid())
 			->then
 				->exception(function() use ($asserter, $notReference) { $asserter->isReferenceTo($notReference); })
-					->isInstanceOf('mageekguy\atoum\asserter\exception')
+					->isInstanceOf('mageekguy\atoum\asserter\Exception')
 					->hasMessage(sprintf($generator->getLocale()->_('%s is not a reference to %s'), $asserter, $asserter->getTypeOf($notReference)))
-			->if($value = new \exception())
+			->if($value = new \Exception())
 			->and($reference = $value)
 			->and($asserter->setByReferenceWith($value))
 			->then
 				->boolean($asserter->wasSet())->isTrue()
 				->boolean($asserter->isSetByReference())->isTrue()
 				->object($asserter->isReferenceTo($reference))->isIdenticalTo($asserter)
-			->if($notReference = new \exception())
+			->if($notReference = new \Exception())
 			->then
 				->exception(function() use ($asserter, $notReference) { $asserter->isReferenceTo($notReference); })
-					->isInstanceOf('mageekguy\atoum\asserter\exception')
+					->isInstanceOf('mageekguy\atoum\asserter\Exception')
 					->hasMessage(sprintf($generator->getLocale()->_('%s is not a reference to %s'), $asserter, $asserter->getTypeOf($notReference)))
 		;
 	}

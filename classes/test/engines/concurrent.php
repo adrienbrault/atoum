@@ -70,7 +70,7 @@ class concurrent extends test\engine
 				$phpCode .=
 					'$includer = new mageekguy\atoum\includer();' .
 					'try { $includer->includePath(\'' . $bootstrapFile . '\'); }' .
-					'catch (mageekguy\atoum\includer\exception $exception)' .
+					'catch (mageekguy\atoum\includer\Exception $exception)' .
 					'{ die(\'Unable to include bootstrap file \\\'' . $bootstrapFile . '\\\'\'); }'
 				;
 			}

@@ -231,7 +231,7 @@ class score
 		return self::$failId;
 	}
 
-	public function addException($file, $class, $method, $line, \exception $exception, $case = null, $dataSetKey = null, $dataSetProvider = null)
+	public function addException($file, $class, $method, $line, \Exception $exception, $case = null, $dataSetKey = null, $dataSetProvider = null)
 	{
 		$this->exceptions[] = array(
 			'case' => $case,
@@ -386,7 +386,7 @@ class score
 		return $this;
 	}
 
-	public function failExists(asserter\exception $exception)
+	public function failExists(asserter\Exception $exception)
 	{
 		$id = $exception->getCode();
 

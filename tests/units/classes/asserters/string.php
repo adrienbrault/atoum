@@ -50,7 +50,7 @@ class string extends atoum\test
 			->if($asserter = new asserters\string($generator = new asserter\Generator()))
 			->then
 				->exception(function() use (& $line, $asserter, & $value) { $line = __LINE__; $asserter->setWith($value = rand(- PHP_INT_MAX, PHP_INT_MAX)); })
-					->isInstanceOf('mageekguy\atoum\asserter\exception')
+					->isInstanceOf('mageekguy\atoum\asserter\Exception')
 					->hasMessage(sprintf($generator->getLocale()->_('%s is not a string'), $asserter->getTypeOf($value)))
 				->integer($asserter->getValue())->isEqualTo($value)
 				->variable($asserter->getCharlist())->isNull()
@@ -76,7 +76,7 @@ class string extends atoum\test
 			->and($diff = new diffs\variable())
 			->then
 				->exception(function() use ($asserter, & $secondString) { $asserter->isEqualTo($secondString = uniqid()); })
-					->isInstanceOf('mageekguy\atoum\asserter\exception')
+					->isInstanceOf('mageekguy\atoum\asserter\Exception')
 					->hasMessage($generator->getLocale()->_('strings are not equals') . PHP_EOL . $diff->setReference($secondString)->setData($firstString))
 			->object($asserter->isEqualTo($firstString))->isIdenticalTo($asserter)
 		;
@@ -95,13 +95,13 @@ class string extends atoum\test
 			->and($adapter->file_get_contents = false)
 			->then
 				->exception(function() use ($asserter, & $path) { $asserter->isEqualToContentsOfFile($path = uniqid()); })
-					->isInstanceOf('mageekguy\atoum\asserter\exception')
+					->isInstanceOf('mageekguy\atoum\asserter\Exception')
 					->hasMessage(sprintf($generator->getLocale()->_('Unable to get contents of file %s'), $path))
 			->if($adapter->file_get_contents = $fileContents = uniqid())
 			->and($diff = new diffs\variable())
 			->then
 				->exception(function() use ($asserter, & $path) { $asserter->isEqualToContentsOfFile($path); })
-					->isInstanceOf('mageekguy\atoum\asserter\exception')
+					->isInstanceOf('mageekguy\atoum\asserter\Exception')
 					->hasMessage(sprintf($generator->getLocale()->_('string is not equals to contents of file %s'), $path) . PHP_EOL . $diff->setReference($fileContents)->setData($firstString))
 			->if($adapter->file_get_contents = $firstString)
 			->then
@@ -121,7 +121,7 @@ class string extends atoum\test
 			->and($diff = new diffs\variable())
 			->then
 				->exception(function() use ($asserter) { $asserter->isEmpty(); })
-					->isInstanceOf('mageekguy\atoum\asserter\exception')
+					->isInstanceOf('mageekguy\atoum\asserter\Exception')
 					->hasMessage($generator->getLocale()->_('strings are not equals') . PHP_EOL . $diff->setReference('')->setData($string))
 			->if($asserter->setWith(''))
 			->then
@@ -141,7 +141,7 @@ class string extends atoum\test
 			->and($diff = new diffs\variable())
 			->then
 				->exception(function() use ($asserter) { $asserter->isNotEmpty(); })
-					->isInstanceOf('mageekguy\atoum\asserter\exception')
+					->isInstanceOf('mageekguy\atoum\asserter\Exception')
 					->hasMessage($generator->getLocale()->_('string is empty'))
 			->if($asserter->setWith($string = uniqid()))
 			->then
@@ -161,7 +161,7 @@ class string extends atoum\test
 			->and($diff = new diffs\variable())
 			->then
 				->exception(function() use ($asserter, & $requiredLength) { $asserter->hasLength($requiredLength = rand(1, PHP_INT_MAX)); })
-					->isInstanceOf('mageekguy\atoum\asserter\exception')
+					->isInstanceOf('mageekguy\atoum\asserter\Exception')
 					->hasMessage(sprintf($generator->getLocale()->_('length of %s is not %d'), $asserter->getTypeOf(''), $requiredLength))
 				->object($asserter->hasLength(0))->isIdenticalTo($asserter)
 			->if($asserter->setWith($string = uniqid()))
@@ -182,14 +182,14 @@ class string extends atoum\test
 			->and($diff = new diffs\variable())
 			->then
 				->exception(function() use ($asserter, & $fragment) { $asserter->contains($fragment = uniqid()); })
-					->isInstanceOf('mageekguy\atoum\asserter\exception')
+					->isInstanceOf('mageekguy\atoum\asserter\Exception')
 					->hasMessage(sprintf($this->getLocale()->_('String does not contain %s'), $fragment))
 				->object($asserter->contains($string))->isIdenticalTo($asserter)
 			->if($asserter->setWith(uniqid() . $string . uniqid()))
 			->then
 				->object($asserter->contains($string))->isIdenticalTo($asserter)
 				->exception(function() use ($asserter, $string, & $fragment) { $asserter->contains($fragment = strtoupper($string)); })
-					->isInstanceOf('mageekguy\atoum\asserter\exception')
+					->isInstanceOf('mageekguy\atoum\asserter\Exception')
 					->hasMessage(sprintf($this->getLocale()->_('String does not contain %s'), $fragment))
 		;
 	}

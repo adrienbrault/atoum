@@ -120,7 +120,7 @@ class controller extends test\adapter
 					{
 						return ($value->getPrototype()->getName() != __NAMESPACE__ . '\Aggregator');
 					}
-					catch (\exception $exception)
+					catch (\Exception $exception)
 					{
 						return true;
 					}

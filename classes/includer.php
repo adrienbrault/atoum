@@ -31,7 +31,7 @@ class includer
 
 			if (in_array($realpath, get_included_files(), true) === false)
 			{
-				throw new includer\exception('Unable to include \'' . $path . '\'');
+				throw new includer\Exception('Unable to include \'' . $path . '\'');
 			}
 			else if ($errorHandler !== null)
 			{

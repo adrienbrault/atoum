@@ -18,7 +18,7 @@ class logic extends atoum\test
 		$this->assert
 			->object($logicExcepion)
 				->isInstanceOf('logicException')
-				->isInstanceOf('mageekguy\atoum\exception')
+				->isInstanceOf('mageekguy\atoum\Exception')
 		;
 	}
 }

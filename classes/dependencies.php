@@ -24,7 +24,7 @@ class dependencies implements \arrayAccess
 	{
 		if ($this->value === null)
 		{
-			throw new dependencies\exception('Value is undefined');
+			throw new dependencies\Exception('Value is undefined');
 		}
 
 		foreach ($dependencies as $name => $value)

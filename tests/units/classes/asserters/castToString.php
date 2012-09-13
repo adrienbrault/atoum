@@ -36,16 +36,16 @@ class castToString extends atoum\test
 			->then
 				->assert('Set the asserter with something else than an object throw an exception')
 					->exception(function() use (& $line, $asserter, & $value) { $line = __LINE__; $asserter->setWith($value = rand(- PHP_INT_MAX, PHP_INT_MAX)); })
-						->isInstanceOf('mageekguy\atoum\asserter\exception')
+						->isInstanceOf('mageekguy\atoum\asserter\Exception')
 						->hasMessage(sprintf($generator->getLocale()->_('%s is not an object'), $asserter->getTypeOf($value)))
 					->integer($asserter->getValue())->isEqualTo($value)
 					->variable($asserter->getCharlist())->isNull()
 				->assert('The asserter was returned when it set with an object')
-					->object($asserter->setWith($object = new \exception()))->isIdenticalTo($asserter)
+					->object($asserter->setWith($object = new \Exception()))->isIdenticalTo($asserter)
 					->string($asserter->getValue())->isEqualTo((string) $object)
 					->variable($asserter->getCharlist())->isNull()
 				->assert('It is possible to define a character list')
-					->object($asserter->setWith($object = new \exception, null, $charlist = "\010"))->isIdenticalTo($asserter)
+					->object($asserter->setWith($object = new \Exception, null, $charlist = "\010"))->isIdenticalTo($asserter)
 					->string($asserter->getValue())->isEqualTo((string) $object)
 					->string($asserter->getCharlist())->isEqualTo($charlist)
 		;
@@ -55,7 +55,7 @@ class castToString extends atoum\test
 	{
 		$this
 			->if($asserter = new asserters\castToString(new asserter\Generator()))
-			->and($asserter->setWith($object = new \exception()))
+			->and($asserter->setWith($object = new \Exception()))
 			->then
 				->castToString($asserter)->isEqualTo('string(' . strlen(($string = (string) $object)) . ') \'' . $string . '\'')
 		;

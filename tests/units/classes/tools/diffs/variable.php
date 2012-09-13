@@ -51,7 +51,7 @@ class variable extends atoum\test
 		{
 			$diff->make();
 		}
-		catch (\exception $exception) {}
+		catch (\Exception $exception) {}
 
 		$this->assert
 			->exception($exception)
@@ -65,7 +65,7 @@ class variable extends atoum\test
 		{
 			$diff->make();
 		}
-		catch (\exception $exception) {}
+		catch (\Exception $exception) {}
 
 		$this->assert
 			->exception($exception)

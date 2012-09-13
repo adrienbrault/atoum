@@ -6,4 +6,4 @@ use
 	mageekguy\atoum
 ;
 
-class logic extends \logicException implements atoum\exception {}
+class logic extends \logicException implements atoum\Exception {}

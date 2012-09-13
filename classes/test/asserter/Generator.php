@@ -68,7 +68,7 @@ class Generator extends asserter\Generator
 			}
 		}
 
-		throw new asserter\exception($reason, $this->test->getScore()->addFail($file, $class, $method, $line, get_class($asserter) . ($function ? '::' . $function : '') . '()', $reason));
+		throw new asserter\Exception($reason, $this->test->getScore()->addFail($file, $class, $method, $line, get_class($asserter) . ($function ? '::' . $function : '') . '()', $reason));
 	}
 
 	public function getAsserterInstance($asserter, array $arguments = array())

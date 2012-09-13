@@ -44,7 +44,7 @@ class score extends atoum\test
 		$this
 			->if($score = new atoum\score())
 			->then
-				->object($score->addException($file = uniqid(), $class = uniqid(), $method = uniqid(), $line = rand(1, PHP_INT_MAX), $exception = new \exception()))->isIdenticalTo($score)
+				->object($score->addException($file = uniqid(), $class = uniqid(), $method = uniqid(), $line = rand(1, PHP_INT_MAX), $exception = new \Exception()))->isIdenticalTo($score)
 				->array($score->getExceptions())->isEqualTo(array(
 						array(
 							'case' => null,
@@ -59,7 +59,7 @@ class score extends atoum\test
 					)
 				)
 				->integer($score->getExceptionNumber())->isEqualTo(1)
-				->object($score->addException($otherFile = uniqid(), $otherClass = uniqid(), $otherMethod = uniqid(), $otherLine = rand(1, PHP_INT_MAX), $otherException = new \exception()))->isIdenticalTo($score)
+				->object($score->addException($otherFile = uniqid(), $otherClass = uniqid(), $otherMethod = uniqid(), $otherLine = rand(1, PHP_INT_MAX), $otherException = new \Exception()))->isIdenticalTo($score)
 					->array($score->getExceptions())->isEqualTo(array(
 						array(
 							'case' => null,
@@ -553,10 +553,10 @@ class score extends atoum\test
 			->if($score = new atoum\score())
 			->then
 				->integer($score->getExceptionNumber())->isZero()
-			->if($score->addException(uniqid(), uniqid(), uniqid(), rand(1, PHP_INT_MAX), new \exception()))
+			->if($score->addException(uniqid(), uniqid(), uniqid(), rand(1, PHP_INT_MAX), new \Exception()))
 			->then
 				->integer($score->getExceptionNumber())->isEqualTo(1)
-			->if($score->addException(uniqid(), uniqid(), uniqid(), rand(1, PHP_INT_MAX), new \exception()))
+			->if($score->addException(uniqid(), uniqid(), uniqid(), rand(1, PHP_INT_MAX), new \Exception()))
 			->then
 				->integer($score->getExceptionNumber())->isEqualTo(2)
 		;
@@ -680,13 +680,13 @@ class score extends atoum\test
 			->if($score = new atoum\score())
 			->then
 				->array($score->getMethodsWithError())->isEmpty()
-			->if($score->addException(uniqid(), $class = uniqid(), $classMethod = uniqid(), rand(1, PHP_INT_MAX), new \exception()))
+			->if($score->addException(uniqid(), $class = uniqid(), $classMethod = uniqid(), rand(1, PHP_INT_MAX), new \Exception()))
 			->then
 				->array($score->getMethodsWithException())->isEqualTo(array($class => array($classMethod)))
-			->if($score->addException(uniqid(), $class, $classOtherMethod = uniqid(), rand(1, PHP_INT_MAX), new \exception()))
+			->if($score->addException(uniqid(), $class, $classOtherMethod = uniqid(), rand(1, PHP_INT_MAX), new \Exception()))
 			->then
 				->array($score->getMethodsWithException())->isEqualTo(array($class => array($classMethod, $classOtherMethod)))
-			->if($score->addException(uniqid(), $otherClass = uniqid(), $otherClassMethod = uniqid(), rand(1, PHP_INT_MAX), new \exception()))
+			->if($score->addException(uniqid(), $otherClass = uniqid(), $otherClassMethod = uniqid(), rand(1, PHP_INT_MAX), new \Exception()))
 			->then
 				->array($score->getMethodsWithException())->isEqualTo(array(
 						$class => array($classMethod, $classOtherMethod),
@@ -722,7 +722,7 @@ class score extends atoum\test
 				->array($score->getUncompletedMethods())->isEmpty()
 			->if($score
 				->addPass()
-				->addException(uniqid(), rand(1, PHP_INT_MAX), uniqid(), uniqid(), new \exception())
+				->addException(uniqid(), rand(1, PHP_INT_MAX), uniqid(), uniqid(), new \Exception())
 				->addRuntimeException(uniqid(), uniqid(), uniqid(), new atoum\exceptions\runtime())
 				->addError(uniqid(), uniqid(), uniqid(), rand(1, PHP_INT_MAX), E_ERROR, uniqid(), uniqid(), rand(1, PHP_INT_MAX))
 				->addOutput(uniqid(), uniqid(), uniqid(), uniqid())
@@ -772,7 +772,7 @@ class score extends atoum\test
 				->array($score->getUncompletedMethods())->isEmpty()
 			->if($score->addPass())
 			->and($score->addFail(uniqid(), uniqid(), uniqid(), rand(1, PHP_INT_MAX), new atoum\asserters\integer(new atoum\asserter\Generator()), uniqid()))
-			->and($score->addException(uniqid(), uniqid(), uniqid(), rand(1, PHP_INT_MAX), new \exception()))
+			->and($score->addException(uniqid(), uniqid(), uniqid(), rand(1, PHP_INT_MAX), new \Exception()))
 			->and($score->addRuntimeException(uniqid(), uniqid(), uniqid(), new atoum\exceptions\runtime()))
 			->and($score->addError(uniqid(), uniqid(), uniqid(), rand(1, PHP_INT_MAX), E_ERROR, uniqid(), uniqid(), rand(1, PHP_INT_MAX)))
 			->and($score->addOutput(uniqid(), uniqid(), uniqid(), uniqid()))
@@ -791,7 +791,7 @@ class score extends atoum\test
 				->integer($score->getUncompletedMethodNumber())->isEqualTo(1)
 			->if($otherScore->addPass())
 			->and($otherScore->addFail(uniqid(), uniqid(), uniqid(), rand(1, PHP_INT_MAX), new atoum\asserters\integer(new atoum\asserter\Generator()), uniqid()))
-			->and($otherScore->addException(uniqid(), uniqid(), uniqid(), rand(1, PHP_INT_MAX), new \exception()))
+			->and($otherScore->addException(uniqid(), uniqid(), uniqid(), rand(1, PHP_INT_MAX), new \Exception()))
 			->and($otherScore->addRuntimeException(uniqid(), uniqid(), uniqid(), new atoum\exceptions\runtime()))
 			->and($otherScore->addError(uniqid(), uniqid(), uniqid(), rand(1, PHP_INT_MAX), E_ERROR, uniqid(), uniqid(), rand(1, PHP_INT_MAX)))
 			->and($otherScore->addOutput(uniqid(), uniqid(), uniqid(), uniqid()))

@@ -42,7 +42,7 @@ class adapter extends atoum\test
 			->then
 				->assert('Set the asserter with something else than an adapter throw an exception')
 					->exception(function() use ($asserter, & $value) { $asserter->setWith($value = uniqid()); })
-						->isInstanceOf('mageekguy\atoum\asserter\exception')
+						->isInstanceOf('mageekguy\atoum\asserter\Exception')
 						->hasMessage(sprintf($generator->getLocale()->_('%s is not a test adapter'), $asserter->getTypeOf($value)))
 					->string($asserter->getAdapter())->isEqualTo($value)
 				->assert('It is possible to set the asserter with an adapter')
@@ -330,7 +330,7 @@ class adapter extends atoum\test
 					->hasMessage('Called function is undefined')
 			->if($asserter->call('md5'))
 				->exception(function() use (& $line, $asserter) { $line = __LINE__; $asserter->once(); })
-					->isInstanceOf('mageekguy\atoum\asserter\exception')
+					->isInstanceOf('mageekguy\atoum\asserter\Exception')
 					->hasMessage(sprintf($generator->getLocale()->_('function %s is called 0 time instead of 1'), $asserter->getCall()))
 			->if($call = new php\call('md5'))
 			->and($adapter->md5($firstArgument = uniqid()))
@@ -339,7 +339,7 @@ class adapter extends atoum\test
 			->if($adapter->md5($secondArgument = uniqid()))
 			->then
 				->exception(function() use (& $otherLine, $asserter) { $otherLine = __LINE__; $asserter->once(); })
-					->isInstanceOf('mageekguy\atoum\asserter\exception')
+					->isInstanceOf('mageekguy\atoum\asserter\Exception')
 					->hasMessage(sprintf($generator->getLocale()->_('function %s is called 2 times instead of 1'), $asserter->getCall()) . PHP_EOL . '[1] ' . $call->setArguments(array($firstArgument)) . PHP_EOL . '[2] ' . $call->setArguments(array($secondArgument)))
 			->if($adapter->resetCalls())
 			->and($asserter->withArguments($arg = uniqid()))
@@ -349,7 +349,7 @@ class adapter extends atoum\test
 			->if($asserter->withArguments(uniqid()))
 			->then
 				->exception(function() use (& $line, $asserter) { $line = __LINE__; $asserter->once(); })
-					->isInstanceOf('mageekguy\atoum\asserter\exception')
+					->isInstanceOf('mageekguy\atoum\asserter\Exception')
 					->hasMessage(sprintf($generator->getLocale()->_('function %s is called 0 time instead of 1'), $asserter->getCall()) . PHP_EOL . '[1] ' . $call->setArguments(array($arg)))
 		;
 	}
@@ -370,7 +370,7 @@ class adapter extends atoum\test
 			->if($asserter->call('md5'))
 			->then
 				->exception(function() use (& $line, $asserter) { $line = __LINE__; $asserter->atLeastOnce(); })
-					->isInstanceOf('mageekguy\atoum\asserter\exception')
+					->isInstanceOf('mageekguy\atoum\asserter\Exception')
 					->hasMessage(sprintf($generator->getLocale()->_('function %s is called 0 time'), $asserter->getCall()))
 			->if($adapter->md5(uniqid()))
 			->then
@@ -382,7 +382,7 @@ class adapter extends atoum\test
 			->and($asserter->withArguments($arg = uniqid()))
 			->then
 				->exception(function() use (& $line, $asserter) { $line = __LINE__; $asserter->atLeastOnce(); })
-					->isInstanceOf('mageekguy\atoum\asserter\exception')
+					->isInstanceOf('mageekguy\atoum\asserter\Exception')
 					->hasMessage(sprintf($generator->getLocale()->_('function %s is called 0 time'), $asserter->getCall()))
 			->if($call = new php\call('md5'))
 			->and($adapter->md5($arg))
@@ -391,7 +391,7 @@ class adapter extends atoum\test
 			->if($asserter->withArguments(uniqid()))
 			->then
 				->exception(function() use (& $otherLine, $asserter) { $otherLine = __LINE__; $asserter->atLeastOnce(); })
-					->isInstanceOf('mageekguy\atoum\asserter\exception')
+					->isInstanceOf('mageekguy\atoum\asserter\Exception')
 					->hasMessage(sprintf($generator->getLocale()->_('function %s is called 0 time'), $asserter->getCall()) . PHP_EOL . '[1] ' . $call->setArguments(array($arg)))
 		;
 	}
@@ -412,13 +412,13 @@ class adapter extends atoum\test
 			->if($asserter->call('md5'))
 			->then
 				->exception(function() use (& $line, $asserter) { $line = __LINE__; $asserter->exactly(2); })
-					->isInstanceOf('mageekguy\atoum\asserter\exception')
+					->isInstanceOf('mageekguy\atoum\asserter\Exception')
 					->hasMessage(sprintf($generator->getLocale()->_('function %s is called 0 time instead of 2'), $asserter->getCall()))
 			->if($call = new php\call('md5'))
 			->and($adapter->md5($arg = uniqid()))
 			->then
 				->exception(function() use (& $otherLine, $asserter) { $otherLine = __LINE__; $asserter->exactly(2); })
-					->isInstanceOf('mageekguy\atoum\asserter\exception')
+					->isInstanceOf('mageekguy\atoum\asserter\Exception')
 					->hasMessage(sprintf($generator->getLocale()->_('function %s is called 1 time instead of 2'), $asserter->getCall()) . PHP_EOL . '[1] ' . $call->setArguments(array($arg)))
 			->if($adapter->md5($otherArg = uniqid()))
 			->then
@@ -426,23 +426,23 @@ class adapter extends atoum\test
 			->if($adapter->md5($anOtherArg = uniqid()))
 			->then
 				->exception(function() use (& $anotherLine, $asserter) { $anotherLine = __LINE__; $asserter->exactly(2); })
-					->isInstanceOf('mageekguy\atoum\asserter\exception')
+					->isInstanceOf('mageekguy\atoum\asserter\Exception')
 					->hasMessage(sprintf($generator->getLocale()->_('function %s is called 3 times instead of 2'), $asserter->getCall()) . PHP_EOL . '[1] ' . $call->setArguments(array($arg)) . PHP_EOL . '[2] ' . $call->setArguments(array($otherArg)) . PHP_EOL . '[3] ' . $call->setArguments(array($anOtherArg)))
 			->if($adapter->resetCalls())
 			->and($asserter->withArguments($arg = uniqid()))
 			->then
 				->exception(function() use (& $line, $asserter) { $line = __LINE__; $asserter->exactly(2); })
-					->isInstanceOf('mageekguy\atoum\asserter\exception')
+					->isInstanceOf('mageekguy\atoum\asserter\Exception')
 					->hasMessage(sprintf($generator->getLocale()->_('function %s is called 0 time instead of 2'), $asserter->getCall()))
 			->if($adapter->md5($usedArg = uniqid()))
 			->then
 				->exception(function() use (& $otherLine, $asserter) { $otherLine = __LINE__; $asserter->exactly(2); })
-					->isInstanceOf('mageekguy\atoum\asserter\exception')
+					->isInstanceOf('mageekguy\atoum\asserter\Exception')
 					->hasMessage(sprintf($generator->getLocale()->_('function %s is called 0 time instead of 2'), $asserter->getCall()) . PHP_EOL . '[1] ' . $call->setArguments(array($usedArg)))
 			->if($adapter->md5($arg))
 			->then
 				->exception(function() use (& $anotherLine, $asserter) { $anotherLine = __LINE__; $asserter->exactly(2); })
-					->isInstanceOf('mageekguy\atoum\asserter\exception')
+					->isInstanceOf('mageekguy\atoum\asserter\Exception')
 					->hasMessage(sprintf($generator->getLocale()->_('function %s is called 1 time instead of 2'), $asserter->getCall()) . PHP_EOL . '[1] ' . $call->setArguments(array($usedArg)) . PHP_EOL . '[2] ' . $call->setArguments(array($arg)))
 			->if($adapter->md5($arg))
 			->then
@@ -450,7 +450,7 @@ class adapter extends atoum\test
 			->if($adapter->md5($arg))
 			->then
 				->exception(function() use (& $anAnotherLine, $asserter) { $anAnotherLine = __LINE__; $asserter->exactly(2); })
-					->isInstanceOf('mageekguy\atoum\asserter\exception')
+					->isInstanceOf('mageekguy\atoum\asserter\Exception')
 					->hasMessage(sprintf($generator->getLocale()->_('function %s is called 3 times instead of 2'), $asserter->getCall()) . PHP_EOL . '[1] ' . $call->setArguments(array($usedArg)) . PHP_EOL . '[2] ' . $call->setArguments(array($arg)) . PHP_EOL . '[3] ' . $call->setArguments(array($arg))  . PHP_EOL . '[4] ' . $call->setArguments(array($arg)))
 		;
 	}
@@ -475,7 +475,7 @@ class adapter extends atoum\test
 			->if($adapter->md5($usedArg = uniqid()))
 			->then
 					->exception(function() use (& $line, $asserter) { $line = __LINE__; $asserter->never(); })
-						->isInstanceOf('mageekguy\atoum\asserter\exception')
+						->isInstanceOf('mageekguy\atoum\asserter\Exception')
 						->hasMessage(sprintf($generator->getLocale()->_('function %s is called 1 time instead of 0'), $asserter->getCall()) . PHP_EOL . '[1] ' . $call->setArguments(array($usedArg)))
 			->if($adapter->resetCalls())
 			->and($asserter->withArguments($arg = uniqid()))
@@ -484,12 +484,12 @@ class adapter extends atoum\test
 			->if($adapter->md5($arg))
 			->then
 				->exception(function() use (& $line, $asserter) { $line = __LINE__; $asserter->never(); })
-					->isInstanceOf('mageekguy\atoum\asserter\exception')
+					->isInstanceOf('mageekguy\atoum\asserter\Exception')
 					->hasMessage(sprintf($generator->getLocale()->_('function %s is called 1 time instead of 0'), $asserter->getCall()) . PHP_EOL . '[1] ' . $call->setArguments(array($arg)))
 			->if($adapter->md5($arg))
 			->then
 				->exception(function() use (& $otherLine, $asserter) { $otherLine = __LINE__; $asserter->never(); })
-					->isInstanceOf('mageekguy\atoum\asserter\exception')
+					->isInstanceOf('mageekguy\atoum\asserter\Exception')
 					->hasMessage(sprintf($generator->getLocale()->_('function %s is called 2 times instead of 0'), $asserter->getCall()) . PHP_EOL . '[1] ' . $call->setArguments(array($arg)) . PHP_EOL . '[2] ' . $call->setArguments(array($arg)))
 			->if($asserter->withArguments(uniqid()))
 			->then

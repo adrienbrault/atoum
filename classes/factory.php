@@ -35,7 +35,7 @@ class factory implements \arrayAccess, \serializable
 
 			if (class_exists($class, true) === false)
 			{
-				throw new factory\exception('Class \'' . $class . '\' does not exist');
+				throw new factory\Exception('Class \'' . $class . '\' does not exist');
 			}
 
 			$this->setBuilder($class, $builder = function() use ($class) {
@@ -154,7 +154,7 @@ class factory implements \arrayAccess, \serializable
 
 		if (isset($this->importations[$alias]) === true && $this->importations[$alias] != $string)
 		{
-			throw new factory\exception('Unable to use \'' . $string . '\' as \'' . $alias . '\' because the name is already in use');
+			throw new factory\Exception('Unable to use \'' . $string . '\' as \'' . $alias . '\' because the name is already in use');
 		}
 		else
 		{

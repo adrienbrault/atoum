@@ -338,7 +338,7 @@ class runner extends atoum\test
 						$runner->useConfigFile($file = uniqid());
 					}
 				)
-					->isInstanceOf('mageekguy\atoum\includer\exception')
+					->isInstanceOf('mageekguy\atoum\includer\Exception')
 					->hasMessage('Unable to find configuration file \'' . $file . '\'')
 				->mock($locale)->call('_')->withArguments('Unable to find configuration file \'%s\'')->once()
 			->if($configFile = stream::get())

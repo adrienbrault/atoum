@@ -363,7 +363,7 @@ class builder extends atoum\script
 
 				$status = $score->getFailNumber() === 0 && $score->getExceptionNumber() === 0 && $score->getErrorNumber() === 0;
 			}
-			catch (\exception $exception)
+			catch (\Exception $exception)
 			{
 				$this->writeErrorInErrorsDirectory($exception->getMessage());
 
@@ -464,7 +464,7 @@ class builder extends atoum\script
 							}
 						}
 					}
-					catch (\exception $exception)
+					catch (\Exception $exception)
 					{
 						$pharBuilt = false;
 

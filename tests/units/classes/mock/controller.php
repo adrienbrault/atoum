@@ -209,28 +209,28 @@ class controller extends atoum\test
 		$protectedMethodController = new testedClass();
 		$protectedMethodController->__construct = function() {};
 		$protectedMethodController->getName = function() { return 'protected'; };
-		$protectedMethodController->getPrototype = function() { throw new \exception(); };
+		$protectedMethodController->getPrototype = function() { throw new \Exception(); };
 
 		$methods[\reflectionMethod::IS_PROTECTED][] = new \mock\reflectionMethod('protectedMethod');
 
 		$privateMethodController = new testedClass();
 		$privateMethodController->__construct = function() {};
 		$privateMethodController->getName = function() { return 'private'; };
-		$privateMethodController->getPrototype = function() { throw new \exception(); };
+		$privateMethodController->getPrototype = function() { throw new \Exception(); };
 
 		$methods[\reflectionMethod::IS_PRIVATE][] = new \mock\reflectionMethod('privateMethod');
 
 		$aMethodController = new testedClass();
 		$aMethodController->__construct = function() {};
 		$aMethodController->getName = function() { return 'a'; };
-		$aMethodController->getPrototype = function() { throw new \exception(); };
+		$aMethodController->getPrototype = function() { throw new \Exception(); };
 
 		$methods[\reflectionMethod::IS_PUBLIC][] = new \mock\reflectionMethod('a');
 
 		$bMethodController = new testedClass();
 		$bMethodController->__construct = function() {};
 		$bMethodController->getName = function() { return 'b'; };
-		$bMethodController->getPrototype = function() { throw new \exception(); };
+		$bMethodController->getPrototype = function() { throw new \Exception(); };
 
 		$methods[\reflectionMethod::IS_PUBLIC][] = new \mock\reflectionMethod('b');
 
