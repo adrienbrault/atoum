@@ -88,13 +88,13 @@ abstract class test implements observable, adapter\Aggregator, \countable
 		$this->class = $class->getName();
 		$this->classNamespace = $class->getNamespaceName();
 
-		$annotationExtractor = $this->factory['mageekguy\atoum\annotations\extractor']();
+		$annotationExtractor = $this->factory['mageekguy\atoum\annotations\Extractor']();
 
 		$test = $this;
 
 		$annotationExtractor
-			->setHandler('ignore', function($value) use ($test) { $test->ignore(annotations\extractor::toBoolean($value)); })
-			->setHandler('tags', function($value) use ($test) { $test->setTags(annotations\extractor::toArray($value)); })
+			->setHandler('ignore', function($value) use ($test) { $test->ignore(annotations\Extractor::toBoolean($value)); })
+			->setHandler('tags', function($value) use ($test) { $test->setTags(annotations\Extractor::toArray($value)); })
 			->setHandler('namespace', function($value) use ($test) { $test->setTestNamespace($value); })
 			->setHandler('maxChildrenNumber', function($value) use ($test) { $test->setMaxChildrenNumber($value); })
 			->setHandler('engine', function($value) use ($test) { $test->setClassEngine($value); })
@@ -121,8 +121,8 @@ abstract class test implements observable, adapter\Aggregator, \countable
 
 		$annotationExtractor
 			->resetHandlers()
-			->setHandler('ignore', function($value) use ($test, & $methodName) { $test->ignoreMethod($methodName, annotations\extractor::toBoolean($value)); })
-			->setHandler('tags', function($value) use ($test, & $methodName) { $test->setMethodTags($methodName, annotations\extractor::toArray($value)); })
+			->setHandler('ignore', function($value) use ($test, & $methodName) { $test->ignoreMethod($methodName, annotations\Extractor::toBoolean($value)); })
+			->setHandler('tags', function($value) use ($test, & $methodName) { $test->setMethodTags($methodName, annotations\Extractor::toArray($value)); })
 			->setHandler('dataProvider', function($value) use ($test, & $methodName) { $test->setDataProvider($methodName, $value); })
 			->setHandler('engine', function($value) use ($test, & $methodName) { $test->setMethodEngine($methodName, $value); })
 			->setHandler('isVoid', function($value) use ($test, & $methodName) { $test->setMethodVoid($methodName); })

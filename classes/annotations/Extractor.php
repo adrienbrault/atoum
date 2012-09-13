@@ -2,7 +2,7 @@
 
 namespace mageekguy\atoum\annotations;
 
-class extractor
+class Extractor
 {
 	protected $handlers = array();
 
