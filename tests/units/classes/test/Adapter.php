@@ -4,7 +4,7 @@ namespace mageekguy\atoum\tests\units\test;
 
 use
 	mageekguy\atoum\test,
-	mageekguy\atoum\test\adapter as testedClass,
+	mageekguy\atoum\test\Adapter as testedClass,
 	mageekguy\atoum\test\adapter\invoker,
 	mageekguy\atoum\dependency,
 	mageekguy\atoum\dependencies
@@ -12,7 +12,7 @@ use
 
 require_once __DIR__ . '/../../runner.php';
 
-class adapter extends test
+class Adapter extends test
 {
 	public function test__construct()
 	{

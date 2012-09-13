@@ -6,7 +6,7 @@ use
 	mageekguy\atoum\exceptions
 ;
 
-class adapter implements adapter\Definition
+class Adapter implements adapter\Definition
 {
 	public function __call($functionName, $arguments)
 	{

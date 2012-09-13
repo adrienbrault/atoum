@@ -17,7 +17,7 @@ class report implements observer, adapter\Aggregator
 		$this
 			->setFactory($factory ?: new factory())
 			->setLocale($this->factory['mageekguy\atoum\locale']())
-			->setAdapter($this->factory['mageekguy\atoum\adapter']())
+			->setAdapter($this->factory['mageekguy\atoum\Adapter']())
 		;
 	}
 
@@ -57,7 +57,7 @@ class report implements observer, adapter\Aggregator
 		return $this->locale;
 	}
 
-	public function setAdapter(adapter $adapter)
+	public function setAdapter(Adapter $adapter)
 	{
 		$this->adapter = $adapter;
 

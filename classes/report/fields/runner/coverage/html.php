@@ -29,7 +29,7 @@ class html extends report\fields\runner\coverage\cli
 	protected $templateParser = null;
 	protected $reflectionClassInjector = null;
 
-	public function __construct($projectName, $destinationDirectory, $templatesDirectory = null, prompt $prompt = null, colorizer $titleColorizer = null, colorizer $coverageColorizer = null, prompt $urlPrompt = null, colorizer $urlColorizer = null, template\parser $parser = null, atoum\adapter $adapter = null, locale $locale = null)
+	public function __construct($projectName, $destinationDirectory, $templatesDirectory = null, prompt $prompt = null, colorizer $titleColorizer = null, colorizer $coverageColorizer = null, prompt $urlPrompt = null, colorizer $urlColorizer = null, template\parser $parser = null, atoum\Adapter $adapter = null, locale $locale = null)
 	{
 		parent::__construct($prompt, $titleColorizer, $coverageColorizer, $locale);
 
@@ -40,7 +40,7 @@ class html extends report\fields\runner\coverage\cli
 			->setTemplatesDirectory($templatesDirectory ?: atoum\directory . DIRECTORY_SEPARATOR . 'resources' . DIRECTORY_SEPARATOR . 'templates' . DIRECTORY_SEPARATOR . 'coverage')
 			->setDestinationDirectory($destinationDirectory)
 			->setTemplateParser($parser ?: new template\parser())
-			->setAdapter($adapter ?: new atoum\adapter())
+			->setAdapter($adapter ?: new atoum\Adapter())
 			->setRootUrl('/')
 		;
 	}
@@ -328,7 +328,7 @@ class html extends report\fields\runner\coverage\cli
 		return $string;
 	}
 
-	public function setAdapter(atoum\adapter $adapter)
+	public function setAdapter(atoum\Adapter $adapter)
 	{
 		$this->adapter = $adapter;
 

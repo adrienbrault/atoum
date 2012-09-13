@@ -9,7 +9,7 @@ use
 	mageekguy\atoum\exceptions
 ;
 
-class controller extends test\adapter
+class controller extends test\Adapter
 {
 	protected $mockClass = null;
 	protected $reflectionClassDependency = null;

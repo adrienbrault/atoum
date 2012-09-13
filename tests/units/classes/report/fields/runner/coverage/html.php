@@ -36,13 +36,13 @@ class html extends atoum\test
 				->object($field->getCoverageColorizer())->isEqualTo(new colorizer())
 				->object($field->getUrlPrompt())->isEqualTo(new prompt())
 				->object($field->getUrlColorizer())->isEqualTo(new colorizer())
-				->object($field->getAdapter())->isInstanceOf('mageekguy\atoum\adapter')
+				->object($field->getAdapter())->isInstanceOf('mageekguy\atoum\Adapter')
 				->object($field->getLocale())->isEqualTo(new locale())
 				->object($field->getTemplateParser())->isInstanceOf('mageekguy\atoum\template\parser')
 				->variable($field->getCoverage())->isNull()
 				->array($field->getSrcDirectories())->isEmpty()
 				->array($field->getEvents())->isEqualTo(array(atoum\runner::runStop))
-			->if($field = new coverage\html($projectName = uniqid(), $destinationDirectory = uniqid(), $templatesDirectory = uniqid(), $prompt = new prompt(), $titleColorizer = new colorizer(), $coverageColorizer = new colorizer(), $urlPrompt = new prompt(), $urlColorizer = new colorizer(), $templateParser = new template\parser(), $adapter = new atoum\adapter(), $locale = new atoum\locale()))
+			->if($field = new coverage\html($projectName = uniqid(), $destinationDirectory = uniqid(), $templatesDirectory = uniqid(), $prompt = new prompt(), $titleColorizer = new colorizer(), $coverageColorizer = new colorizer(), $urlPrompt = new prompt(), $urlColorizer = new colorizer(), $templateParser = new template\parser(), $adapter = new atoum\Adapter(), $locale = new atoum\locale()))
 			->then
 				->string($field->getProjectName())->isEqualTo($projectName)
 				->string($field->getDestinationDirectory())->isEqualTo($destinationDirectory)
@@ -66,11 +66,11 @@ class html extends atoum\test
 		$this
 			->if($field = new coverage\html(uniqid(), uniqid()))
 			->then
-				->object($field->setAdapter($adapter = new atoum\adapter()))->isIdenticalTo($field)
+				->object($field->setAdapter($adapter = new atoum\Adapter()))->isIdenticalTo($field)
 				->object($field->getAdapter())->isIdenticalTo($adapter)
-			->if($field = new coverage\html(uniqid(), uniqid(), null, null, null, null, null, null, null, new atoum\adapter()))
+			->if($field = new coverage\html(uniqid(), uniqid(), null, null, null, null, null, null, null, new atoum\Adapter()))
 			->then
-				->object($field->setAdapter($adapter = new atoum\adapter()))->isIdenticalTo($field)
+				->object($field->setAdapter($adapter = new atoum\Adapter()))->isIdenticalTo($field)
 				->object($field->getAdapter())->isIdenticalTo($adapter)
 		;
 	}
@@ -214,7 +214,7 @@ class html extends atoum\test
 			->and($destinationDirectory->readdir[4] = $file = stream::getSubStream($destinationDirectory))
 			->and($file->unlink = true)
 			->and($destinationDirectory->readdir[5] = false)
-			->and($field = new \mock\mageekguy\atoum\report\fields\runner\coverage\html(uniqid(), (string) $destinationDirectory, uniqid(), null, null, null, null, null, null, $adapter = new test\adapter()))
+			->and($field = new \mock\mageekguy\atoum\report\fields\runner\coverage\html(uniqid(), (string) $destinationDirectory, uniqid(), null, null, null, null, null, null, $adapter = new test\Adapter()))
 			->and($adapter->rmdir = function() {})
 			->and($adapter->unlink = function() {})
 			->then
@@ -440,7 +440,7 @@ class html extends atoum\test
 			->and($field = new \mock\mageekguy\atoum\report\fields\runner\coverage\html($projectName = uniqid(), $destinationDirectory = uniqid(), $templatesDirectory = uniqid()))
 			->and($field
 					->setTemplateParser($templateParser)
-					->setAdapter($adapter = new test\adapter())
+					->setAdapter($adapter = new test\Adapter())
 				)
 			->and($fieldController = $field->getMockController())
 			->and($fieldController->cleanDestinationDirectory = function() {})

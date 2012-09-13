@@ -10,11 +10,11 @@ class cli
 {
 	private static $isTerminal = null;
 
-	public function __construct(atoum\adapter $adapter = null)
+	public function __construct(atoum\Adapter $adapter = null)
 	{
 		if ($adapter === null)
 		{
-			$adapter = new atoum\adapter();
+			$adapter = new atoum\Adapter();
 		}
 
 		if (self::$isTerminal === null)
@@ -23,7 +23,7 @@ class cli
 		}
 	}
 
-	public function setAdapter(atoum\adapter $adapter)
+	public function setAdapter(atoum\Adapter $adapter)
 	{
 		$this->adapter = $adapter;
 

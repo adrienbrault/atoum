@@ -25,24 +25,24 @@ class parser extends atoum\test
 
 		$this->assert
 			->string($parser->getNamespace())->isEqualTo(template\parser::defaultNamespace)
-			->object($parser->getAdapter())->isInstanceOf('mageekguy\atoum\adapter')
+			->object($parser->getAdapter())->isInstanceOf('mageekguy\atoum\Adapter')
 		;
 
 		$parser = new template\parser($namespace = uniqid());
 
 		$this->assert
 			->string($namespace)->isEqualTo($parser->getNamespace())
-			->object($parser->getAdapter())->isInstanceOf('mageekguy\atoum\adapter')
+			->object($parser->getAdapter())->isInstanceOf('mageekguy\atoum\Adapter')
 		;
 
 		$parser = new template\parser($namespace = rand(1, PHP_INT_MAX));
 
 		$this->assert
 			->string($parser->getNamespace())->isEqualTo((string) $namespace)
-			->object($parser->getAdapter())->isInstanceOf('mageekguy\atoum\adapter')
+			->object($parser->getAdapter())->isInstanceOf('mageekguy\atoum\Adapter')
 		;
 
-		$parser = new template\parser($namespace = uniqid(), $adapter = new atoum\test\adapter());
+		$parser = new template\parser($namespace = uniqid(), $adapter = new atoum\test\Adapter());
 
 		$this->assert
 			->string($parser->getNamespace())->isEqualTo((string) $namespace)
@@ -70,7 +70,7 @@ class parser extends atoum\test
 		$parser = new template\parser();
 
 		$this->assert
-			->object($parser->setAdapter($adapter = new atoum\test\adapter()))->isIdenticalTo($parser)
+			->object($parser->setAdapter($adapter = new atoum\test\Adapter()))->isIdenticalTo($parser)
 			->object($parser->getAdapter())->isIdenticalTo($adapter)
 		;
 	}
@@ -219,7 +219,7 @@ class parser extends atoum\test
 	{
 		$this->define->parserException = '\mageekguy\atoum\tests\units\asserters\template\parser\Exception';
 
-		$parser = new template\parser(null, $adapter = new test\adapter());
+		$parser = new template\parser(null, $adapter = new test\Adapter());
 
 		$adapter->file_get_contents = false;
 
@@ -545,7 +545,7 @@ class parser extends atoum\test
 
 	public function testParseFile()
 	{
-		$parser = new template\parser(null, $adapter = new test\adapter());
+		$parser = new template\parser(null, $adapter = new test\Adapter());
 
 		$adapter->file_get_contents = false;
 

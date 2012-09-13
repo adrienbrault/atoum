@@ -107,7 +107,7 @@ class Generator
 			$mockClass = self::getClassName($class);
 		}
 
-		$adapter = $this->factory['mageekguy\atoum\adapter']();
+		$adapter = $this->factory['mageekguy\atoum\Adapter']();
 
 		if ($adapter->class_exists($mockNamespace . '\\' . $mockClass, false) === true || $adapter->interface_exists($mockNamespace . '\\' . $mockClass, false) === true)
 		{

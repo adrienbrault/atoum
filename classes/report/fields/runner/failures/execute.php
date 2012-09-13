@@ -5,7 +5,7 @@ namespace mageekguy\atoum\report\fields\runner\failures;
 use
 	mageekguy\atoum,
 	mageekguy\atoum\locale,
-	mageekguy\atoum\adapter,
+	mageekguy\atoum\Adapter,
 	mageekguy\atoum\cli\prompt,
 	mageekguy\atoum\cli\colorizer,
 	mageekguy\atoum\report\fields\runner
@@ -21,7 +21,7 @@ class execute extends runner\failures
 
 		$this
 			->setCommand($command)
-			->setAdapter($adapter ?: new adapter())
+			->setAdapter($adapter ?: new Adapter())
 		;
 	}
 
@@ -37,7 +37,7 @@ class execute extends runner\failures
 		return $this->command;
 	}
 
-	public function setAdapter(adapter $adapter)
+	public function setAdapter(Adapter $adapter)
 	{
 		$this->adapter = $adapter;
 

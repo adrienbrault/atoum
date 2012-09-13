@@ -37,10 +37,10 @@ class clover extends Atoum\test
 				->array($report->getFields(atoum\runner::runStart))->isEmpty()
 				->object($report->getFactory())->isInstanceOf('mageekguy\atoum\factory')
 				->object($report->getLocale())->isInstanceOf('mageekguy\atoum\locale')
-				->object($report->getAdapter())->isInstanceOf('mageekguy\atoum\adapter')
+				->object($report->getAdapter())->isInstanceOf('mageekguy\atoum\Adapter')
 			->if($factory = new atoum\factory())
 			->and($factory['mageekguy\atoum\locale'] = $locale = new atoum\locale())
-			->and($factory['mageekguy\atoum\adapter'] = $adapter = new atoum\test\adapter())
+			->and($factory['mageekguy\atoum\Adapter'] = $adapter = new atoum\test\Adapter())
 			->and($adapter->extension_loaded = true)
 			->and($report = new reports\clover($factory))
 			->then
@@ -65,7 +65,7 @@ class clover extends Atoum\test
 		$this
 			->if($report = new reports\clover())
 			->then
-				->object($report->setAdapter($adapter = new atoum\adapter()))->isIdenticalTo($report)
+				->object($report->setAdapter($adapter = new atoum\Adapter()))->isIdenticalTo($report)
 				->object($report->getAdapter())->isIdenticalTo($adapter)
 		;
 	}
@@ -84,7 +84,7 @@ class clover extends Atoum\test
 					})
 					->mock($writer)->call('writeAsynchronousReport')->withArguments($report)->once()
 			->if($factory = new atoum\factory())
-			->and($factory['mageekguy\atoum\adapter'] = $adapter = new atoum\test\adapter())
+			->and($factory['mageekguy\atoum\Adapter'] = $adapter = new atoum\test\Adapter())
 			->and($adapter->time = 762476400)
 			->and($adapter->uniqid = 'foo')
 			->and($observable = new \mock\mageekguy\atoum\runner())

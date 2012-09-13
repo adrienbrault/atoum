@@ -4,7 +4,7 @@ namespace mageekguy\atoum\tests\units\test\adapter;
 
 use
 	mageekguy\atoum,
-	mageekguy\atoum\test\adapter
+	mageekguy\atoum\test\Adapter
 ;
 
 require_once __DIR__ . '/../../../runner.php';

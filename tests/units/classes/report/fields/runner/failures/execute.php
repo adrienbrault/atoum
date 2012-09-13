@@ -24,9 +24,9 @@ class execute extends atoum\test
 			->if($field = new testedClass($command = uniqid()))
 			->then
 				->string($field->getCommand())->isEqualTo($command)
-				->object($field->getAdapter())->isInstanceOf('mageekguy\atoum\adapter')
+				->object($field->getAdapter())->isInstanceOf('mageekguy\atoum\Adapter')
 				->object($field->getLocale())->isInstanceOf('mageekguy\atoum\locale')
-			->if($field = new testedClass($command = uniqid(), $adapter = new atoum\adapter(), $locale = new atoum\locale()))
+			->if($field = new testedClass($command = uniqid(), $adapter = new atoum\Adapter(), $locale = new atoum\locale()))
 			->then
 				->string($field->getCommand())->isEqualTo($command)
 				->object($field->getAdapter())->isIdenticalTo($adapter)
@@ -37,7 +37,7 @@ class execute extends atoum\test
 	public function test__toString()
 	{
 		$this
-			->if($field = new testedClass($command = '%1$s %2$s', $adapter = new atoum\test\adapter()))
+			->if($field = new testedClass($command = '%1$s %2$s', $adapter = new atoum\test\Adapter()))
 			->and($adapter->system = function() {})
 			->then
 				->castToString($field)->isEmpty()
@@ -100,7 +100,7 @@ class execute extends atoum\test
 		$this
 			->if($field = new testedClass(uniqid()))
 			->then
-				->object($field->setAdapter($adapter = new atoum\adapter()))->isIdenticalTo($field)
+				->object($field->setAdapter($adapter = new atoum\Adapter()))->isIdenticalTo($field)
 				->object($field->getAdapter())->isEqualTo($adapter)
 		;
 	}

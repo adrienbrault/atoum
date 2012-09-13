@@ -52,10 +52,10 @@ class stream
 
 	public static function getAdapter()
 	{
-		return (self::$adapter = self::$adapter ?: new adapter());
+		return (self::$adapter = self::$adapter ?: new Adapter());
 	}
 
-	public static function setAdapter(adapter $adapter)
+	public static function setAdapter(Adapter $adapter)
 	{
 		self::$adapter = $adapter;
 	}

@@ -4,7 +4,7 @@ namespace mageekguy\atoum\scripts\tagger;
 
 use
 	mageekguy\atoum,
-	mageekguy\atoum\adapter,
+	mageekguy\atoum\Adapter,
 	mageekguy\atoum\exceptions
 ;
 
@@ -19,11 +19,11 @@ class engine implements adapter\Aggregator
 	protected $srcIteratorInjector = null;
 	protected $destinationDirectory = null;
 
-	public function __construct(atoum\adapter $adapter = null)
+	public function __construct(atoum\Adapter $adapter = null)
 	{
 		if ($adapter === null)
 		{
-			$adapter = new adapter();
+			$adapter = new Adapter();
 		}
 
 		$this
@@ -32,7 +32,7 @@ class engine implements adapter\Aggregator
 		;
 	}
 
-	public function setAdapter(adapter $adapter)
+	public function setAdapter(Adapter $adapter)
 	{
 		$this->adapter = $adapter;
 

@@ -13,7 +13,7 @@ class cli extends atoum\test
 	public function testIsTerminalWhenOsIsNotWindowsAndStdoutIsUndefined()
 	{
 		$this
-			->if($adapter = new atoum\test\adapter())
+			->if($adapter = new atoum\test\Adapter())
 			->and($adapter->defined = function($constant) {
 					switch ($constant)
 					{
@@ -35,7 +35,7 @@ class cli extends atoum\test
 	public function testIsTerminalWhenOsIsNotWindowsStdoutIsTtyIsUndefined()
 	{
 		$this
-			->if($adapter = new atoum\test\adapter())
+			->if($adapter = new atoum\test\Adapter())
 			->and($adapter->defined = function($constant) {
 					switch ($constant)
 					{
@@ -57,7 +57,7 @@ class cli extends atoum\test
 	public function testIsTerminalWhenOsIsNotWindowsStdoutIsTtyIsReturnFalse()
 	{
 		$this
-			->if($adapter = new atoum\test\adapter())
+			->if($adapter = new atoum\test\Adapter())
 			->and($adapter->defined = function($constant) {
 					switch ($constant)
 					{
@@ -81,7 +81,7 @@ class cli extends atoum\test
 	public function testIsTerminalWhenOsIsNotWindowsStdoutIsTtyIsReturnTrue()
 	{
 		$this
-			->if($adapter = new atoum\test\adapter())
+			->if($adapter = new atoum\test\Adapter())
 			->and($adapter->defined = function($constant) {
 					switch ($constant)
 					{
@@ -105,7 +105,7 @@ class cli extends atoum\test
 	public function testIsTerminalWhenOsIsWindowsAndAnsiconIsUndefined()
 	{
 		$this
-			->if($adapter = new atoum\test\adapter())
+			->if($adapter = new atoum\test\Adapter())
 			->and($adapter->defined = function($constant) {
 					switch ($constant)
 					{
@@ -127,7 +127,7 @@ class cli extends atoum\test
 	public function testIsTerminalWhenOsIsWindowsAndAnsiconIsDefined()
 	{
 		$this
-			->if($adapter = new atoum\test\adapter())
+			->if($adapter = new atoum\test\Adapter())
 			->and($adapter->defined = function($constant) {
 					switch ($constant)
 					{
@@ -149,7 +149,7 @@ class cli extends atoum\test
 	public function testIsTerminalWhenForceTerminalWasUsedAfterFirstCallToConstructor()
 	{
 		$this
-			->if($adapter = new atoum\test\adapter())
+			->if($adapter = new atoum\test\Adapter())
 			->and($adapter->defined = function($constant) {
 					switch ($constant)
 					{
@@ -178,7 +178,7 @@ class cli extends atoum\test
 	{
 		$this
 			->if(\mageekguy\atoum\cli::forceTerminal())
-			->and($adapter = new atoum\test\adapter())
+			->and($adapter = new atoum\test\Adapter())
 			->and($adapter->defined = function($constant) {
 					switch ($constant)
 					{

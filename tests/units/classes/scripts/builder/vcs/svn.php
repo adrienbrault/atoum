@@ -34,9 +34,9 @@ class svn extends atoum\test
 		$this
 			->if($svn = new vcs\svn())
 			->then
-				->object($svn->getAdapter())->isInstanceOf('mageekguy\atoum\adapter')
+				->object($svn->getAdapter())->isInstanceOf('mageekguy\atoum\Adapter')
 				->variable($svn->getRepositoryUrl())->isNull()
-			->if($svn = new vcs\svn($adapter = new atoum\adapter()))
+			->if($svn = new vcs\svn($adapter = new atoum\Adapter()))
 			->then
 				->object($svn->getAdapter())->isIdenticalTo($adapter)
 				->variable($svn->getRepositoryUrl())->isNull()
@@ -46,11 +46,11 @@ class svn extends atoum\test
 	public function testSetAdapter()
 	{
 		$this
-			->if($adapter = new atoum\test\adapter())
+			->if($adapter = new atoum\test\Adapter())
 			->and($adapter->extension_loaded = true)
 			->and($svn = new vcs\svn($adapter))
 			->then
-				->object($svn->setAdapter($adapter = new atoum\adapter()))->isIdenticalTo($svn)
+				->object($svn->setAdapter($adapter = new atoum\Adapter()))->isIdenticalTo($svn)
 				->object($svn->getAdapter())->isIdenticalTo($adapter)
 		;
 	}
@@ -58,7 +58,7 @@ class svn extends atoum\test
 	public function testSetRepositoryUrl()
 	{
 		$this
-			->if($adapter = new atoum\test\adapter())
+			->if($adapter = new atoum\test\Adapter())
 			->and($adapter->extension_loaded = true)
 			->and($svn = new vcs\svn($adapter))
 			->then
@@ -72,7 +72,7 @@ class svn extends atoum\test
 	public function testSetRevision()
 	{
 		$this
-			->if($adapter = new atoum\test\adapter())
+			->if($adapter = new atoum\test\Adapter())
 			->and($adapter->extension_loaded = true)
 			->and($svn = new vcs\svn($adapter))
 			->then
@@ -86,7 +86,7 @@ class svn extends atoum\test
 	public function testSetUsername()
 	{
 		$this
-			->if($adapter = new atoum\test\adapter())
+			->if($adapter = new atoum\test\Adapter())
 			->and($adapter->extension_loaded = true)
 			->and($svn = new vcs\svn($adapter))
 			->then
@@ -99,7 +99,7 @@ class svn extends atoum\test
 
 	public function testSetPassword()
 	{
-		$adapter = new atoum\test\adapter();
+		$adapter = new atoum\test\Adapter();
 		$adapter->extension_loaded = true;
 
 		$svn = new vcs\svn($adapter);
@@ -114,7 +114,7 @@ class svn extends atoum\test
 
 	public function testGetWorkingDirectoryIterator()
 	{
-		$adapter = new atoum\test\adapter();
+		$adapter = new atoum\test\Adapter();
 		$adapter->extension_loaded = true;
 
 		$svn = new vcs\svn($adapter);
@@ -130,7 +130,7 @@ class svn extends atoum\test
 
 	public function testGetNextRevisions()
 	{
-		$adapter = new atoum\test\adapter();
+		$adapter = new atoum\test\Adapter();
 		$adapter->extension_loaded = true;
 
 		$svn = new vcs\svn($adapter);
@@ -198,7 +198,7 @@ class svn extends atoum\test
 
 	public function testSetExportDirectory()
 	{
-		$adapter = new atoum\test\adapter();
+		$adapter = new atoum\test\Adapter();
 		$adapter->extension_loaded = true;
 
 		$svn = new \mock\mageekguy\atoum\scripts\builder\vcs\svn($adapter);
@@ -213,7 +213,7 @@ class svn extends atoum\test
 
 	public function testExportRepository()
 	{
-		$adapter = new atoum\test\adapter();
+		$adapter = new atoum\test\Adapter();
 		$adapter->extension_loaded = true;
 
 		$svn = new \mock\mageekguy\atoum\scripts\builder\vcs\svn($adapter);
@@ -325,7 +325,7 @@ class svn extends atoum\test
 	public function testCleanWorkingDirectory()
 	{
 		$this
-			->if($adapter = new atoum\test\adapter())
+			->if($adapter = new atoum\test\Adapter())
 			->and($adapter->extension_loaded = true)
 			->and($adapter->unlink = function() {})
 			->and($adapter->rmdir = function() {})

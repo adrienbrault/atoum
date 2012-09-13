@@ -80,16 +80,16 @@ class factory extends atoum\test
 				->string($factory->build('arrayIterator'))->isEqualTo($return)
 			->if($factory->import('mageekguy\atoum'))
 			->then
-				->object($factory->build('atoum\adapter'))->isEqualTo(new atoum\adapter())
+				->object($factory->build('atoum\Adapter'))->isEqualTo(new atoum\Adapter())
 			->if($factory->import('mageekguy\atoum', 'foo'))
 			->then
-				->object($factory->build('foo\adapter'))->isEqualTo(new atoum\adapter())
-			->if($factory->import('mageekguy\atoum\adapter'))
+				->object($factory->build('foo\Adapter'))->isEqualTo(new atoum\Adapter())
+			->if($factory->import('mageekguy\atoum\Adapter'))
 			->then
-				->object($factory->build('adapter'))->isEqualTo(new atoum\adapter())
-			->if($factory->import('mageekguy\atoum\adapter', 'bar'))
+				->object($factory->build('Adapter'))->isEqualTo(new atoum\Adapter())
+			->if($factory->import('mageekguy\atoum\Adapter', 'bar'))
 			->then
-				->object($factory->build('bar'))->isEqualTo(new atoum\adapter())
+				->object($factory->build('bar'))->isEqualTo(new atoum\Adapter())
 		;
 	}
 

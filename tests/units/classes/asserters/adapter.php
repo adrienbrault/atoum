@@ -12,7 +12,7 @@ use
 
 require_once __DIR__ . '/../../runner.php';
 
-class adapter extends atoum\test
+class Adapter extends atoum\test
 {
 	public function testClass()
 	{
@@ -22,7 +22,7 @@ class adapter extends atoum\test
 	public function test__construct()
 	{
 		$this
-			->if($asserter = new asserters\adapter($generator = new asserter\Generator()))
+			->if($asserter = new asserters\Adapter($generator = new asserter\Generator()))
 			->then
 				->object($asserter->getLocale())->isIdenticalTo($generator->getLocale())
 				->object($asserter->getGenerator())->isIdenticalTo($generator)
@@ -38,7 +38,7 @@ class adapter extends atoum\test
 	public function testSetWith()
 	{
 		$this
-			->if($asserter = new asserters\adapter($generator = new asserter\Generator()))
+			->if($asserter = new asserters\Adapter($generator = new asserter\Generator()))
 			->then
 				->assert('Set the asserter with something else than an adapter throw an exception')
 					->exception(function() use ($asserter, & $value) { $asserter->setWith($value = uniqid()); })
@@ -46,7 +46,7 @@ class adapter extends atoum\test
 						->hasMessage(sprintf($generator->getLocale()->_('%s is not a test adapter'), $asserter->getTypeOf($value)))
 					->string($asserter->getAdapter())->isEqualTo($value)
 				->assert('It is possible to set the asserter with an adapter')
-					->object($asserter->setWith($adapter = new test\adapter()))->isIdenticalTo($asserter)
+					->object($asserter->setWith($adapter = new test\Adapter()))->isIdenticalTo($asserter)
 					->object($asserter->getAdapter())->isIdenticalTo($adapter)
 		;
 	}
@@ -54,12 +54,12 @@ class adapter extends atoum\test
 	public function testReset()
 	{
 		$this
-			->if($asserter = new asserters\adapter(new asserter\Generator()))
+			->if($asserter = new asserters\Adapter(new asserter\Generator()))
 			->then
 				->variable($asserter->getAdapter())->isNull()
 				->object($asserter->reset())->isIdenticalTo($asserter)
 				->variable($asserter->getAdapter())->isNull()
-			->if($asserter->setWith($adapter = new atoum\test\adapter()))
+			->if($asserter->setWith($adapter = new atoum\test\Adapter()))
 			->then
 				->object($asserter->getAdapter())->isIdenticalTo($adapter)
 				->array($adapter->getCalls())->isEmpty()
@@ -79,13 +79,13 @@ class adapter extends atoum\test
 	public function testCall()
 	{
 		$this
-			->if($asserter = new \mock\mageekguy\atoum\asserters\adapter(new asserter\Generator()))
+			->if($asserter = new \mock\mageekguy\atoum\asserters\Adapter(new asserter\Generator()))
 			->and($asserter->getMockController()->atLeastOnce = function() {})
 			->then
 				->exception(function() use ($asserter) { $asserter->call(uniqid()); })
 					->isInstanceOf('mageekguy\atoum\exceptions\logic')
 					->hasMessage('Adapter is undefined')
-			->if($asserter->setWith($adapter = new test\adapter()))
+			->if($asserter->setWith($adapter = new test\Adapter()))
 			->then
 				->object($asserter->call($function = uniqid()))->isIdenticalTo($asserter)
 				->object($asserter->getCall())->isEqualTo(new php\call($function))
@@ -100,13 +100,13 @@ class adapter extends atoum\test
 	public function testWithArguments()
 	{
 		$this
-			->if($asserter = new \mock\mageekguy\atoum\asserters\adapter(new asserter\Generator()))
+			->if($asserter = new \mock\mageekguy\atoum\asserters\Adapter(new asserter\Generator()))
 			->and($asserter->getMockController()->atLeastOnce = function() {})
 			->then
 				->exception(function() use ($asserter) { $asserter->withArguments(uniqid()); })
 					->isInstanceOf('mageekguy\atoum\exceptions\logic')
 					->hasMessage('Adapter is undefined')
-			->if($asserter->setWith($adapter = new test\adapter()))
+			->if($asserter->setWith($adapter = new test\Adapter()))
 			->then
 				->exception(function() use ($asserter) { $asserter->withArguments(uniqid()); })
 					->isInstanceOf('mageekguy\atoum\exceptions\logic')
@@ -125,13 +125,13 @@ class adapter extends atoum\test
 	public function testWithAnyArguments()
 	{
 		$this
-			->if($asserter = new \mock\mageekguy\atoum\asserters\adapter(new asserter\Generator()))
+			->if($asserter = new \mock\mageekguy\atoum\asserters\Adapter(new asserter\Generator()))
 			->and($asserter->getMockController()->atLeastOnce = function() {})
 			->then
 				->exception(function() use ($asserter) { $asserter->withArguments(uniqid()); })
 					->isInstanceOf('mageekguy\atoum\exceptions\logic')
 					->hasMessage('Adapter is undefined')
-			->if($asserter->setWith($adapter = new test\adapter()))
+			->if($asserter->setWith($adapter = new test\Adapter()))
 			->then
 				->exception(function() use ($asserter) { $asserter->withArguments(uniqid()); })
 					->isInstanceOf('mageekguy\atoum\exceptions\logic')
@@ -153,12 +153,12 @@ class adapter extends atoum\test
 	{
 		$this
 			->if($mock = new \mock\dummy())
-			->and($asserter = new asserters\adapter(new asserter\Generator()))
+			->and($asserter = new asserters\Adapter(new asserter\Generator()))
 			->then
 				->exception(function() use ($asserter, $mock) { $asserter->beforeMethodCall(uniqid(), $mock); })
 					->isInstanceOf('mageekguy\atoum\exceptions\logic')
 					->hasMessage('Adapter is undefined')
-			->if($asserter->setWith($adapter = new test\adapter()))
+			->if($asserter->setWith($adapter = new test\Adapter()))
 			->then
 				->object($asserter->beforeMethodCall('foo', $mock))->isEqualTo($beforeMethodCall = new asserters\adapter\call\mock($asserter, $mock, 'foo'))
 				->array($asserter->getBeforeMethodCalls())->isEqualTo(array($beforeMethodCall))
@@ -170,12 +170,12 @@ class adapter extends atoum\test
 	public function testWithAnyMethodCallsBefore()
 	{
 		$this
-			->if($asserter = new asserters\adapter(new asserter\Generator()))
+			->if($asserter = new asserters\Adapter(new asserter\Generator()))
 			->then
 				->array($asserter->getBeforeMethodCalls())->isEmpty()
 				->object($asserter->withAnyMethodCallsBefore())->isIdenticalTo($asserter)
 				->array($asserter->getBeforeMethodCalls())->isEmpty()
-			->if($asserter->setWith($adapter = new test\adapter()))
+			->if($asserter->setWith($adapter = new test\Adapter()))
 			->and($asserter->beforeMethodCall(uniqid(), new \mock\dummy()))
 			->then
 				->array($asserter->getBeforeMethodCalls())->isNotEmpty()
@@ -193,12 +193,12 @@ class adapter extends atoum\test
 	{
 		$this
 			->if($mock = new \mock\dummy())
-			->and($asserter = new asserters\adapter(new asserter\Generator()))
+			->and($asserter = new asserters\Adapter(new asserter\Generator()))
 			->then
 				->exception(function() use ($asserter, $mock) { $asserter->afterMethodCall(uniqid(), $mock); })
 					->isInstanceOf('mageekguy\atoum\exceptions\logic')
 					->hasMessage('Adapter is undefined')
-				->if($asserter->setWith($adapter = new test\adapter()))
+				->if($asserter->setWith($adapter = new test\Adapter()))
 				->then
 					->object($asserter->afterMethodCall('foo', $mock))->isEqualTo($afterMethodCall = new asserters\adapter\call\mock($asserter, $mock, 'foo'))
 					->array($asserter->getAfterMethodCalls())->isEqualTo(array($afterMethodCall))
@@ -210,12 +210,12 @@ class adapter extends atoum\test
 	public function testWithAnyMethodCallsAfter()
 	{
 		$this
-			->if($asserter = new asserters\adapter(new asserter\Generator()))
+			->if($asserter = new asserters\Adapter(new asserter\Generator()))
 			->then
 				->array($asserter->getAfterMethodCalls())->isEmpty()
 				->object($asserter->withAnyMethodCallsAfter())->isIdenticalTo($asserter)
 				->array($asserter->getAfterMethodCalls())->isEmpty()
-			->if($asserter->setWith($adapter = new test\adapter()))
+			->if($asserter->setWith($adapter = new test\Adapter()))
 			->and($asserter->afterMethodCall(uniqid(), new \mock\dummy()))
 			->then
 				->array($asserter->getAfterMethodCalls())->isNotEmpty()
@@ -236,16 +236,16 @@ class adapter extends atoum\test
 	{
 		$this
 			->if($mock = new \mock\dummy())
-			->and($asserter = new asserters\adapter(new asserter\Generator()))
+			->and($asserter = new asserters\Adapter(new asserter\Generator()))
 			->then
-				->exception(function() use ($asserter) { $asserter->beforeFunctionCall(uniqid(), new test\adapter()); })
+				->exception(function() use ($asserter) { $asserter->beforeFunctionCall(uniqid(), new test\Adapter()); })
 					->isInstanceOf('mageekguy\atoum\exceptions\logic')
 					->hasMessage('Adapter is undefined')
-			->if($asserter->setWith($adapter = new test\adapter()))
+			->if($asserter->setWith($adapter = new test\Adapter()))
 			->then
-				->object($asserter->beforeFunctionCall('foo'))->isEqualTo($beforeFunctionCall = new asserters\adapter\call\adapter($asserter, $adapter, 'foo'))
+				->object($asserter->beforeFunctionCall('foo'))->isEqualTo($beforeFunctionCall = new asserters\adapter\call\Adapter($asserter, $adapter, 'foo'))
 				->array($asserter->getBeforeFunctionCalls())->isEqualTo(array($beforeFunctionCall))
-				->object($asserter->beforeFunctionCall('bar'))->isEqualTo($otherBeforeFunctionCall = new asserters\adapter\call\adapter($asserter, $adapter, 'bar'))
+				->object($asserter->beforeFunctionCall('bar'))->isEqualTo($otherBeforeFunctionCall = new asserters\adapter\call\Adapter($asserter, $adapter, 'bar'))
 				->array($asserter->getBeforeFunctionCalls())->isEqualTo(array($beforeFunctionCall, $otherBeforeFunctionCall))
 		;
 	}
@@ -253,12 +253,12 @@ class adapter extends atoum\test
 	public function testWithAnyFunctionCallsBefore()
 	{
 		$this
-			->if($asserter = new asserters\adapter(new asserter\Generator()))
+			->if($asserter = new asserters\Adapter(new asserter\Generator()))
 			->then
 				->array($asserter->getBeforeFunctionCalls())->isEmpty()
 				->object($asserter->withAnyFunctionCallsBefore())->isIdenticalTo($asserter)
 				->array($asserter->getBeforeFunctionCalls())->isEmpty()
-			->if($asserter->setWith($adapter = new test\adapter()))
+			->if($asserter->setWith($adapter = new test\Adapter()))
 			->and($asserter->beforeFunctionCall(uniqid()))
 			->then
 				->array($asserter->getBeforeFunctionCalls())->isNotEmpty()
@@ -279,16 +279,16 @@ class adapter extends atoum\test
 	{
 		$this
 			->if($mock = new \mock\dummy())
-			->and($asserter = new asserters\adapter(new asserter\Generator()))
+			->and($asserter = new asserters\Adapter(new asserter\Generator()))
 			->then
-				->exception(function() use ($asserter) { $asserter->afterFunctionCall(uniqid(), new test\adapter()); })
+				->exception(function() use ($asserter) { $asserter->afterFunctionCall(uniqid(), new test\Adapter()); })
 					->isInstanceOf('mageekguy\atoum\exceptions\logic')
 					->hasMessage('Adapter is undefined')
-			->if($asserter->setWith($adapter = new test\adapter()))
+			->if($asserter->setWith($adapter = new test\Adapter()))
 			->then
-				->object($asserter->afterFunctionCall('foo'))->isEqualTo($afterFunctionCall = new asserters\adapter\call\adapter($asserter, $adapter, 'foo'))
+				->object($asserter->afterFunctionCall('foo'))->isEqualTo($afterFunctionCall = new asserters\adapter\call\Adapter($asserter, $adapter, 'foo'))
 				->array($asserter->getAfterFunctionCalls())->isEqualTo(array($afterFunctionCall))
-				->object($asserter->afterFunctionCall('bar'))->isEqualTo($otherAfterFunctionCall = new asserters\adapter\call\adapter($asserter, $adapter, 'bar'))
+				->object($asserter->afterFunctionCall('bar'))->isEqualTo($otherAfterFunctionCall = new asserters\adapter\call\Adapter($asserter, $adapter, 'bar'))
 				->array($asserter->getAfterFunctionCalls())->isEqualTo(array($afterFunctionCall, $otherAfterFunctionCall))
 		;
 	}
@@ -296,12 +296,12 @@ class adapter extends atoum\test
 	public function testWithAnyFunctionCallsAfter()
 	{
 		$this
-			->if($asserter = new asserters\adapter(new asserter\Generator()))
+			->if($asserter = new asserters\Adapter(new asserter\Generator()))
 			->then
 				->array($asserter->getAfterFunctionCalls())->isEmpty()
 				->object($asserter->withAnyFunctionCallsAfter())->isIdenticalTo($asserter)
 				->array($asserter->getAfterFunctionCalls())->isEmpty()
-			->if($asserter->setWith($adapter = new test\adapter()))
+			->if($asserter->setWith($adapter = new test\Adapter()))
 			->and($asserter->afterFunctionCall(uniqid()))
 			->then
 				->array($asserter->getAfterFunctionCalls())->isNotEmpty()
@@ -318,12 +318,12 @@ class adapter extends atoum\test
 	public function testOnce()
 	{
 		$this
-			->if($asserter = new asserters\adapter($generator = new asserter\Generator()))
+			->if($asserter = new asserters\Adapter($generator = new asserter\Generator()))
 			->then
 				->exception(function() use ($asserter) { $asserter->once(); })
 					->isInstanceOf('mageekguy\atoum\exceptions\logic')
 					->hasMessage('Adapter is undefined')
-			->if($asserter->setWith($adapter = new test\adapter()))
+			->if($asserter->setWith($adapter = new test\Adapter()))
 			->then
 				->exception(function() use ($asserter) { $asserter->once(); })
 					->isInstanceOf('mageekguy\atoum\exceptions\logic')
@@ -357,12 +357,12 @@ class adapter extends atoum\test
 	public function testAtLeastOnce()
 	{
 		$this
-			->if($asserter = new asserters\adapter($generator = new asserter\Generator()))
+			->if($asserter = new asserters\Adapter($generator = new asserter\Generator()))
 			->then
 				->exception(function() use ($asserter) { $asserter->atLeastOnce(); })
 					->isInstanceOf('mageekguy\atoum\exceptions\logic')
 					->hasMessage('Adapter is undefined')
-			->if($asserter->setWith($adapter = new test\adapter()))
+			->if($asserter->setWith($adapter = new test\Adapter()))
 			->then
 				->exception(function() use ($asserter) { $asserter->atLeastOnce(); })
 					->isInstanceOf('mageekguy\atoum\exceptions\logic')
@@ -399,12 +399,12 @@ class adapter extends atoum\test
 	public function testExactly()
 	{
 		$this
-			->if($asserter = new asserters\adapter($generator = new asserter\Generator()))
+			->if($asserter = new asserters\Adapter($generator = new asserter\Generator()))
 			->then
 				->exception(function() use ($asserter) { $asserter->exactly(2); })
 					->isInstanceOf('mageekguy\atoum\exceptions\logic')
 					->hasMessage('Adapter is undefined')
-			->if($asserter->setWith($adapter = new test\adapter()))
+			->if($asserter->setWith($adapter = new test\Adapter()))
 			->then
 				->exception(function() use ($asserter) { $asserter->exactly(2); })
 					->isInstanceOf('mageekguy\atoum\exceptions\logic')
@@ -458,12 +458,12 @@ class adapter extends atoum\test
 	public function testNever()
 	{
 		$this
-			->if($asserter = new asserters\adapter($generator = new asserter\Generator()))
+			->if($asserter = new asserters\Adapter($generator = new asserter\Generator()))
 			->then
 				->exception(function() use ($asserter) { $asserter->never(); })
 					->isInstanceOf('mageekguy\atoum\exceptions\logic')
 					->hasMessage('Adapter is undefined')
-			->if($asserter->setWith($adapter = new test\adapter()))
+			->if($asserter->setWith($adapter = new test\Adapter()))
 			->then
 				->exception(function() use ($asserter) { $asserter->never(); })
 					->isInstanceOf('mageekguy\atoum\exceptions\logic')

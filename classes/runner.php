@@ -42,14 +42,14 @@ class runner implements observable, adapter\Aggregator
 	{
 		$this
 			->setFactory($factory ?: new factory())
-			->setAdapter($this->factory['mageekguy\atoum\adapter']())
+			->setAdapter($this->factory['mageekguy\atoum\Adapter']())
 			->setLocale($this->factory['mageekguy\atoum\locale']())
 			->setIncluder($this->factory['mageekguy\atoum\includer']())
 			->setScore($this->factory['mageekguy\atoum\runner\score']())
 			->setTestDirectoryIterator($this->factory['mageekguy\atoum\iterators\recursives\directory']())
 		;
 
-		$this->factory['mageekguy\atoum\adapter'] = $this->adapter;
+		$this->factory['mageekguy\atoum\Adapter'] = $this->adapter;
 		$this->factory['mageekguy\atoum\locale'] = $this->locale;
 		$this->factory['mageekguy\atoum\includer'] = $this->includer;
 
@@ -98,7 +98,7 @@ class runner implements observable, adapter\Aggregator
 		return $this->score;
 	}
 
-	public function setAdapter(adapter $adapter)
+	public function setAdapter(Adapter $adapter)
 	{
 		$this->adapter = $adapter;
 

@@ -8,14 +8,14 @@ use
 	mageekguy\atoum\exceptions
 ;
 
-class adapter
+class Adapter
 {
 	protected $adapterAsserter = null;
 	protected $adapter = null;
 	protected $functionName = '';
 	protected $arguments = null;
 
-	public function __construct(asserters\adapter $adapterAsserter, test\adapter $adapter, $functionName)
+	public function __construct(asserters\Adapter $adapterAsserter, test\Adapter $adapter, $functionName)
 	{
 		$this->adapterAsserter = $adapterAsserter;
 		$this->adapter = $adapter;

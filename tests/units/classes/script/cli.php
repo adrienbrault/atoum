@@ -22,11 +22,11 @@ class cli extends atoum\test
 	public function test__construct()
 	{
 		$this
-			->if($adapter = new atoum\test\adapter())
+			->if($adapter = new atoum\test\Adapter())
 			->and($adapter->php_sapi_name = uniqid())
 			->and($factory = new atoum\factory())
 			->and($factory->import('mageekguy\atoum'))
-			->and($factory['atoum\adapter'] = $adapter)
+			->and($factory['atoum\Adapter'] = $adapter)
 			->then
 				->exception(function() use ($factory, & $name) {
 						new testedClass($name = uniqid(), $factory);

@@ -10,7 +10,7 @@ use
 
 class svn extends builder\vcs implements atoum\adapter\Aggregator
 {
-	public function __construct(atoum\adapter $adapter = null)
+	public function __construct(atoum\Adapter $adapter = null)
 	{
 		parent::__construct($adapter);
 	}

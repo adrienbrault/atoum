@@ -24,7 +24,7 @@ class err extends atoum\test
 
 	public function test__construct()
 	{
-		$adapter = new atoum\test\adapter();
+		$adapter = new atoum\test\Adapter();
 		$adapter->fopen = null;
 		$adapter->fwrite = null;
 
@@ -37,7 +37,7 @@ class err extends atoum\test
 
 	public function testWrite()
 	{
-		$adapter = new atoum\test\adapter();
+		$adapter = new atoum\test\Adapter();
 		$adapter->fopen = null;
 		$adapter->fwrite = null;
 

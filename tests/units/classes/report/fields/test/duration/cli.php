@@ -8,7 +8,7 @@ use
 	mageekguy\atoum\locale,
 	mageekguy\atoum\cli\prompt,
 	mageekguy\atoum\cli\colorizer,
-	mageekguy\atoum\test\adapter,
+	mageekguy\atoum\test\Adapter,
 	mageekguy\atoum\report\fields\test,
 	mageekguy\atoum\tests\units
 ;
@@ -118,7 +118,7 @@ class cli extends atoum\test
 				->if($field = new test\duration\cli())
 				->and($score = new \mock\mageekguy\atoum\score())
 				->and($score->getMockController()->getTotalDuration = function() use (& $runningDuration) { return $runningDuration = rand(0, PHP_INT_MAX); })
-				->and($adapter = new adapter())
+				->and($adapter = new Adapter())
 				->and($adapter->class_exists = true)
 				->and($testController = new mock\controller())
 				->and($testController->getTestedClassName = uniqid())
@@ -136,7 +136,7 @@ class cli extends atoum\test
 	{
 		$this
 			->assert
-				->if($adapter = new adapter())
+				->if($adapter = new Adapter())
 				->and($adapter->class_exists = true)
 				->and($score = new \mock\mageekguy\atoum\score())
 				->and($score->getMockController()->getTotalDuration = $runningDuration = rand(1, 1000) / 1000)

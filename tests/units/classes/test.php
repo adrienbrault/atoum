@@ -94,7 +94,7 @@ namespace mageekguy\atoum\tests\units
 					->object($test->getFactory())->isInstanceOf('mageekguy\atoum\factory')
 					->object($test->getScore())->isInstanceOf('mageekguy\atoum\score')
 					->object($test->getLocale())->isEqualTo(new atoum\locale())
-					->object($test->getAdapter())->isEqualTo(new atoum\adapter())
+					->object($test->getAdapter())->isEqualTo(new atoum\Adapter())
 					->object($test->getSuperglobals())->isEqualTo(new atoum\superglobals())
 					->boolean($test->isIgnored())->isTrue()
 					->boolean($test->debugModeIsEnabled())->isFalse()
@@ -110,7 +110,7 @@ namespace mageekguy\atoum\tests\units
 				->if($factory = new atoum\factory())
 				->and($factory->returnWhenBuild('mageekguy\atoum\test\score', $score = new atoum\test\score()))
 				->and($factory->returnWhenBuild('mageekguy\atoum\locale', $locale = new atoum\locale()))
-				->and($factory->returnWhenBuild('mageekguy\atoum\adapter', $adapter = new atoum\adapter()))
+				->and($factory->returnWhenBuild('mageekguy\atoum\Adapter', $adapter = new atoum\Adapter()))
 				->and($factory->returnWhenBuild('mageekguy\atoum\superglobals', $superglobals = new atoum\superglobals()))
 				->and($test = new emptyTest($factory))
 				->then
@@ -189,10 +189,10 @@ namespace mageekguy\atoum\tests\units
 		{
 			$this
 				->assert('Code coverage must be enabled only if xdebug is available')
-					->if($adapter = new atoum\test\adapter())
+					->if($adapter = new atoum\test\Adapter())
 					->and($adapter->extension_loaded = function($extension) { return $extension == 'xdebug'; })
 					->and($factory = new atoum\factory())
-					->and($factory->returnWhenBuild('mageekguy\atoum\adapter', $adapter))
+					->and($factory->returnWhenBuild('mageekguy\atoum\Adapter', $adapter))
 					->and($test = new emptyTest($factory))
 					->then
 						->boolean($test->codeCoverageIsEnabled())->isTrue()
@@ -206,7 +206,7 @@ namespace mageekguy\atoum\tests\units
 				->assert('Code coverage must not be enabled if xdebug is not available')
 					->if($adapter->extension_loaded = function($extension) { return $extension != 'xdebug'; })
 					->and($factory = new atoum\factory())
-					->and($factory->returnWhenBuild('mageekguy\atoum\adapter', $adapter))
+					->and($factory->returnWhenBuild('mageekguy\atoum\Adapter', $adapter))
 					->and($test = new emptyTest($factory))
 					->then
 						->boolean($test->codeCoverageIsEnabled())->isFalse()
@@ -218,10 +218,10 @@ namespace mageekguy\atoum\tests\units
 		public function testDisableCodeCoverage()
 		{
 			$this
-				->if($adapter = new atoum\test\adapter())
+				->if($adapter = new atoum\test\Adapter())
 				->and($adapter->extension_loaded = true)
 				->and($factory = new atoum\factory())
-				->and($factory->returnWhenBuild('mageekguy\atoum\adapter', $adapter))
+				->and($factory->returnWhenBuild('mageekguy\atoum\Adapter', $adapter))
 				->and($test = new emptyTest($factory))
 				->then
 					->boolean($test->codeCoverageIsEnabled())->isTrue()
@@ -353,7 +353,7 @@ namespace mageekguy\atoum\tests\units
 			$this
 				->if($test = new emptyTest())
 				->then
-					->object($test->getAdapter())->isInstanceOf('mageekguy\atoum\adapter')
+					->object($test->getAdapter())->isInstanceOf('mageekguy\atoum\Adapter')
 			;
 		}
 
@@ -362,7 +362,7 @@ namespace mageekguy\atoum\tests\units
 			$this
 				->if($test = new emptyTest())
 				->then
-					->object($test->setAdapter($adapter = new atoum\test\adapter()))->isIdenticalTo($test)
+					->object($test->setAdapter($adapter = new atoum\test\Adapter()))->isIdenticalTo($test)
 					->object($test->getAdapter())->isIdenticalTo($adapter)
 			;
 		}

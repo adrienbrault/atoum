@@ -19,7 +19,7 @@ class controller extends atoum\test
 {
 	public function testClass()
 	{
-		$this->testedClass->isSubclassOf('mageekguy\atoum\test\adapter');
+		$this->testedClass->isSubclassOf('mageekguy\atoum\test\Adapter');
 	}
 
 	public function test__construct()
@@ -495,7 +495,7 @@ class controller extends atoum\test
 				->variable($mockController->getMockClass())->isNull()
 				->array($mockController->getInvokers())->isEmpty()
 				->array($mockController->getCalls())->isEmpty()
-			->if($adapter = new atoum\test\adapter())
+			->if($adapter = new atoum\test\Adapter())
 			->and($adapter->class_exists = true)
 			->and($mock = new \mock\mageekguy\atoum\tests\units\mock\controller(null, null, $adapter))
 			->and($mockController->control($mock))

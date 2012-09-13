@@ -8,7 +8,7 @@ use
 
 require_once __DIR__ . '/../runner.php';
 
-class adapter extends atoum\test
+class Adapter extends atoum\test
 {
 	public function test__construct()
 	{
@@ -23,7 +23,7 @@ class adapter extends atoum\test
 	public function test__call()
 	{
 		$this
-			->if($adapter = new atoum\adapter())
+			->if($adapter = new atoum\Adapter())
 			->then
 				->string($adapter->md5($hash = uniqid()))->isEqualTo(md5($hash))
 		;

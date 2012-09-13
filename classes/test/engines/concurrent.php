@@ -24,7 +24,7 @@ class concurrent extends test\engine
 	{
 		parent::__construct($factory);
 
-		$this->adapter = $this->factory['mageekguy\atoum\adapter']();
+		$this->adapter = $this->factory['mageekguy\atoum\Adapter']();
 	}
 
 	public function isRunning()

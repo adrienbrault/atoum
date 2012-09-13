@@ -17,12 +17,12 @@ abstract class mailer implements atoum\adapter\Aggregator
 	protected $contentType = null;
 	protected $adapter = null;
 
-	public function __construct(atoum\adapter $adapter = null)
+	public function __construct(atoum\Adapter $adapter = null)
 	{
-		$this->setAdapter($adapter ?: new atoum\adapter());
+		$this->setAdapter($adapter ?: new atoum\Adapter());
 	}
 
-	public function setAdapter(atoum\adapter $adapter)
+	public function setAdapter(atoum\Adapter $adapter)
 	{
 		$this->adapter = $adapter;
 

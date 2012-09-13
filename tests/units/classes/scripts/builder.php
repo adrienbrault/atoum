@@ -40,7 +40,7 @@ class builder extends atoum\test
 			->then
 				->string($builder->getName())->isEqualTo($name)
 				->object($builder->getLocale())->isInstanceOf('mageekguy\atoum\locale')
-				->object($builder->getAdapter())->isInstanceOf('mageekguy\atoum\adapter')
+				->object($builder->getAdapter())->isInstanceOf('mageekguy\atoum\Adapter')
 				->object($builder->getArgumentsParser())->isInstanceOf('mageekguy\atoum\script\arguments\parser')
 				->object($builder->getOutputWriter())->isInstanceOf('mageekguy\atoum\writers\std\out')
 				->object($builder->getErrorWriter())->isInstanceOf('mageekguy\atoum\writers\std\err')
@@ -60,7 +60,7 @@ class builder extends atoum\test
 			->if($factory = new atoum\factory())
 			->and($factory->import('mageekguy\atoum'))
 			->and($factory->returnWhenBuild('atoum\locale', $locale = new atoum\locale()))
-			->and($factory->returnWhenBuild('atoum\adapter', $adapter = new atoum\adapter()))
+			->and($factory->returnWhenBuild('atoum\Adapter', $adapter = new atoum\Adapter()))
 			->and($factory->returnWhenBuild('atoum\script\arguments\parser', $argumentsParser = new atoum\script\arguments\parser()))
 			->and($factory->returnWhenBuild('atoum\writers\std\out', $stdOut = new atoum\writers\std\out()))
 			->and($factory->returnWhenBuild('atoum\writers\std\err', $stdErr = new atoum\writers\std\err()))
@@ -339,7 +339,7 @@ class builder extends atoum\test
 		$factory = new atoum\factory();
 		$factory
 			->import('mageekguy\atoum')
-			->returnWhenBuild('atoum\adapter', $adapter = new atoum\test\adapter())
+			->returnWhenBuild('atoum\Adapter', $adapter = new atoum\test\Adapter())
 		;
 
 		$builder = new \mock\mageekguy\atoum\scripts\builder(uniqid(), $factory);
@@ -599,7 +599,7 @@ class builder extends atoum\test
 		$factory = new atoum\factory();
 		$factory
 			->import('mageekguy\atoum')
-			->returnWhenBuild('atoum\adapter', $adapter = new atoum\test\adapter())
+			->returnWhenBuild('atoum\Adapter', $adapter = new atoum\test\Adapter())
 		;
 
 		$builder = new \mock\mageekguy\atoum\scripts\builder(uniqid(), $factory);
@@ -857,7 +857,7 @@ class builder extends atoum\test
 
 	public function testRun()
 	{
-		$adapter = new atoum\test\adapter();
+		$adapter = new atoum\test\Adapter();
 		$adapter->file_get_contents = false;
 		$adapter->fopen = $runFileResource = uniqid();
 		$adapter->flock = true;
@@ -869,7 +869,7 @@ class builder extends atoum\test
 		$factory = new atoum\factory();
 		$factory
 			->import('mageekguy\atoum')
-			->returnWhenBuild('atoum\adapter', $adapter)
+			->returnWhenBuild('atoum\Adapter', $adapter)
 		;
 
 		$builder = new \mock\mageekguy\atoum\scripts\builder(uniqid(), $factory);
@@ -897,7 +897,7 @@ class builder extends atoum\test
 		$this->assert
 			->if($factory = new atoum\factory())
 			->and($factory->import('mageekguy\atoum'))
-			->and($factory->returnWhenBuild('atoum\adapter', $adapter = new atoum\test\adapter()))
+			->and($factory->returnWhenBuild('atoum\Adapter', $adapter = new atoum\test\Adapter()))
 			->and($adapter->file_put_contents = function() {})
 			->and($builder = new scripts\builder(uniqid(), $factory))
 			->then

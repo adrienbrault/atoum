@@ -99,7 +99,7 @@ class phing extends atoum\test
 				->if($field = new test\memory\phing())
 				->and($score = new \mock\mageekguy\atoum\score())
 				->and($score->getMockController()->getTotalMemoryUsage = $totalMemoryUsage = rand(0, PHP_INT_MAX))
-				->and($adapter = new atoum\test\adapter())
+				->and($adapter = new atoum\test\Adapter())
 				->and($adapter->class_exists = true)
 				->and($testController = new atoum\mock\controller())
 				->and($testController->getTestedClassName = uniqid())
@@ -119,7 +119,7 @@ class phing extends atoum\test
 			->assert
 				->if($score = new \mock\mageekguy\atoum\score())
 				->and($score->getMockController()->getTotalMemoryUsage = $totalMemoryUsage = rand(0, PHP_INT_MAX))
-				->and($adapter = new atoum\test\adapter())
+				->and($adapter = new atoum\test\Adapter())
 				->and($adapter->class_exists = true)
 				->and($testController = new atoum\mock\controller())
 				->and($testController->getTestedClassName = uniqid())

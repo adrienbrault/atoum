@@ -32,7 +32,7 @@ class stub extends atoum\test
 		$this
 			->assert
 				->if($stub = new phar\stub(uniqid()))
-				->and($stub->setAdapter($adapter = new atoum\test\adapter()))
+				->and($stub->setAdapter($adapter = new atoum\test\Adapter()))
 				->and($adapter->ini_get = function($name) { return $name === 'phar.readonly' ? 1 : ini_get($name); })
 				->and($stub->setLocale($locale = new mock\locale()))
 				->and($stub->setOutputWriter($stdOut = new mock\writers\std\out()))

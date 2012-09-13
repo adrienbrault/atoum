@@ -5,7 +5,7 @@ namespace mageekguy\atoum\tests\units\mock;
 use
 	mageekguy\atoum\mock,
 	mageekguy\atoum\test,
-	mageekguy\atoum\adapter
+	mageekguy\atoum\Adapter
 ;
 
 require_once __DIR__ . '/../../runner.php';
@@ -23,8 +23,8 @@ class stream extends test
 	public function testGetAdapter()
 	{
 		$this
-			->object(mock\stream::getAdapter())->isEqualTo(new adapter())
-			->if(mock\stream::setAdapter($adapter = new adapter()))
+			->object(mock\stream::getAdapter())->isEqualTo(new Adapter())
+			->if(mock\stream::setAdapter($adapter = new Adapter()))
 			->then
 				->object(mock\stream::getAdapter())->isIdenticalTo($adapter)
 		;
@@ -33,7 +33,7 @@ class stream extends test
 	public function testGet()
 	{
 		$this
-			->if(mock\stream::setAdapter($adapter = new test\adapter()))
+			->if(mock\stream::setAdapter($adapter = new test\Adapter()))
 			->and($adapter->stream_get_wrappers = array())
 			->and($adapter->stream_wrapper_register = true)
 			->then
@@ -71,7 +71,7 @@ class stream extends test
 	public function testGetSubStream()
 	{
 		$this
-			->if(mock\stream::setAdapter($adapter = new test\adapter()))
+			->if(mock\stream::setAdapter($adapter = new test\Adapter()))
 			->and($adapter->stream_get_wrappers = array())
 			->and($adapter->stream_wrapper_register = true)
 			->and($stream = mock\stream::get())

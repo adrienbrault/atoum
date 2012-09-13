@@ -10,7 +10,7 @@ use
 	mageekguy\atoum\tools\arguments
 ;
 
-class adapter extends atoum\asserter
+class Adapter extends atoum\asserter
 {
 	protected $adapter = null;
 	protected $call = null;
@@ -23,7 +23,7 @@ class adapter extends atoum\asserter
 	{
 		$this->adapter = $adapter;
 
-		if ($this->adapter instanceof \mageekguy\atoum\test\adapter === false)
+		if ($this->adapter instanceof \mageekguy\atoum\test\Adapter === false)
 		{
 			$this->fail(sprintf($this->getLocale()->_('%s is not a test adapter'), $this->getTypeOf($this->adapter)));
 		}
@@ -90,7 +90,7 @@ class adapter extends atoum\asserter
 
 	public function beforeFunctionCall($methodName)
 	{
-		$this->adapterIsSet()->beforeFunctionCalls[] = $beforeFunctionCall = new adapter\call\adapter($this, $this->adapter, $methodName);
+		$this->adapterIsSet()->beforeFunctionCalls[] = $beforeFunctionCall = new adapter\call\Adapter($this, $this->adapter, $methodName);
 
 		return $beforeFunctionCall;
 	}
@@ -109,7 +109,7 @@ class adapter extends atoum\asserter
 
 	public function afterFunctionCall($methodName)
 	{
-		$this->adapterIsSet()->afterFunctionCalls[] = $afterFunctionCall = new adapter\call\adapter($this, $this->adapter, $methodName);
+		$this->adapterIsSet()->afterFunctionCalls[] = $afterFunctionCall = new adapter\call\Adapter($this, $this->adapter, $methodName);
 
 		return $afterFunctionCall;
 	}

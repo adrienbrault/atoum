@@ -6,12 +6,12 @@ abstract class writer implements adapter\Aggregator
 {
 	protected $adapter = null;
 
-	public function __construct(adapter $adapter = null)
+	public function __construct(Adapter $adapter = null)
 	{
-		$this->setAdapter($adapter ?: new adapter());
+		$this->setAdapter($adapter ?: new Adapter());
 	}
 
-	public function setAdapter(adapter $adapter)
+	public function setAdapter(Adapter $adapter)
 	{
 		$this->adapter = $adapter;
 

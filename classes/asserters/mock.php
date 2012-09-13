@@ -94,9 +94,9 @@ class mock extends atoum\asserter
 		return $this;
 	}
 
-	public function beforeFunctionCall($functionName, test\adapter $adapter)
+	public function beforeFunctionCall($functionName, test\Adapter $adapter)
 	{
-		$this->mockIsSet()->beforeFunctionCalls[] = $beforeFunctionCall = new mock\call\adapter($this, $adapter, $functionName);
+		$this->mockIsSet()->beforeFunctionCalls[] = $beforeFunctionCall = new mock\call\Adapter($this, $adapter, $functionName);
 
 		return $beforeFunctionCall;
 	}
@@ -113,9 +113,9 @@ class mock extends atoum\asserter
 		return $this;
 	}
 
-	public function afterFunctionCall($functionName, test\adapter $adapter)
+	public function afterFunctionCall($functionName, test\Adapter $adapter)
 	{
-		$this->mockIsSet()->afterFunctionCalls[] = $afterFunctionCall = new mock\call\adapter($this, $adapter, $functionName);
+		$this->mockIsSet()->afterFunctionCalls[] = $afterFunctionCall = new mock\call\Adapter($this, $adapter, $functionName);
 
 		return $afterFunctionCall;
 	}

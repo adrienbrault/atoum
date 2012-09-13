@@ -23,7 +23,7 @@ class coverage implements \countable, \serializable
 		$this->setDependencies($dependencies ?: new atoum\dependencies());
 	}
 
-	public function setAdapter(atoum\adapter $adapter)
+	public function setAdapter(atoum\Adapter $adapter)
 	{
 		$this->adapter = $adapter;
 
@@ -91,7 +91,7 @@ class coverage implements \countable, \serializable
 		}
 		else
 		{
-			$this->setAdapter(new atoum\adapter());
+			$this->setAdapter(new atoum\Adapter());
 		}
 
 		return $this;

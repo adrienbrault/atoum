@@ -9,12 +9,12 @@ use
 	mageekguy\atoum\exceptions
 ;
 
-class adapter extends php\call
+class Adapter extends php\call
 {
 	protected $mockAsserter = null;
 	protected $adapter = null;
 
-	public function __construct(asserters\mock $mockAsserter, test\adapter $adapter, $function)
+	public function __construct(asserters\mock $mockAsserter, test\Adapter $adapter, $function)
 	{
 		$this->mockAsserter = $mockAsserter;
 		$this->adapter = $adapter;

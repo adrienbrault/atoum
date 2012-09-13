@@ -6,7 +6,7 @@ use
 	mageekguy\atoum,
 	mageekguy\atoum\mock,
 	mageekguy\atoum\locale,
-	mageekguy\atoum\test\adapter,
+	mageekguy\atoum\test\Adapter,
 	mageekguy\atoum\cli\prompt,
 	mageekguy\atoum\cli\colorizer,
 	mageekguy\atoum\report\fields\test
@@ -73,7 +73,7 @@ class cli extends atoum\test
 		$this
 			->assert
 				->if($field = new test\run\cli())
-				->and($adapter = new adapter())
+				->and($adapter = new Adapter())
 				->and($adapter->class_exists = true)
 				->and($testController = new mock\controller())
 				->and($testController->getTestedClassName = uniqid())
@@ -110,7 +110,7 @@ class cli extends atoum\test
 	{
 		$this
 			->assert
-				->if($adapter = new adapter())
+				->if($adapter = new Adapter())
 				->and($adapter->class_exists = true)
 				->and($testController = new mock\controller())
 				->and($testController->getTestedClassName = uniqid())

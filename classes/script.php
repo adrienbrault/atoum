@@ -29,14 +29,14 @@ abstract class script implements atoum\adapter\Aggregator
 		$this
 			->setFactory($factory ?: new atoum\factory())
 			->setLocale($this->factory['atoum\locale']())
-			->setAdapter($this->factory['atoum\adapter']())
+			->setAdapter($this->factory['atoum\Adapter']())
 			->setArgumentsParser($this->factory['atoum\script\arguments\parser']())
 			->setOutputWriter($this->factory['atoum\writers\std\out']())
 			->setErrorWriter($this->factory['atoum\writers\std\err']())
 		;
 
 		$this->factory['atoum\locale'] = $this->locale;
-		$this->factory['atoum\adapter'] = $this->adapter;
+		$this->factory['atoum\Adapter'] = $this->adapter;
 
 		if ($this->adapter->php_sapi_name() !== 'cli')
 		{
@@ -79,7 +79,7 @@ abstract class script implements atoum\adapter\Aggregator
 		return $this;
 	}
 
-	public function setAdapter(atoum\adapter $adapter)
+	public function setAdapter(atoum\Adapter $adapter)
 	{
 		$this->adapter = $adapter;
 

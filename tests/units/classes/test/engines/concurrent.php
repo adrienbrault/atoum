@@ -38,7 +38,7 @@ class concurrent extends atoum\test
 	{
 		$this
 			->if($factory = new atoum\factory())
-			->and($factory['mageekguy\atoum\adapter'] = $adapter = new atoum\test\adapter())
+			->and($factory['mageekguy\atoum\Adapter'] = $adapter = new atoum\test\Adapter())
 			->and($engine = new engines\concurrent($factory))
 			->then
 				->object($engine->run($test = new \mock\mageekguy\atoum\test()))->isIdenticalTo($engine)
@@ -93,7 +93,7 @@ class concurrent extends atoum\test
 			->then
 				->variable($engine->getScore())->isNull()
 			->if($factory = new atoum\factory())
-			->and($factory['mageekguy\atoum\adapter'] = $adapter = new atoum\test\adapter())
+			->and($factory['mageekguy\atoum\Adapter'] = $adapter = new atoum\test\Adapter())
 			->and($engine = new engines\concurrent($factory))
 			->and($engine->run($test = new \mock\mageekguy\atoum\test()))
 			->then

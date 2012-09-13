@@ -30,10 +30,10 @@ class engine extends atoum\test
 			->variable($tagger->getDestinationDirectory())->isNull()
 			->variable($tagger->getVersion())->isNull()
 			->string($tagger->getVersionPattern())->isEqualTo(\mageekguy\atoum\scripts\tagger\engine::defaultVersionPattern)
-			->object($tagger->getAdapter())->isInstanceOf('mageekguy\atoum\adapter')
+			->object($tagger->getAdapter())->isInstanceOf('mageekguy\atoum\Adapter')
 		;
 
-		$tagger = new tagger\engine($adapter = new atoum\adapter());
+		$tagger = new tagger\engine($adapter = new atoum\Adapter());
 
 		$this->assert
 			->variable($tagger->getSrcDirectory())->isNull()
@@ -49,7 +49,7 @@ class engine extends atoum\test
 		$tagger = new tagger\engine();
 
 		$this->assert
-			->object($tagger->setAdapter($adapter = new atoum\adapter()))->isIdenticalTo($tagger)
+			->object($tagger->setAdapter($adapter = new atoum\Adapter()))->isIdenticalTo($tagger)
 			->object($tagger->getAdapter())->isIdenticalTo($adapter)
 		;
 	}
@@ -151,7 +151,7 @@ class engine extends atoum\test
 
 	public function testTagVersion()
 	{
-		$tagger = new tagger\engine($adapter = new atoum\test\adapter());
+		$tagger = new tagger\engine($adapter = new atoum\test\Adapter());
 
 		$adapter->is_dir = true;
 		$adapter->mkdir = function() {};

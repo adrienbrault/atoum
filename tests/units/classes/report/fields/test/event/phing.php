@@ -32,7 +32,7 @@ class phing extends atoum\test
 	{
 		$this
 			->assert
-				->if($adapter = new atoum\test\adapter())
+				->if($adapter = new atoum\test\Adapter())
 				->and($adapter->class_exists = true)
 				->and($testController = new mock\controller())
 				->and($testController->getTestedClassName = uniqid())
@@ -88,7 +88,7 @@ class phing extends atoum\test
 	{
 		$this
 			->assert
-				->if($adapter = new atoum\test\adapter())
+				->if($adapter = new atoum\test\Adapter())
 				->and($adapter->class_exists = true)
 				->and($testController = new atoum\mock\controller())
 				->and($testController->getTestedClassName = uniqid())

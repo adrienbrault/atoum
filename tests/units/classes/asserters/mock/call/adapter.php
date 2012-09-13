@@ -12,14 +12,14 @@ use
 	mageekguy\atoum\asserters\mock\call
 ;
 
-class adapter extends atoum\test
+class Adapter extends atoum\test
 {
 	public function test__construct()
 	{
 		$this
-			->if($call = new call\adapter(
+			->if($call = new call\Adapter(
 					$mockAsserter = new asserters\mock(new asserter\Generator()),
-					$adapter = new test\adapter(),
+					$adapter = new test\Adapter(),
 					$function = uniqid()
 				)
 			)
@@ -34,9 +34,9 @@ class adapter extends atoum\test
 	public function test__call()
 	{
 		$this
-			->if($call = new call\adapter(
+			->if($call = new call\Adapter(
 					$mockAsserter = new \mock\mageekguy\atoum\asserters\mock(new asserter\Generator()),
-					new test\adapter(),
+					new test\Adapter(),
 					uniqid()
 				)
 			)
@@ -59,9 +59,9 @@ class adapter extends atoum\test
 	public function testWithArguments()
 	{
 		$this
-			->if($call = new call\adapter(
+			->if($call = new call\Adapter(
 					new asserters\mock(new asserter\Generator()),
-					new test\adapter(),
+					new test\Adapter(),
 					uniqid()
 				)
 			)
@@ -76,15 +76,15 @@ class adapter extends atoum\test
 	public function testGetFirstCall()
 	{
 		$this
-			->if($call = new call\adapter(
+			->if($call = new call\Adapter(
 					new asserters\mock(new asserter\Generator()),
-					$adapter = new test\adapter(),
+					$adapter = new test\Adapter(),
 					'md5'
 				)
 			)
 			->then
 				->variable($call->getFirstCall())->isNull()
-				->when(function() { $otherAdapter = new test\adapter(); $otherAdapter->md5(uniqid()); })
+				->when(function() { $otherAdapter = new test\Adapter(); $otherAdapter->md5(uniqid()); })
 					->variable($call->getFirstCall())->isNull()
 				->when(function() use ($adapter) { $adapter->md5(uniqid()); })
 					->integer($call->getFirstCall())->isEqualTo(2)
@@ -96,15 +96,15 @@ class adapter extends atoum\test
 	public function testGetLastCall()
 	{
 		$this
-			->if($call = new call\adapter(
+			->if($call = new call\Adapter(
 					new asserters\mock(new asserter\Generator()),
-					$adapter = new test\adapter(),
+					$adapter = new test\Adapter(),
 					'md5'
 				)
 			)
 			->then
 				->variable($call->getLastCall())->isNull()
-				->when(function() { $otherAdapter = new test\adapter(); $otherAdapter->md5(uniqid()); })
+				->when(function() { $otherAdapter = new test\Adapter(); $otherAdapter->md5(uniqid()); })
 					->variable($call->getLastCall())->isNull()
 				->when(function() use ($adapter) { $adapter->md5(uniqid()); })
 					->integer($call->getLastCall())->isEqualTo(2)

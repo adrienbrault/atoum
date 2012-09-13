@@ -26,11 +26,11 @@ class file extends atoum\test
 		$file = new writers\file();
 
 		$this->assert
-			->object($file->getAdapter())->isInstanceOf('mageekguy\atoum\adapter')
+			->object($file->getAdapter())->isInstanceOf('mageekguy\atoum\Adapter')
 			->string($file->getFilename())->isEqualTo('atoum.log')
 		;
 
-		$adapter = new atoum\test\adapter();
+		$adapter = new atoum\test\Adapter();
 		$adapter->fopen = function() {};
 		$adapter->fclose = function() {};
 
@@ -57,7 +57,7 @@ class file extends atoum\test
 
 	public function test__destruct()
 	{
-		$adapter = new atoum\test\adapter();
+		$adapter = new atoum\test\Adapter();
 		$adapter->fopen = $handle = uniqid();
 		$adapter->fwrite = function() {};
 		$adapter->fclose = function() {};
@@ -78,7 +78,7 @@ class file extends atoum\test
 	{
 		$handle = uniqid();
 
-		$adapter = new atoum\test\adapter();
+		$adapter = new atoum\test\Adapter();
 		$adapter->fopen = function() use ($handle) { return $handle; };
 		$adapter->fclose = function() {};
 		$adapter->fwrite = function() {};
@@ -113,7 +113,7 @@ class file extends atoum\test
 	{
 		$handle = uniqid();
 
-		$adapter = new atoum\test\adapter();
+		$adapter = new atoum\test\Adapter();
 		$adapter->fopen = function() use ($handle) { return $handle; };
 		$adapter->fclose = function() {};
 		$adapter->fwrite = function() {};

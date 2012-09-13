@@ -76,7 +76,7 @@ abstract class test implements observable, adapter\Aggregator, \countable
 			->setFactory($factory ?: new factory())
 			->setScore($this->factory['mageekguy\atoum\test\score']())
 			->setLocale($this->factory['mageekguy\atoum\locale']())
-			->setAdapter($this->factory['mageekguy\atoum\adapter']())
+			->setAdapter($this->factory['mageekguy\atoum\Adapter']())
 			->setSuperglobals($this->factory['mageekguy\atoum\superglobals']())
 			->setIncluder($this->factory['mageekguy\atoum\includer']())
 			->enableCodeCoverage()
@@ -145,6 +145,7 @@ abstract class test implements observable, adapter\Aggregator, \countable
 				->setAlias('array', 'phpArray')
 				->setAlias('class', 'phpClass')
                 ->setAlias('exception', 'Exception')
+                ->setAlias('adapter', 'Adapter')
 		;
 
 		$this->setAssertionManager($this->factory['mageekguy\atoum\test\assertion\manager']());
@@ -392,7 +393,7 @@ abstract class test implements observable, adapter\Aggregator, \countable
 
 	public function getAsserterGenerator()
 	{
-		test\adapter::resetCallsForAllInstances();
+		test\Adapter::resetCallsForAllInstances();
 
 		return $this->asserterGenerator ?: $this->setAsserterGenerator($this->factory['mageekguy\atoum\test\asserter\Generator']($this))->asserterGenerator;
 	}
@@ -496,7 +497,7 @@ abstract class test implements observable, adapter\Aggregator, \countable
 		return $this->dataProviders;
 	}
 
-	public function setAdapter(adapter $adapter)
+	public function setAdapter(Adapter $adapter)
 	{
 		$this->adapter = $adapter;
 
@@ -887,7 +888,7 @@ abstract class test implements observable, adapter\Aggregator, \countable
 
 	public function startCase($case)
 	{
-		test\adapter::resetCallsForAllInstances();
+		test\Adapter::resetCallsForAllInstances();
 
 		$this->score->setCase($case);
 
@@ -896,7 +897,7 @@ abstract class test implements observable, adapter\Aggregator, \countable
 
 	public function stopCase()
 	{
-		test\adapter::resetCallsForAllInstances();
+		test\Adapter::resetCallsForAllInstances();
 
 		$this->score->unsetCase();
 

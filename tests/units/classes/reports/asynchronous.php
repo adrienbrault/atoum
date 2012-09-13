@@ -14,7 +14,7 @@ class asynchronous extends atoum\test
 	{
 		$this
 			->if($factory = new atoum\factory())
-			->and($factory['mageekguy\atoum\adapter'] = $adapter = new atoum\test\adapter())
+			->and($factory['mageekguy\atoum\Adapter'] = $adapter = new atoum\test\Adapter())
 			->if($report = new \mock\mageekguy\atoum\reports\asynchronous($factory))
 			->then
 				->object($report->handleEvent(atoum\runner::runStop, new atoum\runner()))->isIdenticalTo($report)

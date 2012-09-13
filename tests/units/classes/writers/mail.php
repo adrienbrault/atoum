@@ -20,10 +20,10 @@ class mail extends atoum\test
 		$this->assert
 			->object($writer->getMailer())->isInstanceOf('mageekguy\atoum\mailers\mail')
 			->object($writer->getLocale())->isInstanceOf('mageekguy\atoum\locale')
-			->object($writer->getAdapter())->isInstanceOf('mageekguy\atoum\adapter')
+			->object($writer->getAdapter())->isInstanceOf('mageekguy\atoum\Adapter')
 		;
 
-		$writer = new writers\mail($mailer = new atoum\mailers\mail(), $locale = new atoum\locale(), $adapter = new atoum\adapter());
+		$writer = new writers\mail($mailer = new atoum\mailers\mail(), $locale = new atoum\locale(), $adapter = new atoum\Adapter());
 
 		$this->assert
 			->object($writer->getMailer())->isIdenticalTo($mailer)
@@ -79,7 +79,7 @@ class mail extends atoum\test
 	{
 		$mailer = new atoum\mailers\mail();
 
-		$writer = new \mock\mageekguy\atoum\writers\mail($mailer, $locale = new \mock\mageekguy\atoum\locale(), $adapter = new atoum\test\adapter());
+		$writer = new \mock\mageekguy\atoum\writers\mail($mailer, $locale = new \mock\mageekguy\atoum\locale(), $adapter = new atoum\test\Adapter());
 		$writer->getMockController()->write = $writer;
 
 		$adapter->date = function($arg) { return $arg; };
@@ -96,7 +96,7 @@ class mail extends atoum\test
 
 		$mailer = new atoum\mailers\mail();
 
-		$writer = new \mock\mageekguy\atoum\writers\mail($mailer, $locale = new \mock\mageekguy\atoum\locale(), $adapter = new atoum\test\adapter());
+		$writer = new \mock\mageekguy\atoum\writers\mail($mailer, $locale = new \mock\mageekguy\atoum\locale(), $adapter = new atoum\test\Adapter());
 		$writer->getMockController()->write = $writer;
 
 		$this->assert

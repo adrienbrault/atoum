@@ -9,7 +9,7 @@ use
 	mageekguy\atoum\dependencies
 ;
 
-class controller extends test\adapter
+class controller extends test\Adapter
 {
 	protected $stream = '';
 

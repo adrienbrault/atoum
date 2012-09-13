@@ -1,6 +1,6 @@
 <?php
 
-namespace mageekguy\atoum\adapter;
+namespace mageekguy\atoum\Adapter;
 
 use
 	mageekguy\atoum
@@ -8,7 +8,7 @@ use
 
 interface Aggregator
 {
-	public function setAdapter(atoum\adapter $adapter);
+	public function setAdapter(atoum\Adapter $adapter);
 
 	public function getAdapter();
 }

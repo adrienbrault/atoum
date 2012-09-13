@@ -25,7 +25,7 @@ class string extends atoum\test
 			->then
 				->object($asserter->getLocale())->isIdenticalTo($generator->getLocale())
 				->object($asserter->getGenerator())->isIdenticalTo($generator)
-				->object($asserter->getAdapter())->isEqualTo(new atoum\adapter())
+				->object($asserter->getAdapter())->isEqualTo(new atoum\Adapter())
 				->variable($asserter->getValue())->isNull()
 				->boolean($asserter->wasSet())->isFalse()
 		;
@@ -85,7 +85,7 @@ class string extends atoum\test
 	public function testIsEqualToFileContents()
 	{
 		$this
-			->if($asserter = new asserters\string($generator = new asserter\Generator(), $adapter = new atoum\test\adapter()))
+			->if($asserter = new asserters\string($generator = new asserter\Generator(), $adapter = new atoum\test\Adapter()))
 			->then
 				->boolean($asserter->wasSet())->isFalse()
 				->exception(function() use ($asserter) { $asserter->isEqualToContentsOfFile(uniqid()); })

@@ -10,7 +10,7 @@ use
 	mageekguy\atoum\test\adapter\invoker
 ;
 
-class adapter extends atoum\adapter
+class Adapter extends atoum\Adapter
 {
 	protected $calls = array();
 	protected $invokers = array();

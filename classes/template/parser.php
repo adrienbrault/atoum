@@ -19,11 +19,11 @@ class parser implements atoum\adapter\Aggregator
 	protected $errorOffset = null;
 	protected $errorMessage = null;
 
-	public function __construct($namespace = null, atoum\adapter $adapter = null)
+	public function __construct($namespace = null, atoum\Adapter $adapter = null)
 	{
 		$this
 			->setNamespace($namespace ?: self::defaultNamespace)
-			->setAdapter($adapter ?: new atoum\adapter())
+			->setAdapter($adapter ?: new atoum\Adapter())
 		;
 	}
 
@@ -39,7 +39,7 @@ class parser implements atoum\adapter\Aggregator
 		return $this->namespace;
 	}
 
-	public function setAdapter(atoum\adapter $adapter)
+	public function setAdapter(atoum\Adapter $adapter)
 	{
 		$this->adapter = $adapter;
 
