@@ -110,7 +110,7 @@ class generator extends atoum\test
 			->then
 				->string($generator->getMockedClassCode($unknownClass = uniqid()))->isEqualTo(
 					'namespace mock {' . PHP_EOL .
-					'final class ' . $unknownClass . ' implements \mageekguy\atoum\mock\aggregator' . PHP_EOL .
+					'final class ' . $unknownClass . ' implements \mageekguy\atoum\mock\Aggregator' . PHP_EOL .
 					'{' . PHP_EOL .
 					"\t" . 'private $mockController = null;' . PHP_EOL .
 					"\t" . 'public function getMockController()' . PHP_EOL .
@@ -213,7 +213,7 @@ class generator extends atoum\test
 			->then
 				->string($generator->getMockedClassCode($realClass = uniqid()))->isEqualTo(
 					'namespace mock {' . PHP_EOL .
-					'final class ' . $realClass . ' extends \\' . $realClass . ' implements \mageekguy\atoum\mock\aggregator' . PHP_EOL .
+					'final class ' . $realClass . ' extends \\' . $realClass . ' implements \mageekguy\atoum\mock\Aggregator' . PHP_EOL .
 					'{' . PHP_EOL .
 					"\t" . 'private $mockController = null;' . PHP_EOL .
 					"\t" . 'public function getMockController()' . PHP_EOL .
@@ -304,7 +304,7 @@ class generator extends atoum\test
 			->then
 				->string($generator->getMockedClassCode($realClass = uniqid()))->isEqualTo(
 					'namespace mock {' . PHP_EOL .
-					'final class ' . $realClass . ' extends \\' . $realClass . ' implements \mageekguy\atoum\mock\aggregator' . PHP_EOL .
+					'final class ' . $realClass . ' extends \\' . $realClass . ' implements \mageekguy\atoum\mock\Aggregator' . PHP_EOL .
 					'{' . PHP_EOL .
 					"\t" . 'private $mockController = null;' . PHP_EOL .
 					"\t" . 'public function getMockController()' . PHP_EOL .
@@ -393,7 +393,7 @@ class generator extends atoum\test
 			->then
 				->string($generator->getMockedClassCode($realClass))->isEqualTo(
 					'namespace mock {' . PHP_EOL .
-					'final class ' . $realClass . ' extends \\' . $realClass . ' implements \mageekguy\atoum\mock\aggregator' . PHP_EOL .
+					'final class ' . $realClass . ' extends \\' . $realClass . ' implements \mageekguy\atoum\mock\Aggregator' . PHP_EOL .
 					'{' . PHP_EOL .
 					"\t" . 'private $mockController = null;' . PHP_EOL .
 					"\t" . 'public function getMockController()' . PHP_EOL .
@@ -478,7 +478,7 @@ class generator extends atoum\test
 			->then
 				->string($generator->getMockedClassCode($realClass))->isEqualTo(
 					'namespace mock {' . PHP_EOL .
-					'final class ' . $realClass . ' extends \\' . $realClass . ' implements \mageekguy\atoum\mock\aggregator' . PHP_EOL .
+					'final class ' . $realClass . ' extends \\' . $realClass . ' implements \mageekguy\atoum\mock\Aggregator' . PHP_EOL .
 					'{' . PHP_EOL .
 					"\t" . 'private $mockController = null;' . PHP_EOL .
 					"\t" . 'public function getMockController()' . PHP_EOL .
@@ -558,7 +558,7 @@ class generator extends atoum\test
 			->then
 				->string($generator->getMockedClassCode($realClass = uniqid()))->isEqualTo(
 					'namespace mock {' . PHP_EOL .
-					'final class ' . $realClass . ' implements \\' . $realClass . ', \mageekguy\atoum\mock\aggregator' . PHP_EOL .
+					'final class ' . $realClass . ' implements \\' . $realClass . ', \mageekguy\atoum\mock\Aggregator' . PHP_EOL .
 					'{' . PHP_EOL .
 					"\t" . 'private $mockController = null;' . PHP_EOL .
 					"\t" . 'public function getMockController()' . PHP_EOL .
@@ -641,7 +641,7 @@ class generator extends atoum\test
 			->then
 				->string($generator->getMockedClassCode($realClass = uniqid()))->isEqualTo(
 					'namespace mock {' . PHP_EOL .
-					'final class ' . $realClass . ' extends \\' . $realClass . ' implements \mageekguy\atoum\mock\aggregator' . PHP_EOL .
+					'final class ' . $realClass . ' extends \\' . $realClass . ' implements \mageekguy\atoum\mock\Aggregator' . PHP_EOL .
 					'{' . PHP_EOL .
 					"\t" . 'private $mockController = null;' . PHP_EOL .
 					"\t" . 'public function getMockController()' . PHP_EOL .
@@ -748,7 +748,7 @@ class generator extends atoum\test
 			->then
 				->string($generator->getMockedClassCode($className))->isEqualTo(
 					'namespace mock {' . PHP_EOL .
-					'final class ' . $className . ' extends \\' . $className . ' implements \mageekguy\atoum\mock\aggregator' . PHP_EOL .
+					'final class ' . $className . ' extends \\' . $className . ' implements \mageekguy\atoum\mock\Aggregator' . PHP_EOL .
 					'{' . PHP_EOL .
 					"\t" . 'private $mockController = null;' . PHP_EOL .
 					"\t" . 'public function getMockController()' . PHP_EOL .
@@ -841,7 +841,7 @@ class generator extends atoum\test
 			->then
 				->string($generator->getMockedClassCode($className))->isEqualTo(
 					'namespace mock {' . PHP_EOL .
-					'final class ' . $className . ' extends \\' . $className . ' implements \mageekguy\atoum\mock\aggregator' . PHP_EOL .
+					'final class ' . $className . ' extends \\' . $className . ' implements \mageekguy\atoum\mock\Aggregator' . PHP_EOL .
 					'{' . PHP_EOL .
 					"\t" . 'private $mockController = null;' . PHP_EOL .
 					"\t" . 'public function getMockController()' . PHP_EOL .
@@ -919,13 +919,13 @@ class generator extends atoum\test
 				->object($generator->generate($class))->isIdenticalTo($generator)
 				->class('\mock\\' . $class)
 					->hasNoParent()
-					->hasInterface('mageekguy\atoum\mock\aggregator')
+					->hasInterface('mageekguy\atoum\mock\Aggregator')
 			->if($class = '\\' . uniqid('unknownClass'))
 			->then
 				->object($generator->generate($class))->isIdenticalTo($generator)
 				->class('\mock' . $class)
 					->hasNoParent()
-					->hasInterface('mageekguy\atoum\mock\aggregator')
+					->hasInterface('mageekguy\atoum\mock\Aggregator')
 			->if($adapter->class_exists = true)
 			->and($class = uniqid())
 			->then
@@ -973,7 +973,7 @@ class generator extends atoum\test
 				->object($generator->generate(__CLASS__))->isIdenticalTo($generator)
 				->class('\mock\\' . __CLASS__)
 					->hasParent(__CLASS__)
-					->hasInterface('mageekguy\atoum\mock\aggregator')
+					->hasInterface('mageekguy\atoum\mock\Aggregator')
 			->if($generator = new testedClass())
 			->and($generator->shunt('__construct'))
 			->then

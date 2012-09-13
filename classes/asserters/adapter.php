@@ -50,7 +50,7 @@ class adapter extends atoum\asserter
 		return $this->adapter;
 	}
 
-	public function beforeMethodCall($methodName, atoum\mock\aggregator $mock)
+	public function beforeMethodCall($methodName, atoum\mock\Aggregator $mock)
 	{
 		$this->adapterIsSet()->beforeMethodCalls[] = $beforeMethodCall = new adapter\call\mock($this, $mock, $methodName);
 
@@ -69,7 +69,7 @@ class adapter extends atoum\asserter
 		return $this;
 	}
 
-	public function afterMethodCall($methodName, atoum\mock\aggregator $mock)
+	public function afterMethodCall($methodName, atoum\mock\Aggregator $mock)
 	{
 		$this->adapterIsSet()->afterMethodCalls[] = $afterMethodCall = new adapter\call\mock($this, $mock, $methodName);
 

@@ -14,7 +14,7 @@ class report extends atoum\test
 	{
 		$this->testedClass
 			->isSubclassOf('mageekguy\atoum\observer')
-			->isSubclassOf('mageekguy\atoum\adapter\aggregator')
+			->isSubclassOf('mageekguy\atoum\adapter\Aggregator')
 		;
 	}
 

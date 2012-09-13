@@ -8,7 +8,7 @@ use
 	mageekguy\atoum\exceptions
 ;
 
-class engine implements adapter\aggregator
+class engine implements adapter\Aggregator
 {
 	const defaultVersionPattern = '/\$Rev: [^ ]+ \$/';
 

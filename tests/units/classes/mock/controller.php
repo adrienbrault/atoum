@@ -176,7 +176,7 @@ class controller extends atoum\test
 	{
 		$mockAggregatorController = new testedClass();
 		$mockAggregatorController->__construct = function() {};
-		$mockAggregatorController->getName = function() { return 'mageekguy\atoum\mock\aggregator'; };
+		$mockAggregatorController->getName = function() { return 'mageekguy\atoum\mock\Aggregator'; };
 		$mockAggregator = new \mock\reflectionClass(uniqid(), $mockAggregatorController);
 
 		$methods = array(

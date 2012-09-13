@@ -15,7 +15,7 @@ class mock
 	protected $methodName = '';
 	protected $arguments = null;
 
-	public function __construct(asserters\adapter $adapterAsserter, atoum\mock\aggregator $mockAggregator, $methodName)
+	public function __construct(asserters\adapter $adapterAsserter, atoum\mock\Aggregator $mockAggregator, $methodName)
 	{
 		$this->adapterAsserter = $adapterAsserter;
 		$this->mockAggregator = $mockAggregator;

@@ -10,7 +10,7 @@ use
 	mageekguy\atoum\annotations
 ;
 
-abstract class test implements observable, adapter\aggregator, \countable
+abstract class test implements observable, adapter\Aggregator, \countable
 {
 	const testMethodPrefix = 'test';
 	const defaultNamespace = '#(?:^|\\\)tests?\\\units?\\\#i';
@@ -279,7 +279,7 @@ abstract class test implements observable, adapter\aggregator, \countable
 			->setHandler('given', $returnAssertionManager)
 		;
 
-		$mockControllerExtractor = function(mock\aggregator $mock) { return $mock->getMockController(); };
+		$mockControllerExtractor = function(mock\Aggregator $mock) { return $mock->getMockController(); };
 
 		$this->assertionManager
 			->setHandler('calling', $mockControllerExtractor)

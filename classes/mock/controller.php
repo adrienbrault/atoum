@@ -105,7 +105,7 @@ class controller extends test\adapter
 		return parent::getCalls($method, $arguments, $identical);
 	}
 
-	public function control(mock\aggregator $mock)
+	public function control(mock\Aggregator $mock)
 	{
 		$mockClass = get_class($mock);
 
@@ -118,7 +118,7 @@ class controller extends test\adapter
 			$methods = array_filter($class->getMethods(\reflectionMethod::IS_PUBLIC), function ($value) {
 					try
 					{
-						return ($value->getPrototype()->getName() != __NAMESPACE__ . '\aggregator');
+						return ($value->getPrototype()->getName() != __NAMESPACE__ . '\Aggregator');
 					}
 					catch (\exception $exception)
 					{

@@ -15,7 +15,7 @@ class parser extends atoum\test
 	public function testClass()
 	{
 		$this->assert
-			->testedClass->hasInterface('mageekguy\atoum\adapter\aggregator')
+			->testedClass->hasInterface('mageekguy\atoum\adapter\Aggregator')
 		;
 	}
 

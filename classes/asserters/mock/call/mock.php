@@ -13,7 +13,7 @@ class mock extends php\call
 {
 	protected $mockAsserter = null;
 
-	public function __construct(asserters\mock $mockAsserter, atoum\mock\aggregator $mockAggregator, $function)
+	public function __construct(asserters\mock $mockAsserter, atoum\mock\Aggregator $mockAggregator, $function)
 	{
 		$this->mockAsserter = $mockAsserter;
 
@@ -40,7 +40,7 @@ class mock extends php\call
 		return parent::setArguments(func_get_args());
 	}
 
-	public function on(atoum\mock\aggregator $mockAggregator)
+	public function on(atoum\mock\Aggregator $mockAggregator)
 	{
 		return $this->setObject($mockAggregator);
 	}

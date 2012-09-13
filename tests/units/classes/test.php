@@ -62,7 +62,7 @@ namespace mageekguy\atoum\tests\units
 	{
 		public function testClass()
 		{
-			$this->testedClass->hasInterface('mageekguy\atoum\adapter\aggregator');
+			$this->testedClass->hasInterface('mageekguy\atoum\adapter\Aggregator');
 		}
 
 		public function testClassConstants()

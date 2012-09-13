@@ -2,7 +2,7 @@
 
 namespace mageekguy\atoum;
 
-class report implements observer, adapter\aggregator
+class report implements observer, adapter\Aggregator
 {
 	protected $title = null;
 	protected $factory = null;

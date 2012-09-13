@@ -2,7 +2,7 @@
 
 namespace mageekguy\atoum;
 
-abstract class writer implements adapter\aggregator
+abstract class writer implements adapter\Aggregator
 {
 	protected $adapter = null;
 

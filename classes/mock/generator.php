@@ -146,7 +146,7 @@ class generator
 	protected function generateClassCode(\reflectionClass $class, $mockNamespace, $mockClass)
 	{
 		return 'namespace ' . ltrim($mockNamespace, '\\') . ' {' . PHP_EOL .
-			'final class ' . $mockClass . ' extends \\' . $class->getName() . ' implements \\' . __NAMESPACE__ . '\\aggregator' . PHP_EOL .
+			'final class ' . $mockClass . ' extends \\' . $class->getName() . ' implements \\' . __NAMESPACE__ . '\\Aggregator' . PHP_EOL .
 			'{' . PHP_EOL .
 			self::generateMockControllerMethod() .
 			$this->generateClassMethodCode($class) .
@@ -381,7 +381,7 @@ class generator
 	protected static function generateUnknownClassCode($class, $mockNamespace, $mockClass)
 	{
 		return 'namespace ' . ltrim($mockNamespace, '\\') . ' {' . PHP_EOL .
-			'final class ' . $mockClass . ' implements \\' . __NAMESPACE__ . '\\aggregator' . PHP_EOL .
+			'final class ' . $mockClass . ' implements \\' . __NAMESPACE__ . '\\Aggregator' . PHP_EOL .
 			'{' . PHP_EOL .
 			self::generateMockControllerMethod() .
 			"\t" . 'public function __construct(\mageekguy\atoum\mock\controller $mockController = null)' . PHP_EOL .
@@ -481,7 +481,7 @@ class generator
 	protected static function generateInterfaceCode(\reflectionClass $class, $mockNamespace, $mockClass)
 	{
 		return 'namespace ' . ltrim($mockNamespace, '\\') . ' {' . PHP_EOL .
-			'final class ' . $mockClass . ' implements \\' . $class->getName() . ', \\' . __NAMESPACE__ . '\\aggregator' . PHP_EOL .
+			'final class ' . $mockClass . ' implements \\' . $class->getName() . ', \\' . __NAMESPACE__ . '\\Aggregator' . PHP_EOL .
 			'{' . PHP_EOL .
 			self::generateMockControllerMethod() .
 			self::generateInterfaceMethodCode($class) .

@@ -6,7 +6,7 @@ use
 	mageekguy\atoum
 ;
 
-interface aggregator
+interface Aggregator
 {
 	public function setAdapter(atoum\adapter $adapter);
 

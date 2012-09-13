@@ -16,7 +16,7 @@ class engine extends atoum\test
 	{
 		$this->assert
 			->testedClass
-				->hasInterface('mageekguy\atoum\adapter\aggregator')
+				->hasInterface('mageekguy\atoum\adapter\Aggregator')
 			->string(\mageekguy\atoum\scripts\tagger\engine::defaultVersionPattern)->isEqualTo('/\$Rev: [^ ]+ \$/')
 		;
 	}
